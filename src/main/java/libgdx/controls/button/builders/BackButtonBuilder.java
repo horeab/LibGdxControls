@@ -1,12 +1,14 @@
-package libgdx.controls.button;
+package libgdx.controls.button.builders;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
-import libgdx.controls.button.builders.ImageButtonBuilder;
+import libgdx.controls.button.MainButtonSize;
+import libgdx.controls.button.MainButtonSkin;
+import libgdx.controls.button.MyButton;
 import libgdx.screen.AbstractScreen;
 
-public class ButtonCreator {
+public class BackButtonBuilder {
 
     public MyButton createScreenBackButton(final AbstractScreen screen) {
         return createScreenBackButton(new ChangeListener() {

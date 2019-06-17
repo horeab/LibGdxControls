@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import org.apache.commons.lang3.StringUtils;
 
 import libgdx.controls.ScreenRunnable;
-import libgdx.controls.button.ButtonCreator;
+import libgdx.controls.button.builders.BackButtonBuilder;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.label.MyWrappedLabel;
 import libgdx.controls.label.MyWrappedLabelConfigBuilder;
@@ -45,7 +45,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     @Override
     public MyPopup addToPopupManager() {
         if (Gdx.app.getType() == Application.ApplicationType.iOS) {
-            MyButton backBtn = new ButtonCreator().createScreenBackButton(new ChangeListener() {
+            MyButton backBtn = new BackButtonBuilder().createScreenBackButton(new ChangeListener() {
                 @Override
                 public void changed(ChangeEvent event, Actor actor) {
                     hide();
