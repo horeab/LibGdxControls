@@ -168,7 +168,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="Plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;share&#9;ACTION&#9;Github.Share" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560945954319" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560946283206" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Hangman_tournament" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -275,13 +275,13 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Build" order="9" visible="true" weight="0.4305949" />
+      <window_info anchor="bottom" id="Build" order="9" visible="true" weight="0.4305949" />
       <window_info anchor="bottom" id="SBT Console" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Gradle" order="3" visible="true" weight="0.3295302" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.3295302" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
