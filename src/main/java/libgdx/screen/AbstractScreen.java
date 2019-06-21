@@ -49,6 +49,10 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         myPopupManager.hideAllDisplayedPopups();
     }
 
+    public boolean isLoading() {
+        return getStage().getRoot().findActor(AbstractScreenManager.LOADING_LABEL_NAME) != null;
+    }
+
     public Group getRoot() {
         return contentStage.getRoot();
     }

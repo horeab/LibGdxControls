@@ -13,6 +13,8 @@ import libgdx.utils.ActorPositionManager;
 
 public abstract class AbstractScreenManager {
 
+    static String LOADING_LABEL_NAME = "LOADING_LABEL_NAME";
+
     public static boolean backAlreadyKeyPressed;
     private Game game;
 
@@ -85,6 +87,7 @@ public abstract class AbstractScreenManager {
     public static MyWrappedLabel addLoadingLabel(AbstractScreen newScreen) {
         MyWrappedLabel loadingLabel = new MyWrappedLabel(MainGameLabel.loading.getText());
         loadingLabel.setStyleDependingOnContrast();
+        loadingLabel.setName(LOADING_LABEL_NAME);
         ActorPositionManager.setActorCenterScreen(loadingLabel);
         newScreen.addActor(loadingLabel);
         return loadingLabel;
