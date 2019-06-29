@@ -37,6 +37,7 @@ public class PropertiesUtils {
         if (PropertiesUtils.propertyExists(bundle, key)) {
             label = bundle.format(key, params);
         }
+        //
         return label;
     }
 

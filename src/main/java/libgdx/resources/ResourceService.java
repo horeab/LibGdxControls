@@ -53,7 +53,8 @@ public abstract class ResourceService {
             }
             return result;
         } catch (NullPointerException e) {
-            throw new RuntimeException();
+            System.out.println("Resource not found: " + res.getPath());
+            throw new RuntimeException("Resource not found: " + res.getPath());
         }
 
     }
