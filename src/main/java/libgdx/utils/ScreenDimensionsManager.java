@@ -14,6 +14,7 @@ public class ScreenDimensionsManager {
     public static final float STANDARD_SCREEN_RATIO = 1.777083333333333f;
     private static Integer screenWidth;
     private static Integer screenHeight;
+    private static boolean isPortrait = Game.getInstance().getAppInfoService().isPortraitMode();
 
     public static float getScreenHeightValue(float percent) {
         return Utils.getValueForPercent(getScreenHeight(), percent);
@@ -36,7 +37,9 @@ public class ScreenDimensionsManager {
             int width = getExternalDeviceWidth();
             //if FALSE, width is larger, so width must be adjusted
             if (!isGdxGraphicsRatioGreaterThanStandard()) {
-                width = Math.round(getExternalDeviceHeight() / STANDARD_SCREEN_RATIO);
+                width = isPortrait ?
+                        Math.round(getExternalDeviceHeight() / STANDARD_SCREEN_RATIO) :
+                        Math.round(getExternalDeviceHeight() * STANDARD_SCREEN_RATIO);
             }
             screenWidth = width;
         }
@@ -48,7 +51,9 @@ public class ScreenDimensionsManager {
             int height = getExternalDeviceHeight();
             //if TRUE, width is smaller, so height must be adjusted
             if (isGdxGraphicsRatioGreaterThanStandard()) {
-                height = Math.round(getExternalDeviceWidth() * STANDARD_SCREEN_RATIO);
+                height = isPortrait ?
+                        Math.round(getExternalDeviceWidth() * STANDARD_SCREEN_RATIO) :
+                        Math.round(getExternalDeviceWidth() / STANDARD_SCREEN_RATIO);
             }
             screenHeight = height;
         }
@@ -61,7 +66,9 @@ public class ScreenDimensionsManager {
     }
 
     private static float getGdxScreenRatio() {
-        return getExternalDeviceHeight() / Float.valueOf(getExternalDeviceWidth());
+        return isPortrait ?
+                getExternalDeviceHeight() / Float.valueOf(getExternalDeviceWidth()) :
+                getExternalDeviceWidth() / Float.valueOf(getExternalDeviceHeight());
     }
 
     public static float getExternalDeviceHeightValue(float percent) {

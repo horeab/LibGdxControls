@@ -69,6 +69,11 @@ public class DefaultAppInfoService implements AppInfoService {
     }
 
     @Override
+    public boolean isPortraitMode() {
+        return true;
+    }
+
+    @Override
     public String getImplementationGameResourcesFolder() {
         String gameId = Game.getInstance().getGameIdPrefix();
         String[] gameIdParts = gameId.split("_");

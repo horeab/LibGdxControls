@@ -29,4 +29,6 @@ public interface AppInfoService {
     String proVersionStoreAppId();
 
     boolean isProVersion();
+
+    boolean isPortraitMode();
 }
