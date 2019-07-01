@@ -73,12 +73,20 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     }
 
     protected void addText() {
-        MyWrappedLabel wrappedText = new MyWrappedLabel(new MyWrappedLabelConfigBuilder().setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10).build());
+        MyWrappedLabel wrappedText = getLabel();
         addEmptyRowWithMargin(getContentTable());
         if (StringUtils.isNotBlank(getLabelText())) {
             getContentTable().add(wrappedText).width(wrappedText.getPrefWidth()).row();
             addEmptyRowWithMargin(getContentTable());
         }
+    }
+
+    protected MyWrappedLabel getLabel() {
+        return new MyWrappedLabel(getInfoLabelConfigBuilder().build());
+    }
+
+    protected MyWrappedLabelConfigBuilder getInfoLabelConfigBuilder() {
+        return new MyWrappedLabelConfigBuilder().setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10);
     }
 
     protected static void addEmptyRowWithMargin(Table table) {
