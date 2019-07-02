@@ -59,6 +59,13 @@ public class ButtonBuilder {
         return new LabelImage(new LabelImageConfigBuilder().setWrappedLineLabel(tableWidth).setFontScale(fontScale).setText(text).build());
     }
 
+    public ButtonBuilder setSingleLineText(String text, float fontScale) {
+        LabelImage labelImage = new LabelImage(new LabelImageConfigBuilder().setSingleLineLabel().setFontScale(fontScale).setText(text).build());
+        addCenterTextImageColumn(labelImage);
+        return this;
+    }
+
+
     public ButtonBuilder setWrappedText(LabelImageConfigBuilder labelImageConfigBuilder) {
         LabelImage labelImage = new LabelImage(labelImageConfigBuilder.build());
         addCenterTextImageColumn(labelImage);

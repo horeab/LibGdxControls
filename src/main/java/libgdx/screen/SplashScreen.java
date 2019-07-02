@@ -28,7 +28,8 @@ public class SplashScreen extends Stage implements com.badlogic.gdx.Screen {
         Image image = new Image(new TextureRegion(texture));
         Table table = new Table();
         table.setFillParent(true);
-        float sideSize = ScreenDimensionsManager.getScreenWidth() / 1.5f;
+        float factor = 1.5f;
+        float sideSize = game.getAppInfoService().isProVersion() ? ScreenDimensionsManager.getScreenWidth() / factor : ScreenDimensionsManager.getScreenHeight() / factor;
         table.add(image).width(sideSize).height(sideSize);
         addActor(table);
     }
