@@ -86,6 +86,7 @@ public class ScreenDimensionsManager {
     public static void resizeViewPort(Viewport viewport, int width, int height) {
         viewport.update(width, ScreenDimensionsManager.getResizeMarginHeight(height), false);
         viewport.getCamera().position.x = width / 2;
+        viewport.getCamera().position.y = height / 2;
     }
 
     private static int getResizeMarginHeight(int height) {
