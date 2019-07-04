@@ -61,6 +61,11 @@ public abstract class Game<
         return hasInternet;
     }
 
+    public void changeContext(TAppInfoService appInfoService){
+        this.appInfoService = appInfoService;
+        screenManager.showMainScreen();
+    }
+
     @Override
     public void create() {
         initAssetManager();
