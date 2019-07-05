@@ -61,8 +61,8 @@ public abstract class Game<
         return hasInternet;
     }
 
-    public void changeContext(TAppInfoService appInfoService){
-        this.appInfoService = appInfoService;
+    public void setNewContext(TAppInfoService newAppInfoService) {
+        this.appInfoService = newAppInfoService;
         screenManager.showMainScreen();
     }
 

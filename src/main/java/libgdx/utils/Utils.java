@@ -14,6 +14,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import libgdx.game.external.AppInfoService;
+
 
 public class Utils {
 
@@ -58,6 +60,85 @@ public class Utils {
             }
         }
         return lastElement;
+    }
+
+    public static AppInfoService cloneAppInfoService(AppInfoService currentAppInfoService, String newLang) {
+        return new AppInfoService() {
+            @Override
+            public String getAppName() {
+                return currentAppInfoService.getAppName();
+            }
+
+            @Override
+            public String getStoreAppId() {
+                return currentAppInfoService.getStoreAppId();
+            }
+
+            @Override
+            public boolean screenShotMode() {
+                return currentAppInfoService.screenShotMode();
+            }
+
+            @Override
+            public void showRewardedVideoAd() {
+                currentAppInfoService.screenShotMode();
+            }
+
+            @Override
+            public String getGameIdPrefix() {
+                return currentAppInfoService.getGameIdPrefix();
+            }
+
+            @Override
+            public String proVersionStoreAppId() {
+                return currentAppInfoService.proVersionStoreAppId();
+            }
+
+            @Override
+            public void showPopupAd() {
+                currentAppInfoService.showPopupAd();
+            }
+
+            @Override
+            public String getImplementationGameResourcesFolder() {
+                return currentAppInfoService.getImplementationGameResourcesFolder();
+            }
+
+            @Override
+            public String getLanguage() {
+                return newLang;
+            }
+
+            @Override
+            public String getMainResourcesFolder() {
+                return currentAppInfoService.getMainResourcesFolder();
+            }
+
+            @Override
+            public String getResourcesFolder() {
+                return currentAppInfoService.getResourcesFolder();
+            }
+
+            @Override
+            public boolean isPortraitMode() {
+                return currentAppInfoService.isPortraitMode();
+            }
+
+            @Override
+            public boolean isProVersion() {
+                return currentAppInfoService.isProVersion();
+            }
+
+            @Override
+            public boolean googleFacebookLoginEnabled() {
+                return currentAppInfoService.googleFacebookLoginEnabled();
+            }
+
+            @Override
+            public float gameScreenTopMargin() {
+                return currentAppInfoService.gameScreenTopMargin();
+            }
+        };
     }
 
 }
