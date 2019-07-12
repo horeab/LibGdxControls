@@ -35,6 +35,9 @@ public enum MainResource implements Res {
     btn_back_up("buttons/btn_back_up.png", Texture.class),
     btn_back_down("buttons/btn_back_down.png", Texture.class),
 
+    sound_off("general/sound_off.png", Texture.class),
+    sound_on("general/sound_on.png", Texture.class),
+
     main_labels_da("labels/main_labels_da", I18NBundle.class),
     main_labels_de("labels/main_labels_de", I18NBundle.class),
     main_labels_en("labels/main_labels_en", I18NBundle.class),
