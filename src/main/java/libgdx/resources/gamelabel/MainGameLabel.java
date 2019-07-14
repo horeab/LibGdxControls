@@ -6,16 +6,12 @@ import libgdx.resources.properties.PropertiesUtils;
 public enum MainGameLabel implements GameLabel {
 
     loading,
-    privacy_policy,
 
     facebook_share_btn,
 
     rate_rate_now,
     rate_rate_later,
     rate_message,
-
-    sound_on,
-    sound_off,
 
     billing_remove_ads,;
 
