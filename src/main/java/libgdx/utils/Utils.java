@@ -62,7 +62,7 @@ public class Utils {
         return lastElement;
     }
 
-    public static AppInfoService cloneAppInfoService(AppInfoService currentAppInfoService, String newLang) {
+    public static AppInfoService cloneAppInfoService(final AppInfoService currentAppInfoService,final String newLang) {
         return new AppInfoService() {
             @Override
             public String getAppName() {
