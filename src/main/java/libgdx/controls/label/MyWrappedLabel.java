@@ -80,7 +80,7 @@ public class MyWrappedLabel extends TextTable {
             addSingleLineLabel(text);
         } else {
             List<String> wrappedLines = new ArrayList<>();
-            BitmapFont font = FontManager.getFont();
+            BitmapFont font = Game.getInstance().getFontManager().getFont();
             font.getData().setScale(myWrappedLabelConfig.getFontScale());
             try {
                 GlyphLayout glyphLayout = new GlyphLayout(font, text, Color.RED, myWrappedLabelConfig.getWidth(), Align.center, true);
@@ -108,6 +108,7 @@ public class MyWrappedLabel extends TextTable {
         label.setFontScale(myWrappedLabelConfig.getFontScale());
         label.setStyle(myWrappedLabelConfig.getTextStyle());
         label.setAlignment(Align.center);
+        label.getStyle().font = Game.getInstance().getFontManager().getFont();
         rowLabels.add(label);
         return label;
     }

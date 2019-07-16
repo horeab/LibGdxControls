@@ -52,7 +52,7 @@ public class ButtonBuilder {
     }
 
     protected LabelImage createTextTable(String text, float fontScale) {
-        return createTextTable(text, new GlyphLayout(FontManager.getFont(), text).width, fontScale);
+        return createTextTable(text, new GlyphLayout(Game.getInstance().getFontManager().getFont(), text).width, fontScale);
     }
 
     protected LabelImage createTextTable(String text, float tableWidth, float fontScale) {

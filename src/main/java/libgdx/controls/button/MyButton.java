@@ -11,6 +11,8 @@ import java.util.List;
 
 import libgdx.controls.TextTable;
 import libgdx.controls.label.MyLabel;
+import libgdx.game.Game;
+import libgdx.resources.FontManager;
 import libgdx.resources.ResourcesManager;
 
 public class MyButton extends TextButton {
@@ -65,7 +67,7 @@ public class MyButton extends TextButton {
         for (MyLabel label : labels) {
             TextButtonStyle textButtonStyle = (TextButtonStyle) style;
             Label.LabelStyle labelStyle = new Label.LabelStyle();
-            labelStyle.font = textButtonStyle.font;
+            labelStyle.font = Game.getInstance().getFontManager().getFont();
             labelStyle.fontColor = isDisabled() ? textButtonStyle.disabledFontColor : textButtonStyle.fontColor;
             label.setStyle(labelStyle);
         }

@@ -39,6 +39,7 @@ public abstract class Game<
     private TSubGameDependencyManager subGameDependencyManager;
     private TMainDependencyManager mainDependencyManager;
     protected TScreenManager screenManager;
+    private FontManager fontManager;
 
     public Game(FacebookService facebookService,
                 BillingService billingService,
@@ -52,6 +53,7 @@ public abstract class Game<
         this.mainDependencyManager = mainDependencyManager;
         subGameDependencyManager = (TSubGameDependencyManager) ((TGameId) EnumUtils.getEnumValue(mainDependencyManager.getGameIdClass(), appInfoService.getGameIdPrefix())).getDependencyManager();
         screenManager = (TScreenManager) mainDependencyManager.createScreenManager();
+        fontManager = new FontManager();
     }
 
     public boolean hasInternet() {
@@ -74,8 +76,7 @@ public abstract class Game<
 
     public void executeAfterAssetsLoaded() {
         displayScreenAfterAssetsLoad();
-        FontManager.getFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        FontManager.getBigFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        fontManager.getFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     }
 
     public TMainDependencyManager getMainDependencyManager() {
@@ -96,6 +97,10 @@ public abstract class Game<
                 assetManager.load(path, classType);
             }
         }
+    }
+
+    public FontManager getFontManager() {
+        return fontManager;
     }
 
     public TAppInfoService getAppInfoService() {

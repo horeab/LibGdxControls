@@ -5,9 +5,8 @@ import libgdx.resources.properties.PropertiesUtils;
 
 public enum MainGameLabel implements GameLabel {
 
+    font_name,
     loading,
-
-    facebook_share_btn,
 
     rate_rate_now,
     rate_rate_later,

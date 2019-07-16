@@ -3,6 +3,9 @@ package libgdx.resources;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 
+import java.util.Arrays;
+import java.util.List;
+
 import libgdx.game.Game;
 
 public class ResourcesManager {
@@ -17,14 +20,6 @@ public class ResourcesManager {
 
     public static String getPopupBackground() {
         return "dialog";
-    }
-
-    public static String getFontName() {
-        return "font";
-    }
-
-    public static String getBigFontName() {
-        return "big_font";
     }
 
     public static Drawable getTableBackgroundDefault() {
@@ -70,5 +65,4 @@ public class ResourcesManager {
     public static String getLabelMoreDarkGreen() {
         return "more_dark_green";
     }
-
 }
