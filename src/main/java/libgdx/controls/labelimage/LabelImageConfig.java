@@ -1,12 +1,14 @@
 package libgdx.controls.labelimage;
 
 
+import com.badlogic.gdx.graphics.Color;
+
 import libgdx.resources.Res;
 
 public class LabelImageConfig {
 
     private String text;
-    private String textStyle;
+    private Color textColor;
     private Res image;
     private float imageSideDimension;
     private float fontScale;
@@ -55,8 +57,8 @@ public class LabelImageConfig {
         this.fontScale = fontScale;
     }
 
-    public String getTextStyle() {
-        return textStyle;
+    public Color getTextColor() {
+        return textColor;
     }
 
     public float getLabelWidth() {
@@ -67,8 +69,8 @@ public class LabelImageConfig {
         this.labelWidth = labelWidth;
     }
 
-    void setTextStyle(String textStyle) {
-        this.textStyle = textStyle;
+    void setTextColor(Color textColor) {
+        this.textColor = textColor;
     }
 
     public float getMarginBetweenLabelImage() {

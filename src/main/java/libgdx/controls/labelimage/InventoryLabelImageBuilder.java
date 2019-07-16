@@ -1,5 +1,7 @@
 package libgdx.controls.labelimage;
 
+import com.badlogic.gdx.graphics.Color;
+
 import libgdx.controls.label.MyLabel;
 import libgdx.game.Game;
 import libgdx.resources.FontManager;
@@ -15,7 +17,7 @@ public class InventoryLabelImageBuilder {
     private Res resource;
     private GameLabel frontLabel;
     private int amount;
-    private String fontStyle = ResourcesManager.getLabelBlack();
+    private Color textColor = Color.BLACK;
 
     private String prefixStringAmount;
     private boolean positiveAmountPlusPrefix;
@@ -28,8 +30,8 @@ public class InventoryLabelImageBuilder {
         return this;
     }
 
-    public InventoryLabelImageBuilder setFontStyle(String fontStyle) {
-        this.fontStyle = fontStyle;
+    public InventoryLabelImageBuilder setTextColor(Color textColor) {
+        this.textColor = textColor;
         return this;
     }
 
@@ -85,7 +87,7 @@ public class InventoryLabelImageBuilder {
                 .setSingleLineLabel()
                 .setImage(resource)
                 .setText(processText())
-                .setTextStyle(fontStyle)
+                .setTextColor(textColor)
                 .setMarginBetweenLabelImage(horizontalGeneralMarginDimen / 5)
                 .setFontScale(fontScale);
         if (imageSideDimension != null) {

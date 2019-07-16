@@ -20,7 +20,7 @@ public class LabelImage extends TextTable {
     private Image image;
 
     public LabelImage(LabelImageConfig labelImageConfig) {
-        label = new MyWrappedLabel(new MyWrappedLabelConfigBuilder().setText(labelImageConfig.getText()).setSingleLineLabel(labelImageConfig.isSingleLineLabel()).setWidth(labelImageConfig.getLabelWidth()).setFontScale(labelImageConfig.getFontScale()).setTextStyle(labelImageConfig.getTextStyle()).build());
+        label = new MyWrappedLabel(new MyWrappedLabelConfigBuilder().setText(labelImageConfig.getText()).setSingleLineLabel(labelImageConfig.isSingleLineLabel()).setWidth(labelImageConfig.getLabelWidth()).setFontScale(labelImageConfig.getFontScale()).setTextColor(labelImageConfig.getTextColor()).build());
         labelTable.add(label);
         if (labelImageConfig.getImage() != null) {
             image = GraphicUtils.getImage(labelImageConfig.getImage());

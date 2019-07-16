@@ -1,10 +1,12 @@
 package libgdx.controls.label;
 
+import com.badlogic.gdx.graphics.Color;
+
 public class MyWrappedLabelConfig {
 
     private float width;
     private float fontScale;
-    private String textStyle;
+    private Color textColor;
     private String text;
     private boolean singleLineLabel;
 
@@ -27,12 +29,12 @@ public class MyWrappedLabelConfig {
         this.fontScale = fontScale;
     }
 
-    public String getTextStyle() {
-        return textStyle;
+    public Color getTextColor() {
+        return textColor;
     }
 
-    public void setTextStyle(String textStyle) {
-        this.textStyle = textStyle;
+    public void setTextColor(Color textColor) {
+        this.textColor = textColor;
     }
 
     public String getText() {

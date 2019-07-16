@@ -77,6 +77,7 @@ public abstract class Game<
     public void executeAfterAssetsLoaded() {
         displayScreenAfterAssetsLoad();
         fontManager.getFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        fontManager.getRedFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     }
 
     public TMainDependencyManager getMainDependencyManager() {

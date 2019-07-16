@@ -34,10 +34,6 @@ public class ResourcesManager {
         return "blue";
     }
 
-    public static String getLabelRed() {
-        return "red";
-    }
-
     public static String getLabelBlack() {
         return "default";
     }

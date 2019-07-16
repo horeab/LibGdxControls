@@ -10,7 +10,6 @@ import com.badlogic.gdx.utils.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import libgdx.constants.ScreenContrast;
 import libgdx.controls.TextTable;
 import libgdx.game.Game;
 import libgdx.resources.FontManager;
@@ -55,9 +54,9 @@ public class MyWrappedLabel extends TextTable {
         }
     }
 
-    public void setStyle(String style) {
+    public void setStyle(Color color) {
         for (MyLabel myLabel : getLabels()) {
-            myLabel.setStyle(style);
+            myLabel.getStyle().font = getFont(color);
         }
     }
 
@@ -80,7 +79,7 @@ public class MyWrappedLabel extends TextTable {
             addSingleLineLabel(text);
         } else {
             List<String> wrappedLines = new ArrayList<>();
-            BitmapFont font = Game.getInstance().getFontManager().getFont();
+            BitmapFont font = getFont(myWrappedLabelConfig.getTextColor());
             font.getData().setScale(myWrappedLabelConfig.getFontScale());
             try {
                 GlyphLayout glyphLayout = new GlyphLayout(font, text, Color.RED, myWrappedLabelConfig.getWidth(), Align.center, true);
@@ -106,11 +105,18 @@ public class MyWrappedLabel extends TextTable {
     private MyLabel configLabel(String text) {
         MyLabel label = new MyLabel(text);
         label.setFontScale(myWrappedLabelConfig.getFontScale());
-        label.setStyle(myWrappedLabelConfig.getTextStyle());
         label.setAlignment(Align.center);
-        label.getStyle().font = Game.getInstance().getFontManager().getFont();
+        label.getStyle().font = getFont(myWrappedLabelConfig.getTextColor());
         rowLabels.add(label);
         return label;
+    }
+
+    private BitmapFont getFont(Color textColor) {
+        FontManager fontManager = Game.getInstance().getFontManager();
+        if (textColor == Color.RED) {
+            return fontManager.getRedFont();
+        }
+        return fontManager.getFont();
     }
 
     private String getGlyphsString(Array<BitmapFont.Glyph> glyphs) {
@@ -126,7 +132,7 @@ public class MyWrappedLabel extends TextTable {
         setStyle(MyWrappedLabelConfigBuilder.getScreenContrastStyle());
     }
 
-    public void setStyleDependingOnContrast(String darkContrastStyle, String lightContrastStyle) {
+    public void setStyleDependingOnContrast(Color darkContrastStyle, Color lightContrastStyle) {
         setStyle(MyWrappedLabelConfigBuilder.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
     }
 }

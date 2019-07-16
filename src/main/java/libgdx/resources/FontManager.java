@@ -2,12 +2,9 @@ package libgdx.resources;
 
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-
-import java.util.Arrays;
-import java.util.List;
 
 import libgdx.game.Game;
 import libgdx.resources.gamelabel.GameLabel;
@@ -17,7 +14,8 @@ import libgdx.utils.ScreenDimensionsManager;
 
 public class FontManager {
 
-    private BitmapFont font;
+    private BitmapFont defaultFont;
+    private BitmapFont redFont;
 
     private static final float STANDARD_FONT_SIZE = 9;
 
@@ -51,17 +49,28 @@ public class FontManager {
     }
 
     public BitmapFont getFont() {
-        if (font == null) {
+        init();
+        return defaultFont;
+    }
+
+    public BitmapFont getRedFont() {
+        init();
+        return redFont;
+    }
+
+    private void init() {
+        if (defaultFont == null) {
             FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(MainResource.valueOf(MainGameLabel.font_name.getText()).getPath()));
             FreeTypeFontGenerator.setMaxTextureSize(2048);
             FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
             parameter.size = 32;
             parameter.borderWidth = 0.4f;
             parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + collectAllLabelChars();
-            font = generator.generateFont(parameter);
+            defaultFont = generator.generateFont(parameter);
+            parameter.color = Color.RED;
+            redFont = generator.generateFont(parameter);
             generator.dispose();
         }
-        return font;
     }
 
     private String collectAllLabelChars() {
