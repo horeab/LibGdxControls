@@ -66,7 +66,10 @@ public class FontManager {
             parameter.size = 32;
             parameter.borderWidth = 0.4f;
             parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + collectAllLabelChars();
+            parameter.borderColor = Color.BLACK;
+            parameter.color = Color.BLACK;
             defaultFont = generator.generateFont(parameter);
+            parameter.borderColor = Color.RED;
             parameter.color = Color.RED;
             redFont = generator.generateFont(parameter);
             generator.dispose();

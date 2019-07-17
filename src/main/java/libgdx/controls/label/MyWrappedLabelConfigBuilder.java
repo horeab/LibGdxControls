@@ -67,7 +67,6 @@ public class MyWrappedLabelConfigBuilder {
         myWrappedLabelConfig.setSingleLineLabel(singleLineLabel);
         myWrappedLabelConfig.setText(text);
         myWrappedLabelConfig.setTextColor(textColor);
-        myWrappedLabelConfig.setTextColor(Color.RED);
         return myWrappedLabelConfig;
     }
 

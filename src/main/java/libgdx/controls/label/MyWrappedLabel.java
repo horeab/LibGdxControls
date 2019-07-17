@@ -1,8 +1,10 @@
 package libgdx.controls.label;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
@@ -106,7 +108,10 @@ public class MyWrappedLabel extends TextTable {
         MyLabel label = new MyLabel(text);
         label.setFontScale(myWrappedLabelConfig.getFontScale());
         label.setAlignment(Align.center);
-        label.getStyle().font = getFont(myWrappedLabelConfig.getTextColor());
+
+        Label.LabelStyle labelStyle = new Label.LabelStyle();
+        labelStyle.font = getFont(myWrappedLabelConfig.getTextColor());
+        label.setStyle(labelStyle);
         rowLabels.add(label);
         return label;
     }
