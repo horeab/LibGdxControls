@@ -53,7 +53,6 @@ public abstract class Game<
         this.mainDependencyManager = mainDependencyManager;
         subGameDependencyManager = (TSubGameDependencyManager) ((TGameId) EnumUtils.getEnumValue(mainDependencyManager.getGameIdClass(), appInfoService.getGameIdPrefix())).getDependencyManager();
         screenManager = (TScreenManager) mainDependencyManager.createScreenManager();
-        fontManager = new FontManager();
     }
 
     public boolean hasInternet() {
@@ -65,6 +64,7 @@ public abstract class Game<
 
     public void setNewContext(TAppInfoService newAppInfoService) {
         this.appInfoService = newAppInfoService;
+        initFontManager();
         screenManager.showMainScreen();
     }
 
@@ -76,6 +76,11 @@ public abstract class Game<
 
     public void executeAfterAssetsLoaded() {
         displayScreenAfterAssetsLoad();
+        initFontManager();
+    }
+
+    private void initFontManager() {
+        fontManager = new FontManager();
         fontManager.getFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         fontManager.getRedFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     }
