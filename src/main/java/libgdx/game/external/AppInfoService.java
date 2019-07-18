@@ -8,6 +8,8 @@ public interface AppInfoService {
 
     String getStoreAppId();
 
+    String getProVersionStoreAppId();
+
     String getLanguage();
 
     boolean googleFacebookLoginEnabled();

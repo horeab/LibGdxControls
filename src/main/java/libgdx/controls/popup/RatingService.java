@@ -3,7 +3,7 @@ package libgdx.controls.popup;
 
 import com.badlogic.gdx.Preferences;
 
-import libgdx.controls.popup.RatingPopup;
+import libgdx.game.Game;
 import libgdx.preferences.PreferencesService;
 import libgdx.screen.AbstractScreen;
 import libgdx.utils.InternetUtils;
@@ -59,6 +59,6 @@ public abstract class RatingService<TScreen extends AbstractScreen> {
 
     public void rateNow() {
         preferencesService.putBoolean("dontshowagain", true);
-        InternetUtils.openAppUrl();
+        InternetUtils.openAppUrl(Game.getInstance().getAppInfoService().getStoreAppId(), true);
     }
 }

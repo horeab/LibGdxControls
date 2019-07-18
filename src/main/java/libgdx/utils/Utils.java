@@ -110,6 +110,11 @@ public class Utils {
             }
 
             @Override
+            public String getProVersionStoreAppId() {
+                return currentAppInfoService.getProVersionStoreAppId();
+            }
+
+            @Override
             public String getStoreAppId() {
                 return currentAppInfoService.getStoreAppId();
             }

@@ -12,7 +12,9 @@ public enum MainGameLabel implements GameLabel {
     rate_rate_later,
     rate_message,
 
-    billing_remove_ads,;
+    billing_remove_ads,
+    pro_version_info,
+    pro_version_download,;
 
     @Override
     public String getText(Object... params) {
