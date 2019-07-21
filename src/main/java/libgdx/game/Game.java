@@ -2,6 +2,7 @@ package libgdx.game;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.I18NBundle;
 
 import libgdx.game.external.AppInfoService;
@@ -64,7 +65,7 @@ public abstract class Game<
 
     public void setNewContext(TAppInfoService newAppInfoService) {
         this.appInfoService = newAppInfoService;
-        initFontManager();
+        fontManager = new FontManager();
         screenManager.showMainScreen();
     }
 
@@ -76,13 +77,7 @@ public abstract class Game<
 
     public void executeAfterAssetsLoaded() {
         displayScreenAfterAssetsLoad();
-        initFontManager();
-    }
-
-    private void initFontManager() {
         fontManager = new FontManager();
-        fontManager.getFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        fontManager.getRedFont().getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     }
 
     public TMainDependencyManager getMainDependencyManager() {

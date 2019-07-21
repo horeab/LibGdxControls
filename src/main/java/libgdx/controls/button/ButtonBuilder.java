@@ -228,7 +228,7 @@ public class ButtonBuilder {
         }
     }
 
-    private ButtonSize getButtonSize() {
+    protected ButtonSize getButtonSize() {
         if (fixedButtonSize != null) {
             return fixedButtonSize;
         }
@@ -261,15 +261,4 @@ public class ButtonBuilder {
         }
         return isTableEmpty;
     }
-
-    public LabelImage createTableLabelImage(String text, Res icon) {
-        return new LabelImage(new LabelImageConfigBuilder()
-                .setImage(icon)
-                .setWrappedLineLabel(getButtonSize().getWidth() - LabelImageConfigBuilder.DEFAULT_IMAGE_SIDE_DIMENSION * 2f)
-                .setMarginBetweenLabelImage(MainDimen.horizontal_general_margin.getDimen())
-                .setText(text)
-                .setAlignTextRight(true)
-                .build());
-    }
-
 }

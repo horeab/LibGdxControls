@@ -5,8 +5,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import libgdx.controls.button.ButtonBuilder;
 import libgdx.controls.button.MyButton;
+import libgdx.controls.button.builders.ButtonWithIconBuilder;
 import libgdx.game.Game;
 import libgdx.resources.FontManager;
+import libgdx.resources.MainResource;
 import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
@@ -20,7 +22,7 @@ public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManag
 
     @Override
     public void addButtons() {
-        MyButton button = new ButtonBuilder().setSingleLineText(MainGameLabel.pro_version_download.getText(), FontManager.getNormalFontDim())
+        MyButton button = new ButtonWithIconBuilder(MainGameLabel.pro_version_download.getText(), MainResource.crown).setSingleLineLabel()
                 .setDefaultButton()
                 .build();
         button.addListener(new ClickListener() {

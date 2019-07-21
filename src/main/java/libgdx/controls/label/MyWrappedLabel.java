@@ -117,11 +117,7 @@ public class MyWrappedLabel extends TextTable {
     }
 
     private BitmapFont getFont(Color textColor) {
-        FontManager fontManager = Game.getInstance().getFontManager();
-        if (textColor == Color.RED) {
-            return fontManager.getRedFont();
-        }
-        return fontManager.getFont();
+        return Game.getInstance().getFontManager().getFont(textColor);
     }
 
     private String getGlyphsString(Array<BitmapFont.Glyph> glyphs) {
