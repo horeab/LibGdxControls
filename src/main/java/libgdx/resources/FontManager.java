@@ -59,7 +59,8 @@ public class FontManager {
     }
 
     public BitmapFont getFont(Color color) {
-        return getColorFonts().getOrDefault(color, getFont());
+        BitmapFont font = getColorFonts().get(color);
+        return font != null ? font : getFont();
     }
 
     private Map<Color, BitmapFont> getColorFonts() {
