@@ -75,7 +75,7 @@ public class FontManager {
             FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
             parameter.size = 32;
             parameter.borderWidth = 0.4f;
-            parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + collectAllLabelChars();
+            parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + Game.getInstance().getMainDependencyManager().getAllFontChars();
             for (Color color : AVAILABLE_COLORS) {
                 parameter.borderColor = color;
                 parameter.color = color;
@@ -87,14 +87,4 @@ public class FontManager {
         }
     }
 
-    private String collectAllLabelChars() {
-        StringBuilder allChars = new StringBuilder();
-        for (GameLabel label : MainGameLabel.values()) {
-            allChars.append(label.getText());
-        }
-        for (GameLabel label : (GameLabel[]) EnumUtils.getValues(Game.getInstance().getMainDependencyManager().getGameLabelClass())) {
-            allChars.append(label.getText());
-        }
-        return allChars.toString();
-    }
 }

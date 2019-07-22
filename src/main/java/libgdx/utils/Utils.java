@@ -12,9 +12,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import libgdx.controls.MyTextField;
 import libgdx.controls.button.ButtonBuilder;
@@ -45,7 +48,23 @@ public class Utils {
             }
         }
         return lst;
+    }
 
+    public static String getStringLetters(List<String> allStrings) {
+        Set<String> extraChars = new HashSet<>();
+        for (String q : allStrings) {
+            extraChars.addAll(getStringLetters(q));
+        }
+        return String.join("", extraChars);
+    }
+
+    public static Set<String> getStringLetters(String v) {
+        char[] chars = v.toCharArray();
+        Set<String> set = new HashSet<>();
+        for (char c : chars) {
+            set.add(Character.toString(c));
+        }
+        return set;
     }
 
     public static JSONObject getJsonObjectFromString(String jsonString) {
