@@ -135,11 +135,6 @@ public class Utils {
             }
 
             @Override
-            public String proVersionStoreAppId() {
-                return currentAppInfoService.proVersionStoreAppId();
-            }
-
-            @Override
             public void showPopupAd() {
                 currentAppInfoService.showPopupAd();
             }

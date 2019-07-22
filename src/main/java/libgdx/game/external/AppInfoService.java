@@ -28,8 +28,6 @@ public interface AppInfoService {
 
     float gameScreenTopMargin();
 
-    String proVersionStoreAppId();
-
     boolean isProVersion();
 
     boolean isPortraitMode();

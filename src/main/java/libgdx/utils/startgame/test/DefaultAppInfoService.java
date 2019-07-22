@@ -29,11 +29,6 @@ public class DefaultAppInfoService implements AppInfoService {
     }
 
     @Override
-    public String proVersionStoreAppId() {
-        return getStoreAppId();
-    }
-
-    @Override
     public boolean isProVersion() {
         return false;
     }
