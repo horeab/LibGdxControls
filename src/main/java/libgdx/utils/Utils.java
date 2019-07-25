@@ -55,7 +55,7 @@ public class Utils {
         for (String q : allStrings) {
             extraChars.addAll(getStringLetters(q));
         }
-        return String.join("", extraChars);
+        return StringUtils.join(extraChars);
     }
 
     public static Set<String> getStringLetters(String v) {

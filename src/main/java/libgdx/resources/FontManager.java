@@ -13,9 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import libgdx.game.Game;
-import libgdx.resources.gamelabel.GameLabel;
 import libgdx.resources.gamelabel.MainGameLabel;
-import libgdx.utils.EnumUtils;
 import libgdx.utils.ScreenDimensionsManager;
 
 public class FontManager {
