@@ -6,7 +6,13 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
+import libgdx.controls.MyTextField;
+import libgdx.controls.button.ButtonBuilder;
+import libgdx.controls.button.MyButton;
+import libgdx.controls.popup.MyPopup;
+import libgdx.game.Game;
+import libgdx.game.external.AppInfoService;
+import libgdx.resources.dimen.MainDimen;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,20 +24,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
-import libgdx.controls.MyTextField;
-import libgdx.controls.button.ButtonBuilder;
-import libgdx.controls.button.MainButtonSkin;
-import libgdx.controls.button.MyButton;
-import libgdx.controls.label.MyWrappedLabel;
-import libgdx.controls.label.MyWrappedLabelConfigBuilder;
-import libgdx.controls.popup.MyPopup;
-import libgdx.game.Game;
-import libgdx.game.external.AppInfoService;
-import libgdx.resources.FontManager;
-import libgdx.resources.dimen.Dimen;
-import libgdx.resources.dimen.MainDimen;
-import libgdx.screen.AbstractScreen;
 
 
 public class Utils {
