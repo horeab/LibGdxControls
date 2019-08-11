@@ -31,7 +31,8 @@ public class ButtonWithIconBuilder extends ButtonBuilder {
         return this;
     }
 
-    private LabelImage createTableLabelImage(String text, Res icon) {
+    @Override
+    protected LabelImage createTableLabelImage(String text, Res icon) {
         return new LabelImage(getLabelImageConfigBuilder(text, icon)
                 .build());
     }

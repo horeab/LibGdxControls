@@ -1,6 +1,5 @@
 package libgdx.controls.label;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import libgdx.controls.TextTable;
 import libgdx.game.Game;
-import libgdx.resources.FontManager;
 
 public class MyWrappedLabel extends TextTable {
 
@@ -56,7 +54,7 @@ public class MyWrappedLabel extends TextTable {
         }
     }
 
-    public void setStyle(Color color) {
+    public void setTextColor(Color color) {
         for (MyLabel myLabel : getLabels()) {
             myLabel.getStyle().font = getFont(color);
         }
@@ -130,10 +128,10 @@ public class MyWrappedLabel extends TextTable {
     }
 
     public void setStyleDependingOnContrast() {
-        setStyle(MyWrappedLabelConfigBuilder.getScreenContrastStyle());
+        setTextColor(MyWrappedLabelConfigBuilder.getScreenContrastStyle());
     }
 
     public void setStyleDependingOnContrast(Color darkContrastStyle, Color lightContrastStyle) {
-        setStyle(MyWrappedLabelConfigBuilder.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
+        setTextColor(MyWrappedLabelConfigBuilder.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
     }
 }

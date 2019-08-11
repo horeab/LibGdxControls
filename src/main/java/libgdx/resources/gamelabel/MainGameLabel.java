@@ -14,7 +14,10 @@ public enum MainGameLabel implements GameLabel {
 
     billing_remove_ads,
     pro_version_info,
-    pro_version_download,;
+    pro_version_download,
+
+    privacy_policy,
+    facebook_share_btn;
 
     @Override
     public String getText(Object... params) {
