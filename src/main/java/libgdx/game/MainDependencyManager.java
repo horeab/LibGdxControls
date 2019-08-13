@@ -24,23 +24,6 @@ public abstract class MainDependencyManager<
 
     public abstract Class<TGameLabel> getGameLabelClass();
 
-    public abstract String getExtraFontChars();
-
-    public String getAllFontChars() {
-        return collectAllLabelChars() + getExtraFontChars();
-    }
-
-    private String collectAllLabelChars() {
-        StringBuilder allChars = new StringBuilder();
-        for (GameLabel label : MainGameLabel.values()) {
-            allChars.append(label.getText());
-        }
-        for (GameLabel label : (GameLabel[]) EnumUtils.getValues(getGameLabelClass())) {
-            allChars.append(label.getText());
-        }
-        return allChars.toString();
-    }
-
     public abstract ResourceService createResourceService();
 
     public abstract RatingService createRatingService(TScreen abstractScreen);

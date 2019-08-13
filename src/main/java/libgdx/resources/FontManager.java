@@ -73,7 +73,7 @@ public class FontManager {
             FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
             parameter.size = 32;
             parameter.borderWidth = 0.4f;
-            parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + Game.getInstance().getMainDependencyManager().getAllFontChars();
+            parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + Game.getInstance().getSubGameDependencyManager().getAllFontChars();
             for (Color color : AVAILABLE_COLORS) {
                 parameter.borderColor = color;
                 parameter.color = color;
