@@ -9,6 +9,7 @@ import libgdx.resources.Res;
 import libgdx.resources.ResourcesManager;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.resources.gamelabel.GameLabel;
+import libgdx.utils.model.FontColor;
 
 public class InventoryLabelImageBuilder {
 
@@ -17,7 +18,7 @@ public class InventoryLabelImageBuilder {
     private Res resource;
     private GameLabel frontLabel;
     private int amount;
-    private Color textColor = Color.BLACK;
+    private FontColor textColor = FontColor.BLACK;
 
     private String prefixStringAmount;
     private boolean positiveAmountPlusPrefix;
@@ -30,7 +31,7 @@ public class InventoryLabelImageBuilder {
         return this;
     }
 
-    public InventoryLabelImageBuilder setTextColor(Color textColor) {
+    public InventoryLabelImageBuilder setTextColor(FontColor textColor) {
         this.textColor = textColor;
         return this;
     }

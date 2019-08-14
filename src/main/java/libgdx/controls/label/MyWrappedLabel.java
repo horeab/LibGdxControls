@@ -13,6 +13,7 @@ import java.util.List;
 
 import libgdx.controls.TextTable;
 import libgdx.game.Game;
+import libgdx.utils.model.FontColor;
 
 public class MyWrappedLabel extends TextTable {
 
@@ -54,7 +55,7 @@ public class MyWrappedLabel extends TextTable {
         }
     }
 
-    public void setTextColor(Color color) {
+    public void setTextColor(FontColor color) {
         for (MyLabel myLabel : getLabels()) {
             myLabel.getStyle().font = getFont(color);
         }
@@ -114,7 +115,7 @@ public class MyWrappedLabel extends TextTable {
         return label;
     }
 
-    private BitmapFont getFont(Color textColor) {
+    private BitmapFont getFont(FontColor textColor) {
         return Game.getInstance().getFontManager().getFont(textColor);
     }
 
@@ -131,7 +132,7 @@ public class MyWrappedLabel extends TextTable {
         setTextColor(MyWrappedLabelConfigBuilder.getScreenContrastStyle());
     }
 
-    public void setStyleDependingOnContrast(Color darkContrastStyle, Color lightContrastStyle) {
+    public void setStyleDependingOnContrast(FontColor darkContrastStyle, FontColor lightContrastStyle) {
         setTextColor(MyWrappedLabelConfigBuilder.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
     }
 }
