@@ -13,10 +13,6 @@ public class MyLabel extends Label {
         setFontScale(FontManager.getNormalFontDim());
     }
 
-    public void setStyle(String styleName) {
-        setStyle(ResourcesManager.getSkin().get(styleName, LabelStyle.class));
-    }
-
     /**
      * In some cases wrap displays wrong. Use {@link MyWrappedLabel} instead.
      */

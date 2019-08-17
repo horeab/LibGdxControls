@@ -75,8 +75,7 @@ public class FontManager {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(MainResource.valueOf(MainGameLabel.font_name.getText()).getPath()));
         FreeTypeFontGenerator.setMaxTextureSize(2048);
         for (FontColor fontColor : FontColor.values()) {
-            RGBColor rgbColor = fontColor.getColor();
-            Color color = new Color(rgbColor.r, rgbColor.g, rgbColor.b, rgbColor.a);
+            Color color = fontColor.getColor();
             fontCreationParameter.borderColor = color;
             fontCreationParameter.color = color;
             BitmapFont font = generator.generateFont(fontCreationParameter);

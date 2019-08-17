@@ -57,7 +57,10 @@ public class MyWrappedLabel extends TextTable {
 
     public void setTextColor(FontColor color) {
         for (MyLabel myLabel : getLabels()) {
-            myLabel.getStyle().font = getFont(color);
+            Label.LabelStyle style = new Label.LabelStyle();
+            style.font = getFont(color);
+            style.fontColor = color.getColor();
+            myLabel.setStyle(style);
         }
     }
 

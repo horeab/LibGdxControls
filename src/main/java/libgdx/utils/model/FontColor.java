@@ -1,20 +1,23 @@
 package libgdx.utils.model;
 
 
+import com.badlogic.gdx.graphics.Color;
+
 public enum FontColor {
 
-    WHITE(RGBColor.WHITE),
-    GREEN(RGBColor.GREEN),
-    BLACK(RGBColor.BLACK),
-    RED(RGBColor.RED);
+    WHITE(Color.WHITE),
+    GREEN(Color.FOREST),
+    BLACK(Color.BLACK),
+    GRAY(Color.GRAY),
+    RED(Color.RED);
 
-    private RGBColor color;
+    private Color color;
 
-    FontColor(RGBColor color) {
+    FontColor(Color color) {
         this.color = color;
     }
 
-    public RGBColor getColor() {
+    public Color getColor() {
         return color;
     }
 }

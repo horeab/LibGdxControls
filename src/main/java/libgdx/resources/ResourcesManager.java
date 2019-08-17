@@ -26,39 +26,4 @@ public class ResourcesManager {
         return getSkin().getDrawable("grey_normal");
     }
 
-    public static String getLabelTitle() {
-        return "title";
-    }
-
-    public static String getLabelBlue() {
-        return "blue";
-    }
-
-    public static String getLabelBlack() {
-        return "default";
-    }
-
-    public static String getLabelGrey() {
-        return "grey";
-    }
-
-    public static String getLabelWhite() {
-        return "white";
-    }
-
-    public static String getLabelDarkGrey() {
-        return "dark_grey";
-    }
-
-    public static String getLabelGreen() {
-        return "green";
-    }
-
-    public static String getLabelDarkGreen() {
-        return "dark_green";
-    }
-
-    public static String getLabelMoreDarkGreen() {
-        return "more_dark_green";
-    }
 }
