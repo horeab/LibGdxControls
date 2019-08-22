@@ -10,11 +10,8 @@ import libgdx.game.Game;
 import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
-import libgdx.utils.model.RGBColor;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class FontManager {
