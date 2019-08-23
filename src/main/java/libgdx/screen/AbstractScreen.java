@@ -170,7 +170,8 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
 
     public abstract void buildStage();
 
-    public abstract void afterBuildStage();
+    public void afterBuildStage(){
+    }
 
     protected void displayNotifications() {
     }
