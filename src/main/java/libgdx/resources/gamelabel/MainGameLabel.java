@@ -14,6 +14,7 @@ public enum MainGameLabel implements GameLabel {
 
     billing_remove_ads,
     pro_version_info,
+    pro_version_info_unlock,
     pro_version_download,
 
     privacy_policy,

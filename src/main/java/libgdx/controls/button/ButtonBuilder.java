@@ -101,6 +101,11 @@ public class ButtonBuilder {
         return this;
     }
 
+    public ButtonBuilder setTransparentButton() {
+        buttonSkin = MainButtonSkin.TRANSPARENT;
+        return this;
+    }
+
     public ButtonBuilder setDisabled(boolean disabled) {
         this.disabled = disabled;
         return this;
@@ -163,7 +168,7 @@ public class ButtonBuilder {
 
     public MyButton build() {
         processButtonTable();
-        MyButton myButton = new MyButton(getButtonSize(), buttonSkin);
+        MyButton myButton = new MyButton(getButtonSize(), buttonSkin == null ? MainButtonSkin.TRANSPARENT : buttonSkin);
         if (StringUtils.isNotBlank(buttonName)) {
             myButton.setName(buttonName);
         }
