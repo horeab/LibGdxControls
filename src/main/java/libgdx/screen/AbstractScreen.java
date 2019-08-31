@@ -53,6 +53,10 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         return getStage().getRoot().findActor(AbstractScreenManager.LOADING_LABEL_NAME) != null;
     }
 
+    public AbstractScreen getAbstractScreen() {
+        return this;
+    }
+
     public Group getRoot() {
         return contentStage.getRoot();
     }
@@ -170,7 +174,7 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
 
     public abstract void buildStage();
 
-    public void afterBuildStage(){
+    public void afterBuildStage() {
     }
 
     protected void displayNotifications() {

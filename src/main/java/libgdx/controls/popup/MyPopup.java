@@ -10,12 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-
-import org.apache.commons.lang3.StringUtils;
-
 import libgdx.controls.ScreenRunnable;
-import libgdx.controls.button.builders.BackButtonBuilder;
 import libgdx.controls.button.MyButton;
+import libgdx.controls.button.builders.BackButtonBuilder;
 import libgdx.controls.label.MyWrappedLabel;
 import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.game.Game;
@@ -26,9 +23,15 @@ import libgdx.resources.dimen.MainDimen;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
 import libgdx.utils.ScreenDimensionsManager;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager extends AbstractScreenManager> extends Dialog implements Popup {
 
+    private List<Actor> actorsToFront = new ArrayList<>();
     private TScreen screen;
     protected TScreenManager screenManager = (TScreenManager) Game.getInstance().getScreenManager();
 
@@ -95,6 +98,15 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
 
     protected void addButton(MyButton btn) {
         getButtonTable().add(btn).padBottom(MainDimen.vertical_general_margin.getDimen()).width(btn.getWidth()).height(btn.getHeight() * 1.05f).row();
+    }
+
+    protected void addActorsToFront(Actor actor) {
+        getContentTable().getStage().getRoot().addActor(actor);
+        actorsToFront.add(actor);
+    }
+
+    protected List<Actor> getActorsToFront() {
+        return actorsToFront;
     }
 
     protected abstract String getLabelText();

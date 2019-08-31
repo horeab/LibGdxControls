@@ -1,6 +1,8 @@
 package libgdx.utils;
 
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -40,6 +42,21 @@ public class Utils {
             }
         }
         return lst;
+    }
+
+    public static RunnableAction createRunnableAction(Runnable runnable) {
+        RunnableAction action = new RunnableAction();
+        action.setRunnable(runnable);
+        return action;
+    }
+
+    public static RunnableAction createRemoveActorAction(final Actor actor) {
+        return createRunnableAction(new Runnable() {
+            @Override
+            public void run() {
+                actor.remove();
+            }
+        });
     }
 
     public static String getStringLetters(List<String> allStrings) {

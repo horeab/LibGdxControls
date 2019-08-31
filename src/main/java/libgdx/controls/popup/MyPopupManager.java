@@ -1,10 +1,10 @@
 package libgdx.controls.popup;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Gdx;
-
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import libgdx.screen.AbstractScreen;
 import libgdx.utils.ActorPositionManager;
+
+import java.util.List;
 
 public class MyPopupManager extends PopupManager<MyPopup> {
 
@@ -24,4 +24,13 @@ public class MyPopupManager extends PopupManager<MyPopup> {
         ActorPositionManager.setActorCenterExternalScreen(popup);
     }
 
+    @Override
+    public void bringDisplayedPopupsToFront() {
+        super.bringDisplayedPopupsToFront();
+        for (MyPopup popup : displayedPopups) {
+            for (Actor actor : (List<Actor>) popup.getActorsToFront()) {
+                actor.toFront();
+            }
+        }
+    }
 }
