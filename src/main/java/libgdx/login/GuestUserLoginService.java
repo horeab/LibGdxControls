@@ -40,9 +40,16 @@ public class GuestUserLoginService implements LoginService {
             goToMainMenu();
         } else {
             guestUserService.createGuestUser(MainGameLabel.guest.getText());
-            redirectAfterLogin.run();
+            if (redirectAfterLogin != null) {
+                redirectAfterLogin.run();
+            }
         }
     }
+
+    public void loginClick(AccountCreationSource accountCreationSource) {
+        loginClick(accountCreationSource, null);
+    }
+
 
     @Override
     public void goToMainMenu() {

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.I18NBundle;
 
+import libgdx.constants.user.AccountCreationSource;
 import libgdx.game.external.AppInfoService;
 import libgdx.game.external.BillingService;
 import libgdx.game.external.FacebookService;
@@ -78,6 +79,17 @@ public abstract class Game<
     public void executeAfterAssetsLoaded() {
         displayScreenAfterAssetsLoad();
         fontManager = new FontManager();
+        initLogin();
+    }
+    private void initLogin() {
+        if (!getLoginService().isUserLoggedIn() && !getAppInfoService().googleFacebookLoginEnabled()) {
+            getLoginService().loginClick(AccountCreationSource.INTERNAL, new Runnable() {
+                @Override
+                public void run() {
+                    getScreenManager().showMainScreen();
+                }
+            });
+        }
     }
 
     public TMainDependencyManager getMainDependencyManager() {
