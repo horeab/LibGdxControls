@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.I18NBundle;
 
 import libgdx.constants.user.AccountCreationSource;
+import libgdx.dbapi.UsersDbApiService;
 import libgdx.game.external.AppInfoService;
 import libgdx.game.external.BillingService;
 import libgdx.game.external.FacebookService;
 import libgdx.game.external.LoginService;
+import libgdx.game.model.BaseUserInfo;
 import libgdx.resources.FontManager;
 import libgdx.resources.Res;
 import libgdx.screen.AbstractScreen;
@@ -42,6 +44,7 @@ public abstract class Game<
     private TMainDependencyManager mainDependencyManager;
     protected TScreenManager screenManager;
     private FontManager fontManager;
+    private UsersDbApiService usersDbApiService;
 
     public Game(FacebookService facebookService,
                 BillingService billingService,
@@ -53,6 +56,7 @@ public abstract class Game<
         this.facebookService = facebookService;
         this.billingService = billingService;
         this.mainDependencyManager = mainDependencyManager;
+        this.usersDbApiService = new UsersDbApiService();
         subGameDependencyManager = (TSubGameDependencyManager) ((TGameId) EnumUtils.getEnumValue(mainDependencyManager.getGameIdClass(), appInfoService.getGameIdPrefix())).getDependencyManager();
         screenManager = (TScreenManager) mainDependencyManager.createScreenManager();
     }
@@ -68,6 +72,12 @@ public abstract class Game<
         this.appInfoService = newAppInfoService;
         fontManager = new FontManager();
         screenManager.showMainScreen();
+    }
+
+    public BaseUserInfo getCurrentUser() {
+        String externalId = getLoginService().getExternalId();
+        AccountCreationSource accountCreationSource = getLoginService().getAccountCreationSource();
+        return new BaseUserInfo(usersDbApiService.getUserId(externalId, accountCreationSource), externalId, accountCreationSource, getLoginService().getFullName());
     }
 
     @Override
