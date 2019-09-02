@@ -40,6 +40,7 @@ public class UsersDbApiService extends DbApiService {
         int createdUserId = -1;
         if (createUserApiCall(externalId, fullName, accountCreationSource)) {
             createdUserId = getUser(externalId, accountCreationSource).getId();
+            new GameStatsDbApiService().createGameStats(createdUserId);
         }
         return createdUserId;
     }
