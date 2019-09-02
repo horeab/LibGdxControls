@@ -17,6 +17,8 @@ public enum MainGameLabel implements GameLabel {
     pro_version_info_unlock,
     pro_version_download,
 
+    guest,
+
     privacy_policy,
     facebook_share_btn;
 
