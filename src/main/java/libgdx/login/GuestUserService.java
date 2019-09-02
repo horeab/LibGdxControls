@@ -16,7 +16,6 @@ public class GuestUserService {
 
     public GuestUserService() {
         preferencesService = new PreferencesService("GuestUserService");
-        preferencesService.clear();
     }
 
     public void createGuestUser(String guestLabel) {
