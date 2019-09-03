@@ -2,6 +2,7 @@ package libgdx.utils;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.google.gson.Gson;
@@ -20,7 +21,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -48,6 +48,15 @@ public class Utils {
         RunnableAction action = new RunnableAction();
         action.setRunnable(runnable);
         return action;
+    }
+
+    public static void fadeInActor(Actor actor, float duration){
+        actor.addAction(Actions.sequence(Actions.fadeOut(0f), Utils.createRunnableAction(new Runnable() {
+            @Override
+            public void run() {
+                actor.setVisible(true);
+            }
+        }), Actions.fadeIn(duration)));
     }
 
     public static RunnableAction createRemoveActorAction(final Actor actor) {

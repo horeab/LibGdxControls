@@ -25,4 +25,8 @@ public class MyTextField extends Table {
     public TextField getTextField() {
         return textField;
     }
+
+    public String getText(){
+        return textField.getText();
+    }
 }
