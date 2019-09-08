@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 import com.badlogic.gdx.Gdx;
-import libgdx.constants.ScreenContrast;
+import libgdx.constants.Contrast;
 import libgdx.resources.IncrementingRes;
 import libgdx.resources.SpecificResource;
 import libgdx.resources.gamelabel.GameLabel;
@@ -21,8 +21,8 @@ public abstract class SubGameDependencyManager {
 
     public abstract List<? extends IncrementingRes> getIncrementResList();
 
-    public ScreenContrast getScreenContrast() {
-        return ScreenContrast.LIGHT;
+    public Contrast getScreenContrast() {
+        return Contrast.LIGHT;
     }
 
     public String getAllFontChars() {
@@ -58,6 +58,6 @@ public abstract class SubGameDependencyManager {
     protected abstract String allQuestionText();
 
     public RGBColor getScreenBackgroundColor() {
-        return getScreenContrast() == ScreenContrast.LIGHT ? RGBColor.LIGHT_BLUE : RGBColor.DARK_BLUE;
+        return getScreenContrast() == Contrast.LIGHT ? RGBColor.LIGHT_BLUE : RGBColor.DARK_BLUE;
     }
 }

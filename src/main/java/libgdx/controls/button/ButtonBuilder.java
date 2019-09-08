@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import libgdx.constants.Contrast;
 import libgdx.transactions.TransactionAmount;
 import libgdx.controls.label.MyLabel;
 import libgdx.controls.labelimage.InventoryTableBuilder;
@@ -22,6 +24,7 @@ import libgdx.game.Game;
 import libgdx.resources.FontManager;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
+import libgdx.utils.model.FontColor;
 
 public class ButtonBuilder {
 
@@ -39,6 +42,7 @@ public class ButtonBuilder {
     private List<ChangeListener> changeListeners = new ArrayList<>();
     private String buttonName;
     private boolean disabled;
+    private Contrast contrast = Contrast.LIGHT;
 
     public ButtonBuilder() {
     }
@@ -74,6 +78,11 @@ public class ButtonBuilder {
 
     public ButtonBuilder setWrappedText(String text, float width) {
         return setWrappedText(new LabelImageConfigBuilder().setText(text).setFontScale(FontManager.getNormalFontDim()).setWrappedLineLabel(width));
+    }
+
+    public ButtonBuilder setContrast(Contrast contrast) {
+        this.contrast = contrast;
+        return this;
     }
 
     public ButtonBuilder setText(String text) {
@@ -168,7 +177,7 @@ public class ButtonBuilder {
 
     public MyButton build() {
         processButtonTable();
-        MyButton myButton = new MyButton(getButtonSize(), buttonSkin == null ? MainButtonSkin.TRANSPARENT : buttonSkin);
+        MyButton myButton = new MyButton(getButtonSize(), buttonSkin == null ? MainButtonSkin.TRANSPARENT : buttonSkin, contrast);
         if (StringUtils.isNotBlank(buttonName)) {
             myButton.setName(buttonName);
         }

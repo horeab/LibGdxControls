@@ -1,6 +1,6 @@
 package libgdx.controls.label;
 
-import libgdx.constants.ScreenContrast;
+import libgdx.constants.Contrast;
 import libgdx.game.Game;
 import libgdx.resources.FontManager;
 import libgdx.utils.ScreenDimensionsManager;
@@ -73,6 +73,6 @@ public class MyWrappedLabelConfigBuilder {
     }
 
     public static FontColor getScreenContrastStyle(FontColor darkContrastStyle, FontColor lightContrastStyle) {
-        return Game.getInstance().getSubGameDependencyManager().getScreenContrast() == ScreenContrast.LIGHT ? lightContrastStyle : darkContrastStyle;
+        return Game.getInstance().getSubGameDependencyManager().getScreenContrast() == Contrast.LIGHT ? lightContrastStyle : darkContrastStyle;
     }
 }

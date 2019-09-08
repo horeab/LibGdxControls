@@ -4,6 +4,8 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+
+import libgdx.constants.Contrast;
 import libgdx.controls.TextTable;
 import libgdx.controls.label.MyLabel;
 import libgdx.game.Game;
@@ -16,16 +18,21 @@ import java.util.List;
 public class MyButton extends TextButton {
 
     private ButtonSkin buttonSkin;
+    private Contrast contrast;
 
     MyButton(ButtonSize buttonSize, ButtonSkin buttonSkin) {
+        this(buttonSize, buttonSkin, Contrast.LIGHT);
+    }
+
+    MyButton(ButtonSize buttonSize, ButtonSkin buttonSkin, Contrast contrast) {
         super(null, ResourcesManager.getSkin());
+        this.contrast = contrast;
         setButtonSkin(buttonSkin);
         if (buttonSize != null) {
             setWidth(buttonSize.getWidth());
             setHeight(buttonSize.getHeight());
         }
         clearChildren();
-
     }
 
     public String getText() {
@@ -67,7 +74,10 @@ public class MyButton extends TextButton {
         for (MyLabel label : labels) {
             Label.LabelStyle labelStyle = new Label.LabelStyle();
             FontColor buttonDisabledFontColor = buttonSkin.getButtonDisabledFontColor();
-            FontColor fontColor = isDisabled() ? buttonDisabledFontColor != null ? buttonDisabledFontColor : FontColor.BLACK : FontColor.BLACK;
+            FontColor fontColor =
+                    isDisabled() ?
+                            buttonDisabledFontColor != null ? buttonDisabledFontColor : FontColor.BLACK
+                            : contrast == Contrast.LIGHT ? FontColor.BLACK : FontColor.WHITE;
             labelStyle.font = Game.getInstance().getFontManager().getFont(fontColor);
             labelStyle.fontColor = fontColor.getColor();
             label.setStyle(labelStyle);
