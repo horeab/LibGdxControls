@@ -13,6 +13,7 @@ import libgdx.controls.MyTextField;
 import libgdx.controls.button.ButtonBuilder;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.popup.MyPopup;
+import libgdx.controls.textfield.MyTextFieldBuilder;
 import libgdx.game.Game;
 import libgdx.game.external.AppInfoService;
 import libgdx.resources.dimen.MainDimen;
@@ -117,7 +118,7 @@ public class Utils {
         MyPopup popup = new MyPopup(Game.getInstance().getAbstractScreen()) {
             @Override
             protected void addButtons() {
-                final MyTextField myTextField = new MyTextField();
+                final MyTextField myTextField = new MyTextFieldBuilder().build();
                 getButtonTable().add(myTextField).row();
                 MyButton changeLangBtn = new ButtonBuilder().setWrappedText("Change Lang to", MainDimen.horizontal_general_margin.getDimen() * 10)
                         .setDefaultButton()
@@ -157,13 +158,13 @@ public class Utils {
             }
 
             @Override
-            public boolean screenShotMode() {
-                return currentAppInfoService.screenShotMode();
+            public boolean isScreenShotMode() {
+                return currentAppInfoService.isScreenShotMode();
             }
 
             @Override
             public void showRewardedVideoAd() {
-                currentAppInfoService.screenShotMode();
+                currentAppInfoService.isScreenShotMode();
             }
 
             @Override

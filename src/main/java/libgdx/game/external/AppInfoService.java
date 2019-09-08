@@ -24,7 +24,7 @@ public interface AppInfoService {
 
     String getImplementationGameResourcesFolder();
 
-    boolean screenShotMode();
+    boolean isScreenShotMode();
 
     float gameScreenTopMargin();
 

@@ -39,7 +39,7 @@ public class DefaultAppInfoService implements AppInfoService {
     }
 
     @Override
-    public boolean screenShotMode() {
+    public boolean isScreenShotMode() {
         return false;
     }
 
