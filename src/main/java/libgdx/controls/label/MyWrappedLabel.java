@@ -147,10 +147,8 @@ public class MyWrappedLabel extends TextTable {
 
     public MyWrappedLabel fitToContainer() {
         MyWrappedLabel label = this;
-        float fontScale = myWrappedLabelConfig.getFontScale();
         while (label.getLabels().size() > 1) {
-            fontScale = fontScale / 1.01f;
-            myWrappedLabelConfig.setFontScale(fontScale);
+            myWrappedLabelConfig.setFontScale(myWrappedLabelConfig.getFontScale() / 1.01f);
             label = new MyWrappedLabel(myWrappedLabelConfig);
         }
         return label;
