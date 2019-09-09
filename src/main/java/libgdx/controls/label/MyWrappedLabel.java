@@ -8,11 +8,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import libgdx.controls.TextTable;
 import libgdx.game.Game;
+import libgdx.resources.FontManager;
 import libgdx.utils.model.FontColor;
 
 public class MyWrappedLabel extends TextTable {
@@ -31,6 +34,9 @@ public class MyWrappedLabel extends TextTable {
     public MyWrappedLabel(MyWrappedLabelConfig myWrappedLabelConfig) {
         this.myWrappedLabelConfig = myWrappedLabelConfig;
         create(myWrappedLabelConfig.getText());
+        if (myWrappedLabelConfig.isSingleLineLabel()) {
+            fitToContainer();
+        }
     }
 
     public void setEllipsis(float labelWidth) {
@@ -137,5 +143,16 @@ public class MyWrappedLabel extends TextTable {
 
     public void setStyleDependingOnContrast(FontColor darkContrastStyle, FontColor lightContrastStyle) {
         setTextColor(MyWrappedLabelConfigBuilder.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
+    }
+
+    public MyWrappedLabel fitToContainer() {
+        MyWrappedLabel label = this;
+        float fontScale = myWrappedLabelConfig.getFontScale();
+        while (label.getLabels().size() > 1) {
+            fontScale = fontScale / 1.01f;
+            myWrappedLabelConfig.setFontScale(fontScale);
+            label = new MyWrappedLabel(myWrappedLabelConfig);
+        }
+        return label;
     }
 }
