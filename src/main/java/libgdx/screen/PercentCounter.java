@@ -24,7 +24,7 @@ public abstract class PercentCounter {
         displayLabel = new MyWrappedLabel();
     }
 
-    public void setFontScale(float fontScale) {
+    public void setFontScale(final float fontScale) {
         this.fontScale = fontScale;
     }
 

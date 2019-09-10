@@ -6,6 +6,9 @@ import java.util.Scanner;
 import java.util.Set;
 
 import com.badlogic.gdx.Gdx;
+
+import org.apache.commons.lang3.StringUtils;
+
 import libgdx.constants.Contrast;
 import libgdx.resources.IncrementingRes;
 import libgdx.resources.SpecificResource;
@@ -31,7 +34,7 @@ public abstract class SubGameDependencyManager {
         for (int i = 0; i < allChars.length(); i++) {
             resultSet.add(Character.toString(allChars.charAt(i)));
         }
-        return String.join("", resultSet);
+        return StringUtils.join(resultSet,"" );
     }
 
     private String collectAllLabelChars() {
