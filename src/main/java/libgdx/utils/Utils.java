@@ -173,8 +173,8 @@ public class Utils {
             }
 
             @Override
-            public void showPopupAd() {
-                currentAppInfoService.showPopupAd();
+            public void showPopupAd(Runnable afterClose) {
+                currentAppInfoService.showPopupAd(afterClose);
             }
 
             @Override
