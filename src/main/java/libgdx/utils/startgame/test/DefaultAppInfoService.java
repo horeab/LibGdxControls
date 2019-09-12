@@ -16,7 +16,8 @@ public class DefaultAppInfoService implements AppInfoService {
     }
 
     @Override
-    public void showPopupAd() {
+    public void showPopupAd(Runnable afterClose) {
+        afterClose.run();
     }
 
     @Override

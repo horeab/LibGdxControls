@@ -14,7 +14,7 @@ public interface AppInfoService {
 
     boolean googleFacebookLoginEnabled();
 
-    void showPopupAd();
+    void showPopupAd(Runnable afterClose);
 
     void showRewardedVideoAd();
 
