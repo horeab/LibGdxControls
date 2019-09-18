@@ -1,5 +1,7 @@
 package libgdx.utils;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -115,29 +117,31 @@ public class Utils {
     }
 
     public static void createChangeLangPopup() {
-        MyPopup popup = new MyPopup(Game.getInstance().getAbstractScreen()) {
-            @Override
-            protected void addButtons() {
-                final MyTextField myTextField = new MyTextFieldBuilder().build();
-                getButtonTable().add(myTextField).row();
-                MyButton changeLangBtn = new ButtonBuilder().setWrappedText("Change Lang to", MainDimen.horizontal_general_margin.getDimen() * 10)
-                        .setDefaultButton()
-                        .build();
-                changeLangBtn.addListener(new ClickListener() {
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        Game.getInstance().setNewContext(cloneAppInfoService(Game.getInstance().getAppInfoService(), myTextField.getTextField().getText()));
-                    }
-                });
-                addButton(changeLangBtn);
-            }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ALT_LEFT)) {
+            MyPopup popup = new MyPopup(Game.getInstance().getAbstractScreen()) {
+                @Override
+                protected void addButtons() {
+                    final MyTextField myTextField = new MyTextFieldBuilder().build();
+                    getButtonTable().add(myTextField).row();
+                    MyButton changeLangBtn = new ButtonBuilder().setWrappedText("Change Lang to", MainDimen.horizontal_general_margin.getDimen() * 10)
+                            .setDefaultButton()
+                            .build();
+                    changeLangBtn.addListener(new ClickListener() {
+                        @Override
+                        public void clicked(InputEvent event, float x, float y) {
+                            Game.getInstance().setNewContext(cloneAppInfoService(Game.getInstance().getAppInfoService(), myTextField.getTextField().getText()));
+                        }
+                    });
+                    addButton(changeLangBtn);
+                }
 
-            @Override
-            protected String getLabelText() {
-                return "";
-            }
-        };
-        popup.addToPopupManager();
+                @Override
+                protected String getLabelText() {
+                    return "";
+                }
+            };
+            popup.addToPopupManager();
+        }
     }
 
     private static AppInfoService cloneAppInfoService(final AppInfoService currentAppInfoService, final String newLang) {
