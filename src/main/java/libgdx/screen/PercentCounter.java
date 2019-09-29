@@ -28,7 +28,7 @@ public abstract class PercentCounter {
         this.fontScale = fontScale;
     }
 
-    public void start(float percentToReach) {
+    public void start(final float percentToReach) {
         displayLabel.setFontScale(fontScale);
         displayLabel.setStyleDependingOnContrast();
         displayLabel.setAlignment(Align.center);
