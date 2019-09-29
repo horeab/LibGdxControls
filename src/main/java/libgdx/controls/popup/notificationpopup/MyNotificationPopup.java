@@ -57,6 +57,10 @@ public abstract class MyNotificationPopup<TScreen extends AbstractScreen> extend
     public void executeOnShow() {
     }
 
+    @Override
+    public void onBackKeyPress() {
+    }
+
     public MyNotificationPopupConfig getConfig() {
         return config;
     }

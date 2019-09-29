@@ -11,4 +11,6 @@ public interface Popup {
     void hide();
 
     AbstractScreen getScreen();
+
+    void onBackKeyPress();
 }

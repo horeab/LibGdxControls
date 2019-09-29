@@ -65,6 +65,9 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
         return this;
     }
 
+    @Override
+    public void onBackKeyPress() {
+    }
 
     @Override
     public TScreen getScreen() {

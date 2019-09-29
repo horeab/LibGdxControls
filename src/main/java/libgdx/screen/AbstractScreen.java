@@ -78,6 +78,7 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         if ((Gdx.input.isKeyPressed(Input.Keys.BACK) || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) && !AbstractScreenManager.backAlreadyKeyPressed) {
             AbstractScreenManager.backAlreadyKeyPressed = true;
             if (myPopupManager.isPopupDisplayed()) {
+                myPopupManager.onBackKeyPress();
                 myPopupManager.hideAllDisplayedPopups();
             } else {
                 onBackKeyPress();
