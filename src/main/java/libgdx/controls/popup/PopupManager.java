@@ -77,6 +77,13 @@ public abstract class PopupManager<TPopupType extends Actor & Popup> {
         hideDisplayedPopups(displayedPopups);
     }
 
+
+    public void onBackKeyPress() {
+        for (TPopupType popup : displayedPopups) {
+            popup.onBackKeyPress();
+        }
+    }
+
     public void bringDisplayedPopupsToFront() {
         for (TPopupType popup : displayedPopups) {
             popup.toFront();
