@@ -1,5 +1,7 @@
 package libgdx.controls.button.builders;
 
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
@@ -33,9 +35,9 @@ public class BackButtonBuilder {
         MyButton screenBackButton = new BackButtonBuilder().createScreenBackButton(screen);
         screenBackButton.setPosition(MainDimen.horizontal_general_margin.getDimen() * 2,
                 ScreenDimensionsManager.getScreenHeight() - MainButtonSize.BACK_BUTTON.getHeight());
-//        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
-        screen.addActor(screenBackButton);
-//        }
+        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
+            screen.addActor(screenBackButton);
+        }
         return screenBackButton;
     }
 }
