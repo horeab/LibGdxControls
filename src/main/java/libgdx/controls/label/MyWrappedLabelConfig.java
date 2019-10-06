@@ -1,6 +1,5 @@
 package libgdx.controls.label;
 
-import com.badlogic.gdx.graphics.Color;
 import libgdx.utils.model.FontColor;
 
 public class MyWrappedLabelConfig {
