@@ -6,20 +6,25 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+
 import libgdx.game.Game;
 import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
+import libgdx.utils.model.FontConfig;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class FontManager {
 
-    private Map<FontColor, BitmapFont> colorFonts = new HashMap<>();
+    public static final float STANDARD_BORDER_WIDTH = 0.4f;
+    private String allChars;
+    private Map<FontConfig, BitmapFont> usedFonts = new HashMap<>();
+    private FreeTypeFontGenerator generator;
 
     private static final float STANDARD_FONT_SIZE = 9;
-    private FreeTypeFontGenerator.FreeTypeFontParameter fontCreationParameter;
 
     private static final float BIG_FONT = STANDARD_FONT_SIZE * 1.5f;
     private static final float NORMAL_BIG_FONT = STANDARD_FONT_SIZE * 1.3f;
@@ -27,10 +32,12 @@ public class FontManager {
     private static final float SMALL_FONT = STANDARD_FONT_SIZE * 0.9f;
 
     public FontManager() {
-        fontCreationParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontCreationParameter.size = 32;
-        fontCreationParameter.borderWidth = 0.4f;
-        fontCreationParameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + Game.getInstance().getSubGameDependencyManager().getAllFontChars();
+        allChars = FreeTypeFontGenerator.DEFAULT_CHARS + getGameAllFontChars();
+        generator = new FreeTypeFontGenerator(Gdx.files.internal(MainResource.valueOf(MainGameLabel.font_name.getText()).getPath()));
+    }
+
+    protected String getGameAllFontChars() {
+        return Game.getInstance().getSubGameDependencyManager().getAllFontChars();
     }
 
     public static float getNormalBigFontDim() {
@@ -62,24 +69,56 @@ public class FontManager {
     }
 
     public BitmapFont getFont(FontColor color) {
-        if (colorFonts.isEmpty()) {
-            initFont();
+        BitmapFont result = getFontFromMap(color);
+        if (result == null) {
+            initFont(color);
+            result = getFontFromMap(color);
         }
-        return colorFonts.get(color);
+        return result;
     }
 
-    private void initFont() {
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(MainResource.valueOf(MainGameLabel.font_name.getText()).getPath()));
-        FreeTypeFontGenerator.setMaxTextureSize(2048);
-        for (FontColor fontColor : FontColor.values()) {
-            Color color = fontColor.getColor();
-            fontCreationParameter.borderColor = color;
-            fontCreationParameter.color = color;
-            BitmapFont font = generator.generateFont(fontCreationParameter);
-            font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-            colorFonts.put(fontColor, font);
+    private BitmapFont getFontFromMap(FontColor color) {
+        BitmapFont result = null;
+        for (Map.Entry<FontConfig, BitmapFont> entry : usedFonts.entrySet()) {
+            if (entry.getKey().getColor() == color.getColor() && entry.getKey().getBorderColor() == color.getColor()) {
+                result = entry.getValue();
+                break;
+            }
         }
-        generator.dispose();
+        return result;
+    }
+
+    public BitmapFont getFont(FontConfig fontConfig) {
+        BitmapFont bitmapFont = usedFonts.get(fontConfig);
+        if (bitmapFont == null) {
+            createBitmapFont(fontConfig);
+            return usedFonts.get(fontConfig);
+        } else {
+            bitmapFont.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            return bitmapFont;
+        }
+
+    }
+
+    private void initFont(FontColor fontColor) {
+        Color color = fontColor.getColor();
+        createBitmapFont(new FontConfig(color, color, 32, STANDARD_BORDER_WIDTH));
+    }
+
+    private FreeTypeFontGenerator.FreeTypeFontParameter createFreeTypeFontParameter(Color color, Color borderColor, int fontSize, float borderWidth) {
+        FreeTypeFontGenerator.FreeTypeFontParameter fontCreationParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontCreationParameter.borderWidth = borderWidth;
+        fontCreationParameter.characters = allChars;
+        fontCreationParameter.borderColor = borderColor;
+        fontCreationParameter.color = color;
+        return fontCreationParameter;
+    }
+
+    private void createBitmapFont(FontConfig fontConfig) {
+        BitmapFont font = generator.generateFont(createFreeTypeFontParameter(fontConfig.getColor(), fontConfig.getBorderColor(), fontConfig.getFontSize(), fontConfig.getBorderWidth()));
+        FreeTypeFontGenerator.setMaxTextureSize(2048);
+        font.getData().setScale(fontConfig.getFontSize());
+        usedFonts.put(fontConfig, font);
     }
 
 }
