@@ -111,6 +111,7 @@ public class FontManager {
         fontCreationParameter.characters = allChars;
         fontCreationParameter.borderColor = borderColor;
         fontCreationParameter.color = color;
+        fontCreationParameter.size = fontSize;
         return fontCreationParameter;
     }
 
