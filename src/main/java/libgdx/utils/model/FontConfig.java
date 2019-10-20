@@ -7,6 +7,9 @@ import java.util.Objects;
 
 public class FontConfig {
 
+    public static final int FONT_SIZE = 32;
+    public static final float STANDARD_BORDER_WIDTH = 0.4f;
+
     private Color color;
     private Color borderColor;
     private int fontSize;
@@ -17,6 +20,27 @@ public class FontConfig {
         this.borderColor = borderColor;
         this.fontSize = fontSize;
         this.borderWidth = borderWidth;
+    }
+
+    public FontConfig(Color color, int fontSize) {
+        this(color, color, fontSize, STANDARD_BORDER_WIDTH);
+    }
+
+    public FontConfig(Color color) {
+        this(color, FONT_SIZE);
+    }
+
+    public FontConfig(int fontSize) {
+        this(FontColor.BLACK.getColor(), fontSize);
+    }
+
+    public FontConfig(int fontSize, float borderWidth) {
+        this(FontColor.BLACK.getColor(), FontColor.BLACK.getColor(), fontSize, borderWidth);
+    }
+
+
+    public FontConfig() {
+        this(FontColor.BLACK.getColor());
     }
 
     public Color getColor() {

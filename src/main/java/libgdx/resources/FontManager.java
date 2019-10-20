@@ -19,7 +19,6 @@ import java.util.Set;
 
 public class FontManager {
 
-    public static final float STANDARD_BORDER_WIDTH = 0.4f;
     private String allChars;
     private Map<FontConfig, BitmapFont> usedFonts = new HashMap<>();
     private FreeTypeFontGenerator generator;
@@ -102,7 +101,7 @@ public class FontManager {
 
     private void initFont(FontColor fontColor) {
         Color color = fontColor.getColor();
-        createBitmapFont(new FontConfig(color, color, 32, STANDARD_BORDER_WIDTH));
+        createBitmapFont(new FontConfig(color, color, FontConfig.FONT_SIZE, FontConfig.STANDARD_BORDER_WIDTH));
     }
 
     private FreeTypeFontGenerator.FreeTypeFontParameter createFreeTypeFontParameter(Color color, Color borderColor, int fontSize, float borderWidth) {

@@ -87,8 +87,8 @@ public abstract class Game<
     }
 
     public void executeAfterAssetsLoaded() {
-        displayScreenAfterAssetsLoad();
         fontManager = new FontManager();
+        displayScreenAfterAssetsLoad();
         initLogin();
     }
     private void initLogin() {
