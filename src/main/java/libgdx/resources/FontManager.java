@@ -93,7 +93,6 @@ public class FontManager {
             createBitmapFont(fontConfig);
             return usedFonts.get(fontConfig);
         } else {
-            bitmapFont.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
             return bitmapFont;
         }
 
@@ -118,6 +117,7 @@ public class FontManager {
         BitmapFont font = generator.generateFont(createFreeTypeFontParameter(fontConfig.getColor(), fontConfig.getBorderColor(), fontConfig.getFontSize(), fontConfig.getBorderWidth()));
         FreeTypeFontGenerator.setMaxTextureSize(2048);
         font.getData().setScale(fontConfig.getFontSize());
+        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         usedFonts.put(fontConfig, font);
     }
 
