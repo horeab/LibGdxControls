@@ -1,12 +1,14 @@
 package libgdx.controls.label;
 
 import libgdx.utils.model.FontColor;
+import libgdx.utils.model.FontConfig;
 
 public class MyWrappedLabelConfig {
 
     private float width;
     private float fontScale;
     private FontColor textColor;
+    private FontConfig fontConfig;
     private String text;
     private boolean singleLineLabel;
 
@@ -43,6 +45,14 @@ public class MyWrappedLabelConfig {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public FontConfig getFontConfig() {
+        return fontConfig;
+    }
+
+    public void setFontConfig(FontConfig fontConfig) {
+        this.fontConfig = fontConfig;
     }
 
     public boolean isSingleLineLabel() {

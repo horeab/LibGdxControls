@@ -64,7 +64,7 @@ public class MyWrappedLabel extends TextTable {
     public void setTextColor(FontColor color) {
         for (MyLabel myLabel : getLabels()) {
             Label.LabelStyle style = new Label.LabelStyle();
-            style.font = getFont(color);
+            style.font = Game.getInstance().getFontManager().getFont(color);
             style.fontColor = color.getColor();
             myLabel.setStyle(style);
         }
@@ -89,7 +89,7 @@ public class MyWrappedLabel extends TextTable {
             addSingleLineLabel(text);
         } else {
             List<String> wrappedLines = new ArrayList<>();
-            BitmapFont font = getFont(myWrappedLabelConfig.getTextColor());
+            BitmapFont font = getConfigFont();
             font.getData().setScale(myWrappedLabelConfig.getFontScale());
             try {
                 GlyphLayout glyphLayout = new GlyphLayout(font, text, Color.RED, myWrappedLabelConfig.getWidth(), Align.center, true);
@@ -108,6 +108,16 @@ public class MyWrappedLabel extends TextTable {
         }
     }
 
+    private BitmapFont getConfigFont() {
+        BitmapFont font;
+        if(myWrappedLabelConfig.getFontConfig()!=null){
+            font = Game.getInstance().getFontManager().getFont(myWrappedLabelConfig.getFontConfig());
+        }else {
+            font = Game.getInstance().getFontManager().getFont(myWrappedLabelConfig.getTextColor());
+        }
+        return font;
+    }
+
     private void addSingleLineLabel(String text) {
         add(configLabel(text));
     }
@@ -118,14 +128,10 @@ public class MyWrappedLabel extends TextTable {
         label.setAlignment(Align.center);
 
         Label.LabelStyle labelStyle = new Label.LabelStyle();
-        labelStyle.font = getFont(myWrappedLabelConfig.getTextColor());
+        labelStyle.font = getConfigFont();
         label.setStyle(labelStyle);
         rowLabels.add(label);
         return label;
-    }
-
-    private BitmapFont getFont(FontColor textColor) {
-        return Game.getInstance().getFontManager().getFont(textColor);
     }
 
     private String getGlyphsString(Array<BitmapFont.Glyph> glyphs) {
