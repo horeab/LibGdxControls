@@ -1,12 +1,12 @@
 package libgdx.utils;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import javax.swing.text.View;
 
 import libgdx.game.Game;
+
 
 public class ScreenDimensionsManager {
 
@@ -28,8 +28,16 @@ public class ScreenDimensionsManager {
         return (originalHeight / originalWidth) * newWidth;
     }
 
+    public static float getNewHeightForNewWidth(float newWidth, Image image) {
+        return getNewHeightForNewWidth(newWidth, image.getWidth(), image.getHeight());
+    }
+
     public static float getNewWidthForNewHeight(float newHeight, float originalWidth, float originalHeight) {
         return (originalWidth / originalHeight) * newHeight;
+    }
+
+    public static float getNewWidthForNewHeight(float newHeight, Image image) {
+        return getNewWidthForNewHeight(newHeight, image.getWidth(), image.getHeight());
     }
 
     public static int getScreenWidth() {
