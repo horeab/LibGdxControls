@@ -4,10 +4,17 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Align;
 
 import libgdx.controls.ScreenRunnable;
+import libgdx.game.Game;
+import libgdx.graphics.GraphicUtils;
+import libgdx.resources.Res;
 import libgdx.screen.AbstractScreen;
+import libgdx.utils.ActorPositionManager;
+import libgdx.utils.ScreenDimensionsManager;
+import libgdx.utils.Utils;
 
 public class ActorAnimation {
 
@@ -43,6 +50,21 @@ public class ActorAnimation {
         AlphaAction fadeOut = Actions.fadeOut(duration);
         fadeOut.setAlpha(alpha);
         actor.addAction(Actions.sequence(fadeOut, Actions.fadeIn(duration), run));
+    }
+
+    public static void animateImageCenterScreenFadeOut(Res imgRes, float duration) {
+        Image image = GraphicUtils.getImage(imgRes);
+        float imgSideDimen = ScreenDimensionsManager.getScreenWidthValue(50);
+        image.setWidth(imgSideDimen);
+        image.setHeight(imgSideDimen);
+        Game.getInstance().getAbstractScreen().addActor(image);
+        ActorPositionManager.setActorCenterScreen(image);
+        image.addAction(
+                Actions.sequence(
+                        Actions.fadeOut(duration),
+                        Utils.createRemoveActorAction(image)
+                ));
+        image.addAction(Actions.scaleBy(-0.1f, -0.1f, duration));
     }
 
     public void animateZoomInZoomOut() {

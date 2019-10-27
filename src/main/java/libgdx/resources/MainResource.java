@@ -42,6 +42,7 @@ public enum MainResource implements Res {
 
     sound_off("general/sound_off.png", Texture.class),
     crown("general/crown.png", Texture.class),
+    heart_full("general/heart_full.png", Texture.class),
     lock("general/lock.png", Texture.class),
     sound_on("general/sound_on.png", Texture.class),
 
