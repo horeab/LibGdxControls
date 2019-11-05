@@ -84,6 +84,10 @@ public class MyButton extends TextButton {
         }
     }
 
+    public ButtonSkin getButtonSkin() {
+        return buttonSkin;
+    }
+
     public List<MyLabel> getCenterRowLabels() {
         Table centerRow = getCenterRow();
         if (centerRow != null && centerRow.getChildren() != null && centerRow.getChildren().size > 0 && centerRow.getChildren().first() instanceof TextTable) {
