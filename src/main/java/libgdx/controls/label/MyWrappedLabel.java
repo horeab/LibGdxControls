@@ -71,7 +71,9 @@ public class MyWrappedLabel extends TextTable {
     }
 
     public void setText(String text) {
-        getLabels().get(0).setText(text);
+        if (getLabels().size() > 0) {
+            getLabels().get(0).setText(text);
+        }
     }
 
     @Override
@@ -110,9 +112,9 @@ public class MyWrappedLabel extends TextTable {
 
     private BitmapFont getConfigFont() {
         BitmapFont font;
-        if(myWrappedLabelConfig.getFontConfig()!=null){
+        if (myWrappedLabelConfig.getFontConfig() != null) {
             font = Game.getInstance().getFontManager().getFont(myWrappedLabelConfig.getFontConfig());
-        }else {
+        } else {
             font = Game.getInstance().getFontManager().getFont(myWrappedLabelConfig.getTextColor());
         }
         return font;
