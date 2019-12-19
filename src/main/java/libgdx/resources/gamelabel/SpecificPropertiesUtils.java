@@ -10,6 +10,12 @@ public class SpecificPropertiesUtils {
         return GameLabelUtils.getText(key, language, getLabelFilePath());
     }
 
+    public static String getQuestionCampaignLabel(int campaignNr) {
+        String language = Game.getInstance().getAppInfoService().getLanguage();
+        String key = language + "_" + Game.getInstance().getAppInfoService().getGameIdPrefix() + "_campaign_" + campaignNr;
+        return GameLabelUtils.getText(key, language, getLabelFilePath());
+    }
+
     public static String getText(String key){
         return GameLabelUtils.getText(key, Game.getInstance().getAppInfoService().getLanguage(), getLabelFilePath());
     }
