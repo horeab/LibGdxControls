@@ -16,8 +16,8 @@ public class SpecificPropertiesUtils {
         return GameLabelUtils.getText(key, language, getLabelFilePath());
     }
 
-    public static String getText(String key){
-        return GameLabelUtils.getText(key, Game.getInstance().getAppInfoService().getLanguage(), getLabelFilePath());
+    public static String getText(String key, Object... params) {
+        return GameLabelUtils.getText(key, Game.getInstance().getAppInfoService().getLanguage(), getLabelFilePath(), params);
     }
 
     public static String getLabelFilePath() {
