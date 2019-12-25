@@ -20,7 +20,7 @@ public class StartGame {
 
     public static void main(Game game, String[] args) {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-        Pair<Integer, Integer> V = x;
+        Pair<Integer, Integer> V = t;
         cfg.height = V.getLeft();
         cfg.width = V.getRight();
         new LwjglApplication(game, cfg);
