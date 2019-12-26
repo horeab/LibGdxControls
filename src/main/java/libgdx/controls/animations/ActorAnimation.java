@@ -39,6 +39,18 @@ public class ActorAnimation {
         animateFadeInFadeOut(1f, 0.1f);
     }
 
+    public void animateFastFadeIn() {
+        float duration = 0.2f;
+        AlphaAction fadeOut = Actions.fadeOut(duration);
+        fadeOut.setAlpha(0f);
+        actor.addAction(Actions.sequence(fadeOut, Utils.createRunnableAction(new ScreenRunnable(screen) {
+            @Override
+            public void executeOperations() {
+                actor.setVisible(true);
+            }
+        }), Actions.fadeIn(duration)));
+    }
+
     public void animateFadeInFadeOut(final float duration, final float alpha) {
         RunnableAction run = new RunnableAction();
         run.setRunnable(new ScreenRunnable(screen) {
