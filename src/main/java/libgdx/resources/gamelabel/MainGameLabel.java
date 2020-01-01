@@ -21,6 +21,8 @@ public enum MainGameLabel implements GameLabel {
     l_score,
     l_score_record,
     l_new_game,
+    l_highscore,
+    l_play,
 
     guest,
 
