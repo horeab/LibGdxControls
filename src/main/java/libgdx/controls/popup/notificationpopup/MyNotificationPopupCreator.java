@@ -48,6 +48,9 @@ public class MyNotificationPopupCreator {
                 if (config.getFontScale() != null) {
                     myWrappedLabelConfigBuilder.setFontScale(config.getFontScale());
                 }
+                if (config.getFontConfig() != null) {
+                    myWrappedLabelConfigBuilder.setFontConfig(config.getFontConfig());
+                }
                 popup.add(new MyWrappedLabel(myWrappedLabelConfigBuilder.build()));
             }
         }

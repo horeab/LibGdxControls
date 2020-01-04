@@ -6,11 +6,13 @@ import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
+import libgdx.utils.model.FontConfig;
 
 
 public class MyNotificationPopupConfigBuilder {
 
     private String text;
+    private FontConfig fontConfig;
     private FontColor textColor;
     private Float fontScale;
     private Res resource;
@@ -21,6 +23,11 @@ public class MyNotificationPopupConfigBuilder {
 
     public MyNotificationPopupConfigBuilder setText(String text) {
         this.text = text;
+        return this;
+    }
+
+    public MyNotificationPopupConfigBuilder setFontConfig(FontConfig fontConfig) {
+        this.fontConfig = fontConfig;
         return this;
     }
 
@@ -61,6 +68,7 @@ public class MyNotificationPopupConfigBuilder {
         config.setText(text);
         config.setTextColor(textColor);
         config.setFontScale(fontScale);
+        config.setFontConfig(fontConfig);
         config.setResource(resource);
         config.setImageDimen(imageDimen);
         config.setPopupWidth(popupWidth);
