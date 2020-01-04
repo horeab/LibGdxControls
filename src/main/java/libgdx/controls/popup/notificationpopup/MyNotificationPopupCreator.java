@@ -41,7 +41,14 @@ public class MyNotificationPopupCreator {
                 popup.add(GraphicUtils.getImage(config.getResource())).width(config.getImageDimen()).height(config.getImageDimen());
             }
             if (StringUtils.isNotBlank(config.getText())) {
-                popup.add(new MyWrappedLabel(new MyWrappedLabelConfigBuilder().setText(config.getText()).setWidth(config.getResource() != null ? popupWidth - config.getImageDimen() : popupWidth).build()));
+                MyWrappedLabelConfigBuilder myWrappedLabelConfigBuilder = new MyWrappedLabelConfigBuilder().setText(config.getText()).setWidth(config.getResource() != null ? popupWidth - config.getImageDimen() : popupWidth);
+                if (config.getTextColor() != null) {
+                    myWrappedLabelConfigBuilder.setTextColor(config.getTextColor());
+                }
+                if (config.getFontScale() != null) {
+                    myWrappedLabelConfigBuilder.setFontScale(config.getFontScale());
+                }
+                popup.add(new MyWrappedLabel(myWrappedLabelConfigBuilder.build()));
             }
         }
         popup.setWidth(popupWidth + MainDimen.horizontal_general_margin.getDimen() * 2);

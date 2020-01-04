@@ -31,6 +31,10 @@ public class MyWrappedLabel extends TextTable {
         this(new MyWrappedLabelConfigBuilder().setSingleLineLabel().setText(text).build());
     }
 
+    public MyWrappedLabel(String text, float fontScale) {
+        this(new MyWrappedLabelConfigBuilder().setSingleLineLabel().setFontScale(fontScale).setText(text).build());
+    }
+
     public MyWrappedLabel(MyWrappedLabelConfig myWrappedLabelConfig) {
         this.myWrappedLabelConfig = myWrappedLabelConfig;
         create(myWrappedLabelConfig.getText());

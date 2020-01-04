@@ -5,11 +5,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.utils.ScreenDimensionsManager;
+import libgdx.utils.model.FontColor;
 
 
 public class MyNotificationPopupConfigBuilder {
 
     private String text;
+    private FontColor textColor;
+    private Float fontScale;
     private Res resource;
     private Float imageDimen = MainDimen.side_notification_popup_icon.getDimen();
     private Float popupWidth = ScreenDimensionsManager.getScreenWidthValue(70);
@@ -18,6 +21,16 @@ public class MyNotificationPopupConfigBuilder {
 
     public MyNotificationPopupConfigBuilder setText(String text) {
         this.text = text;
+        return this;
+    }
+
+    public MyNotificationPopupConfigBuilder setFontScale(float fontScale) {
+        this.fontScale = fontScale;
+        return this;
+    }
+
+    public MyNotificationPopupConfigBuilder setTextColor(FontColor textColor) {
+        this.textColor = textColor;
         return this;
     }
 
@@ -46,6 +59,8 @@ public class MyNotificationPopupConfigBuilder {
     public MyNotificationPopupConfig build() {
         MyNotificationPopupConfig config = new MyNotificationPopupConfig();
         config.setText(text);
+        config.setTextColor(textColor);
+        config.setFontScale(fontScale);
         config.setResource(resource);
         config.setImageDimen(imageDimen);
         config.setPopupWidth(popupWidth);

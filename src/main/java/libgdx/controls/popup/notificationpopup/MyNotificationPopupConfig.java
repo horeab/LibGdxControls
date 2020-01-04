@@ -7,17 +7,36 @@ import java.util.Objects;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.utils.ScreenDimensionsManager;
+import libgdx.utils.model.FontColor;
 
 
 public class MyNotificationPopupConfig {
 
     private String text;
+    private FontColor textColor;
+    private Float fontScale;
     private Res resource;
     private float imageDimen = MainDimen.side_notification_popup_icon.getDimen();
     private float popupWidth = ScreenDimensionsManager.getScreenWidthValue(70);
     private Table contentTable;
 
     MyNotificationPopupConfig() {
+    }
+
+    public FontColor getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(FontColor textColor) {
+        this.textColor = textColor;
+    }
+
+    public Float getFontScale() {
+        return fontScale;
+    }
+
+    public void setFontScale(Float fontScale) {
+        this.fontScale = fontScale;
     }
 
     public String getText() {
