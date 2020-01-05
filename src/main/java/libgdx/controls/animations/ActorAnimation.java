@@ -10,7 +10,9 @@ import com.badlogic.gdx.utils.Align;
 import libgdx.controls.ScreenRunnable;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
+import libgdx.resources.MainResource;
 import libgdx.resources.Res;
+import libgdx.resources.dimen.MainDimen;
 import libgdx.screen.AbstractScreen;
 import libgdx.utils.ActorPositionManager;
 import libgdx.utils.ScreenDimensionsManager;
@@ -77,6 +79,26 @@ public class ActorAnimation {
                         Utils.createRemoveActorAction(image)
                 ));
         image.addAction(Actions.scaleBy(-0.1f, -0.1f, duration));
+    }
+
+    public static void pressFinger(float x, float y) {
+        float zoomAmount2 = 3f;
+        float duration2 = 0.8f;
+        Image pressFinger = GraphicUtils.getImage(MainResource.press_finger);
+        float imgDim = MainDimen.horizontal_general_margin.getDimen() * 10;
+        pressFinger.setWidth(imgDim);
+        pressFinger.setHeight(imgDim);
+        pressFinger.addAction(
+                Actions.sequence(
+                        Actions.scaleBy(zoomAmount2, zoomAmount2, duration2),
+                        Actions.scaleBy(-zoomAmount2, -zoomAmount2, duration2 / 2f),
+                        Actions.delay(0.3f),
+                        Actions.fadeOut(0.5f),
+                        Actions.removeActor(pressFinger)
+                ));
+        pressFinger.setY(y);
+        pressFinger.setX(x);
+        Game.getInstance().getAbstractScreen().addActor(pressFinger);
     }
 
     public void animateZoomInZoomOut() {

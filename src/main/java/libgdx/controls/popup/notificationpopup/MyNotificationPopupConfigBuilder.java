@@ -15,6 +15,7 @@ public class MyNotificationPopupConfigBuilder {
     private FontConfig fontConfig;
     private FontColor textColor;
     private Float fontScale;
+    private Boolean transferBetweenScreens = true;
     private Res resource;
     private Float imageDimen = MainDimen.side_notification_popup_icon.getDimen();
     private Float popupWidth = ScreenDimensionsManager.getScreenWidthValue(70);
@@ -23,6 +24,11 @@ public class MyNotificationPopupConfigBuilder {
 
     public MyNotificationPopupConfigBuilder setText(String text) {
         this.text = text;
+        return this;
+    }
+
+    public MyNotificationPopupConfigBuilder setTransferBetweenScreens(Boolean transferBetweenScreens) {
+        this.transferBetweenScreens = transferBetweenScreens;
         return this;
     }
 
@@ -63,11 +69,13 @@ public class MyNotificationPopupConfigBuilder {
         this.contentTable = contentTable;
         return this;
     }
+
     public MyNotificationPopupConfig build() {
         MyNotificationPopupConfig config = new MyNotificationPopupConfig();
         config.setText(text);
         config.setTextColor(textColor);
         config.setFontScale(fontScale);
+        config.setTransferBetweenScreens(transferBetweenScreens);
         config.setFontConfig(fontConfig);
         config.setResource(resource);
         config.setImageDimen(imageDimen);

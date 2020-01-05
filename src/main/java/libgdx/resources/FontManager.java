@@ -15,7 +15,6 @@ import libgdx.utils.model.FontConfig;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class FontManager {
 
@@ -67,24 +66,8 @@ public class FontManager {
         return getFont(FontColor.BLACK);
     }
 
-    public BitmapFont getFont(FontColor color) {
-        BitmapFont result = getFontFromMap(color);
-        if (result == null) {
-            initFont(color);
-            result = getFontFromMap(color);
-        }
-        return result;
-    }
-
-    private BitmapFont getFontFromMap(FontColor color) {
-        BitmapFont result = null;
-        for (Map.Entry<FontConfig, BitmapFont> entry : usedFonts.entrySet()) {
-            if (entry.getKey().getColor() == color.getColor() && entry.getKey().getBorderColor() == color.getColor()) {
-                result = entry.getValue();
-                break;
-            }
-        }
-        return result;
+    public BitmapFont getFont(FontColor fontColor) {
+        return getFont(new FontConfig(fontColor.getColor(), FontConfig.FONT_SIZE));
     }
 
     public BitmapFont getFont(FontConfig fontConfig) {
@@ -96,11 +79,6 @@ public class FontManager {
             return bitmapFont;
         }
 
-    }
-
-    private void initFont(FontColor fontColor) {
-        Color color = fontColor.getColor();
-        createBitmapFont(new FontConfig(color, color, FontConfig.FONT_SIZE, FontConfig.STANDARD_BORDER_WIDTH));
     }
 
     private FreeTypeFontGenerator.FreeTypeFontParameter createFreeTypeFontParameter(Color color, Color borderColor, int fontSize, float borderWidth) {

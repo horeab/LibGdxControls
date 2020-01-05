@@ -33,7 +33,7 @@ public class MyNotificationPopupManager extends PopupManager<MyNotificationPopup
         allPopups.addAll(popupManager.displayedPopups);
         allPopups.addAll(popupManager.popupsWaitingToBeDisplayed);
         for (MyNotificationPopup popup : allPopups) {
-            if (!NotTransferableToOtherScreenPopup.class.isAssignableFrom(popup.getClass())) {
+            if (popup.getConfig().getTransferBetweenScreens() && !NotTransferableToOtherScreenPopup.class.isAssignableFrom(popup.getClass())) {
                 popup.createNewInstance().addToPopupManager();
             }
         }

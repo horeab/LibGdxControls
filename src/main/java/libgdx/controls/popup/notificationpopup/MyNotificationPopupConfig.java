@@ -21,8 +21,17 @@ public class MyNotificationPopupConfig {
     private float imageDimen = MainDimen.side_notification_popup_icon.getDimen();
     private float popupWidth = ScreenDimensionsManager.getScreenWidthValue(70);
     private Table contentTable;
+    private Boolean transferBetweenScreens;
 
     MyNotificationPopupConfig() {
+    }
+
+    public Boolean getTransferBetweenScreens() {
+        return transferBetweenScreens;
+    }
+
+    public void setTransferBetweenScreens(Boolean transferBetweenScreens) {
+        this.transferBetweenScreens = transferBetweenScreens;
     }
 
     public FontColor getTextColor() {
