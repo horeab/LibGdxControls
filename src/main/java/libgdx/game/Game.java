@@ -29,6 +29,7 @@ public abstract class Game<
         TGameId extends Enum & GameId>
         extends com.badlogic.gdx.Game {
 
+    public PurchaseManager purchaseManager;
     private static Game instance;
 
     private boolean firstTimeMainMenuDisplayed = true;

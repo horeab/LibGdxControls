@@ -2,6 +2,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext.gdxVersion = "1.9.8"
+    gdxPayVersion = '0.12.1'
 
     repositories {
         mavenCentral()
@@ -28,6 +29,7 @@ dependencies {
     testCompile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
     compile "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+    compile "com.badlogicgames.gdxpay:gdx-pay-client:$gdxPayVersion"
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
