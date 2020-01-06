@@ -1,4 +1,4 @@
-package libgdx.controls.button.builders;
+package libgdx.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.pay.Information;
@@ -7,39 +7,28 @@ import com.badlogic.gdx.pay.OfferType;
 import com.badlogic.gdx.pay.PurchaseManagerConfig;
 import com.badlogic.gdx.pay.PurchaseObserver;
 import com.badlogic.gdx.pay.Transaction;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
-import libgdx.controls.button.MainButtonSkin;
 import libgdx.controls.button.MyButton;
 import libgdx.game.Game;
 
-public class InAppPurchaseButtonBuilder {
+class InitInAppPurchases {
 
     public static final String MY_ENTITLEMENT = "extraContent";
 
     private final String sku;
     private final int usdCents;
+    private MyButton buyButton;
+    private MyButton restorePurchase;
 
-    public InAppPurchaseButtonBuilder(String sku, int usdCents) {
+    public InitInAppPurchases(String sku,
+                              int usdCents,
+                              MyButton buyButton,
+                              MyButton restorePurchase) {
         this.sku = sku;
         this.usdCents = usdCents;
-    }
-
-    public MyButton createButton() {
-        final MyButton button = new libgdx.controls.button.ButtonBuilder("")
-                .setButtonSkin(MainButtonSkin.DEFAULT)
-                .build();
-        button.addListener(new ChangeListener() {
-
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                buyItem();
-            }
-        });
-        updateFromManager(button);
-        initPurchaseManager(button);
-        return button;
+        this.buyButton = buyButton;
+        this.restorePurchase = restorePurchase;
+        initPurchaseManager(buyButton);
     }
 
     private void initPurchaseManager(MyButton myButton) {
@@ -157,5 +146,4 @@ public class InAppPurchaseButtonBuilder {
             });
         }
     }
-
 }
