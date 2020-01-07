@@ -1,16 +1,15 @@
 package libgdx.game;
 
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.pay.PurchaseManager;
 import com.badlogic.gdx.utils.I18NBundle;
 
 import libgdx.constants.user.AccountCreationSource;
+import libgdx.controls.popup.MyPopup;
 import libgdx.dbapi.UsersDbApiService;
 import libgdx.game.external.AppInfoService;
-import libgdx.game.external.BillingService;
-import libgdx.game.external.FacebookService;
 import libgdx.game.external.LoginService;
 import libgdx.game.model.BaseUserInfo;
 import libgdx.resources.FontManager;
@@ -19,7 +18,9 @@ import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
 import libgdx.screen.SplashScreen;
 import libgdx.utils.EnumUtils;
+import libgdx.utils.InAppPurchaseManager;
 import libgdx.utils.InternetUtils;
+import libgdx.utils.startgame.test.DefaultPurchaseManager;
 
 public abstract class Game<
         TAppInfoService extends AppInfoService,
@@ -30,16 +31,15 @@ public abstract class Game<
         TGameId extends Enum & GameId>
         extends com.badlogic.gdx.Game {
 
-    public PurchaseManager purchaseManager;
     private static Game instance;
 
     private boolean firstTimeMainMenuDisplayed = true;
     private Boolean hasInternet;
 
+    public PurchaseManager purchaseManager;
+    private InAppPurchaseManager inAppPurchaseManager;
     private TAppInfoService appInfoService;
     protected LoginService loginService;
-    private FacebookService facebookService;
-    private BillingService billingService;
 
     private AssetManager assetManager;
     private TSubGameDependencyManager subGameDependencyManager;
@@ -48,19 +48,21 @@ public abstract class Game<
     private FontManager fontManager;
     private UsersDbApiService usersDbApiService;
 
-    public Game(FacebookService facebookService,
-                BillingService billingService,
-                TAppInfoService appInfoService,
+    public Game(TAppInfoService appInfoService,
                 TMainDependencyManager mainDependencyManager) {
         super();
         instance = this;
         this.appInfoService = appInfoService;
-        this.facebookService = facebookService;
-        this.billingService = billingService;
         this.mainDependencyManager = mainDependencyManager;
         this.usersDbApiService = new UsersDbApiService();
         subGameDependencyManager = (TSubGameDependencyManager) ((TGameId) EnumUtils.getEnumValue(mainDependencyManager.getGameIdClass(), appInfoService.getGameIdPrefix())).getDependencyManager();
         screenManager = (TScreenManager) mainDependencyManager.createScreenManager();
+    }
+
+    @Override
+    public void create() {
+        screenManager.initialize(this);
+        initAssetManager();
     }
 
     public boolean hasInternet() {
@@ -82,17 +84,21 @@ public abstract class Game<
         return new BaseUserInfo(usersDbApiService.getUserId(externalId, accountCreationSource), externalId, accountCreationSource, getLoginService().getFullName());
     }
 
-    @Override
-    public void create() {
-        initAssetManager();
-        screenManager.initialize(this);
+    public InAppPurchaseManager getInAppPurchaseManager() {
+        return inAppPurchaseManager;
     }
+
 
     public void executeAfterAssetsLoaded() {
         fontManager = new FontManager();
         displayScreenAfterAssetsLoad();
         initLogin();
+        if (Gdx.app.getType() == Application.ApplicationType.Desktop) {
+            this.purchaseManager = new DefaultPurchaseManager();
+        }
+        this.inAppPurchaseManager = new InAppPurchaseManager();
     }
+
     private void initLogin() {
         if (!getLoginService().isUserLoggedIn() && !getAppInfoService().googleFacebookLoginEnabled()) {
             getLoginService().loginClick(AccountCreationSource.INTERNAL, new Runnable() {
@@ -138,14 +144,6 @@ public abstract class Game<
 
     public String getGameIdPrefix() {
         return getAppInfoService().getGameIdPrefix();
-    }
-
-    public BillingService getBillingService() {
-        return billingService;
-    }
-
-    public FacebookService getFacebookService() {
-        return facebookService;
     }
 
     public LoginService getLoginService() {

@@ -20,6 +20,7 @@ import libgdx.controls.popup.MyPopup;
 import libgdx.controls.textfield.MyTextFieldBuilder;
 import libgdx.game.Game;
 import libgdx.game.external.AppInfoService;
+import libgdx.preferences.InAppPurchasesPreferencesService;
 import libgdx.resources.dimen.MainDimen;
 
 import org.apache.commons.lang3.StringUtils;
@@ -48,6 +49,10 @@ public class Utils {
             }
         }
         return lst;
+    }
+
+    public static boolean isValidExtraContent() {
+        return Game.getInstance().getAppInfoService().isProVersion() || new InAppPurchasesPreferencesService().isPurchased(InAppPurchaseManager.EXTRA_CONTENT_PRODUCT_ID);
     }
 
     public static RunnableAction createRunnableAction(Runnable runnable) {

@@ -1,0 +1,64 @@
+package libgdx.utils.startgame.test;
+
+import com.badlogic.gdx.pay.Information;
+import com.badlogic.gdx.pay.PurchaseManager;
+import com.badlogic.gdx.pay.PurchaseManagerConfig;
+import com.badlogic.gdx.pay.PurchaseObserver;
+import com.badlogic.gdx.pay.Transaction;
+
+import java.util.Arrays;
+
+import libgdx.game.Game;
+import libgdx.game.external.AppInfoService;
+import libgdx.utils.InAppPurchaseManager;
+
+public class DefaultPurchaseManager implements PurchaseManager {
+
+    private PurchaseObserver myPurchaseObserver;
+    private boolean installed;
+
+    @Override
+    public String storeName() {
+        return null;
+    }
+
+    @Override
+    public void install(PurchaseObserver observer, PurchaseManagerConfig config, boolean autoFetchInformation) {
+        myPurchaseObserver = observer;
+        installed = true;
+    }
+
+    @Override
+    public boolean installed() {
+        return installed;
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    public void purchase(String identifier) {
+        Transaction transaction = new Transaction();
+        transaction.setIdentifier(InAppPurchaseManager.EXTRA_CONTENT_PRODUCT_ID);
+        myPurchaseObserver.handlePurchase(transaction);
+    }
+
+    @Override
+    public void purchaseRestore() {
+        Transaction[] transactions = new Transaction[1];
+        transactions[0] = new Transaction();
+        transactions[0].setIdentifier(InAppPurchaseManager.EXTRA_CONTENT_PRODUCT_ID);
+        myPurchaseObserver.handleRestore(transactions);
+    }
+
+    @Override
+    public Information getInformation(String identifier) {
+        return Information.newBuilder()
+                .localName("Unlock Extra Content")
+                .localDescription("Unlock extra content + Add-Free")
+                .localPricing("4.99")
+                .priceCurrencyCode("RON").build();
+    }
+}

@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+
 import libgdx.controls.ScreenRunnable;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.button.builders.BackButtonBuilder;
@@ -23,6 +24,8 @@ import libgdx.resources.dimen.MainDimen;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
 import libgdx.utils.ScreenDimensionsManager;
+import libgdx.utils.Utils;
+
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -118,6 +121,14 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
 
     @Override
     public void hide() {
+        hide(Utils.createRunnableAction(new Runnable() {
+            @Override
+            public void run() {
+            }
+        }));
+    }
+
+    public void hide(RunnableAction executeAfterHide) {
         super.hide();
         final MyPopup thisPopup = this;
         RunnableAction action = new RunnableAction();
@@ -127,7 +138,15 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
                 getPopupManager().hidePopup(thisPopup);
             }
         });
-        addAction(Actions.sequence(Actions.delay(0.4f), action));
+        addAction(Actions.sequence(
+                Actions.delay(0.4f),
+                Utils.createRunnableAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        getScreen().addAction(executeAfterHide);
+                    }
+                }),
+                action));
     }
 
     @Override

@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.label.MyWrappedLabel;
 import libgdx.game.Game;
-import libgdx.game.external.BillingService;
 import libgdx.resources.MainResource;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
@@ -23,17 +22,17 @@ public class BuyOfferButtonBuilder extends ButtonWithIconBuilder {
 
     public static BuyOfferButtonBuilder removeAdsButton() {
         Game instance = Game.getInstance();
-        final BillingService billingService = instance.getBillingService();
+        //NOT IMPLEMENTED
         BuyOfferButtonBuilder buyOfferButtonBuilder = new BuyOfferButtonBuilder(MainGameLabel.billing_remove_ads.getText(), MainResource.remove);
         buyOfferButtonBuilder.setRewardBottomRow(instance.getMainDependencyManager().getTransactionsService().getBuyRemoveAdsTransactionAmount());
-        buyOfferButtonBuilder.addCostRow(buyOfferButtonBuilder, billingService.getRemoveAdsProductBillingInfo());
-        buyOfferButtonBuilder.setFixedButtonSize(MainButtonSize.THREE_ROW_BUTTON_SIZE);
-        buyOfferButtonBuilder.addClickListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                billingService.buyRemoveAds();
-            }
-        });
+//        buyOfferButtonBuilder.addCostRow(buyOfferButtonBuilder, billingService.getRemoveAdsProductBillingInfo());
+//        buyOfferButtonBuilder.setFixedButtonSize(MainButtonSize.THREE_ROW_BUTTON_SIZE);
+//        buyOfferButtonBuilder.addClickListener(new ClickListener() {
+//            @Override
+//            public void clicked(InputEvent event, float x, float y) {
+//                billingService.buyRemoveAds();
+//            }
+//        });
         return buyOfferButtonBuilder;
     }
 
