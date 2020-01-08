@@ -128,7 +128,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
         }));
     }
 
-    public void hide(RunnableAction executeAfterHide) {
+    public void hide(final RunnableAction executeAfterHide) {
         super.hide();
         final MyPopup thisPopup = this;
         RunnableAction action = new RunnableAction();
