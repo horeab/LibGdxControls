@@ -42,7 +42,8 @@ public class InAppPurchaseManager {
     }
 
     public void displayInAppPurchasesPopup() {
-        inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), skuInfo.getLocalName(), buyButton, restoreButton);
+        String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : skuInfo.getLocalName();
+        inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
         inAppPurchasesPopup.addToPopupManager();
     }
 
@@ -56,11 +57,18 @@ public class InAppPurchaseManager {
         ButtonBuilder buyButtonBuilder = new ButtonBuilder()
 //                .setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE)
                 .setDefaultButton();
+
+        ButtonBuilder restoreButtonBuilder = new ButtonBuilder()
+                .setDefaultButton();
+
         if (skuInfo == null || skuInfo.equals(Information.UNAVAILABLE)) {
+            restoreButtonBuilder.setDisabled(true);
+            restoreButtonBuilder.setText(MainGameLabel.l_not_available.getText());
             buyButtonBuilder.setDisabled(true);
             buyButtonBuilder.setText(MainGameLabel.l_not_available.getText());
         } else {
 //            buyButtonBuilder.setText(skuInfo.getLocalName() + "\n" + skuInfo.getLocalPricing() + " " + skuInfo.getPriceCurrencyCode());
+            restoreButtonBuilder.setText(MainGameLabel.l_restore_purchase.getText());
             buyButtonBuilder.setText(MainGameLabel.l_buy.getText());
         }
         buyButton = buyButtonBuilder.build();
@@ -71,7 +79,7 @@ public class InAppPurchaseManager {
             }
         });
 
-        restoreButton = new ButtonBuilder().setDefaultButton().setText(MainGameLabel.l_restore_purchase.getText()).build();
+        restoreButton = restoreButtonBuilder.build();
         restoreButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
