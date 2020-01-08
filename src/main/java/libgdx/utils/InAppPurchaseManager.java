@@ -19,6 +19,7 @@ import libgdx.controls.popup.notificationpopup.MyNotificationPopupConfigBuilder;
 import libgdx.controls.popup.notificationpopup.MyNotificationPopupCreator;
 import libgdx.game.Game;
 import libgdx.preferences.InAppPurchasesPreferencesService;
+import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.model.FontColor;
 import libgdx.utils.model.FontConfig;
 
@@ -52,13 +53,15 @@ public class InAppPurchaseManager {
     }
 
     private void initButtons() {
-        ButtonBuilder buyButtonBuilder = new ButtonBuilder().setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE).setDefaultButton();
+        ButtonBuilder buyButtonBuilder = new ButtonBuilder()
+//                .setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE)
+                .setDefaultButton();
         if (skuInfo == null || skuInfo.equals(Information.UNAVAILABLE)) {
             buyButtonBuilder.setDisabled(true);
-            //TODO
-            buyButtonBuilder.setText("Not available");
+            buyButtonBuilder.setText(MainGameLabel.l_not_available.getText());
         } else {
-            buyButtonBuilder.setText(skuInfo.getLocalName() + "\n" + skuInfo.getLocalPricing() + " " + skuInfo.getPriceCurrencyCode());
+//            buyButtonBuilder.setText(skuInfo.getLocalName() + "\n" + skuInfo.getLocalPricing() + " " + skuInfo.getPriceCurrencyCode());
+            buyButtonBuilder.setText(MainGameLabel.l_buy.getText());
         }
         buyButton = buyButtonBuilder.build();
         buyButton.addListener(new ChangeListener() {
@@ -68,7 +71,7 @@ public class InAppPurchaseManager {
             }
         });
 
-        restoreButton = new ButtonBuilder().setDefaultButton().setText("Restore purchase").build();
+        restoreButton = new ButtonBuilder().setDefaultButton().setText(MainGameLabel.l_restore_purchase.getText()).build();
         restoreButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
@@ -99,7 +102,7 @@ public class InAppPurchaseManager {
             @Override
             public void run() {
                 MyNotificationPopupConfigBuilder myNotificationPopupConfigBuilder = new MyNotificationPopupConfigBuilder()
-                        .setText("Congrats!")
+                        .setText(MainGameLabel.l_purchased.getText())
                         .setTransferBetweenScreens(true);
                 myNotificationPopupConfigBuilder.setFontConfig(new FontConfig(FontColor.BLACK.getColor(), FontConfig.FONT_SIZE));
                 new MyNotificationPopupCreator(myNotificationPopupConfigBuilder.build()).shortNotificationPopup().addToPopupManager();
@@ -120,11 +123,9 @@ public class InAppPurchaseManager {
 
         @Override
         public void handleInstallError(final Throwable e) {
-            Gdx.app.error("IAP", "Error when trying to install PurchaseManager", e);
             Gdx.app.postRunnable(new Runnable() {
                 @Override
                 public void run() {
-                    //TODO show error
                     showErrorOnMainThread(e.getMessage());
                 }
             });
@@ -137,16 +138,14 @@ public class InAppPurchaseManager {
                     handlePurchase(t, true);
                 }
             else if (restorePressed) {
-                //TODO show error
-                showErrorOnMainThread("Nothing to restore");
+                showErrorOnMainThread(MainGameLabel.l_nothing_to_restore.getText());
             }
         }
 
         @Override
         public void handleRestoreError(Throwable e) {
             if (restorePressed) {
-                //TODO show error
-                showErrorOnMainThread("Error restoring purchases: " + e.getMessage());
+                showErrorOnMainThread("Error: " + e.getMessage());
             }
         }
 
@@ -170,8 +169,7 @@ public class InAppPurchaseManager {
 
         @Override
         public void handlePurchaseError(Throwable e) {
-            //TODO show error
-            showErrorOnMainThread("Error on buying:\n" + e.getMessage());
+            showErrorOnMainThread("Error:" + e.getMessage());
         }
 
         @Override
