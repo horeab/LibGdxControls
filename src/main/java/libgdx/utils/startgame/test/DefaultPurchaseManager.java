@@ -56,8 +56,8 @@ public class DefaultPurchaseManager implements PurchaseManager {
     @Override
     public Information getInformation(String identifier) {
         return Information.newBuilder()
-                .localName("Unlock Extra Content")
-                .localDescription("Unlock extra content + Add-Free")
+                .localName("Extra content + AddFree")
+                .localDescription("Extra content + AddFree")
                 .localPricing("4.99")
                 .priceCurrencyCode("RON").build();
     }

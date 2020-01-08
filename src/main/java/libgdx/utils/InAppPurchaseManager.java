@@ -42,7 +42,7 @@ public class InAppPurchaseManager {
     }
 
     public void displayInAppPurchasesPopup() {
-        inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), skuInfo.getLocalDescription(), buyButton, restoreButton);
+        inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), skuInfo.getLocalName(), buyButton, restoreButton);
         inAppPurchasesPopup.addToPopupManager();
     }
 
