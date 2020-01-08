@@ -106,6 +106,7 @@ public class InAppPurchaseManager {
                         .setTransferBetweenScreens(true);
                 myNotificationPopupConfigBuilder.setFontConfig(new FontConfig(FontColor.BLACK.getColor(), FontConfig.FONT_SIZE));
                 new MyNotificationPopupCreator(myNotificationPopupConfigBuilder.build()).shortNotificationPopup().addToPopupManager();
+                Game.getInstance().getScreenManager().showMainScreen();
             }
         }));
     }
