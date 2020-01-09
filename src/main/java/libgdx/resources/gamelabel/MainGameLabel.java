@@ -34,6 +34,18 @@ public enum MainGameLabel implements GameLabel {
     l_restore_purchase,
     l_nothing_to_restore,
     l_purchased,
+
+    l_tutorial,
+    l_stage,
+    l_player_starts,
+    l_opponent_starts,
+    l_you_start,
+    l_player_wins,
+    l_opponent_wins,
+    l_you_win,
+    l_draw,
+    l_continue,
+    l_multiplayer,
     ;
 
     @Override
