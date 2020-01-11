@@ -40,9 +40,7 @@ public class InAppPurchaseManager {
     }
 
     public void displayInAppPurchasesPopup() {
-        if (buyButton == null || restoreButton == null) {
-            initButtons();
-        }
+        initButtons();
         String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : MainGameLabel.l_extracontent.getText();
         inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
         inAppPurchasesPopup.addToPopupManager();
@@ -77,6 +75,7 @@ public class InAppPurchaseManager {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 buyButton.setDisabled(true);
+                restoreButton.setDisabled(true);
                 buyItem();
             }
         });
@@ -183,6 +182,8 @@ public class InAppPurchaseManager {
 
         @Override
         public void handlePurchaseError(Throwable e) {
+            buyButton.setDisabled(false);
+            restoreButton.setDisabled(false);
             showErrorOnMainThread("Error:" + e.getMessage());
         }
 
