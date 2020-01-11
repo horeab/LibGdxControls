@@ -18,6 +18,7 @@ public enum MainResource implements Res {
     font_zh("fonts/font_zh.ttf", null),
     textureAtlas("skin/skin.atlas", TextureAtlas.class),
 
+    inappurchase_background("backgrounds/inappurchase_background.png", Texture.class),
     popup_background("backgrounds/popup_background.png", Texture.class),
     transparent_background("backgrounds/transparent_background.png", Texture.class),
 
@@ -46,6 +47,7 @@ public enum MainResource implements Res {
     press_finger("general/press_finger.png", Texture.class),
     heart_full("general/heart_full.png", Texture.class),
     lock("general/lock.png", Texture.class),
+    unlock("general/unlock.png", Texture.class),
     sound_on("general/sound_on.png", Texture.class),
 
     main_labels_cs("labels/main_labels_cs", I18NBundle.class),

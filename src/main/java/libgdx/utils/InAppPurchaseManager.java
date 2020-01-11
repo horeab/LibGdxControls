@@ -37,10 +37,12 @@ public class InAppPurchaseManager {
     public InAppPurchaseManager() {
         this.inAppPurchasesService = new InAppPurchasesPreferencesService();
         initPurchaseManager();
-        initButtons();
     }
 
     public void displayInAppPurchasesPopup() {
+        if (buyButton == null || restoreButton == null) {
+            initButtons();
+        }
         String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : skuInfo.getLocalName();
         inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
         inAppPurchasesPopup.addToPopupManager();
@@ -126,6 +128,7 @@ public class InAppPurchaseManager {
                 @Override
                 public void run() {
                     skuInfo = Game.getInstance().purchaseManager.getInformation(EXTRA_CONTENT_PRODUCT_ID);
+                    initButtons();
                 }
             });
         }
@@ -135,6 +138,7 @@ public class InAppPurchaseManager {
             Gdx.app.postRunnable(new Runnable() {
                 @Override
                 public void run() {
+                    initButtons();
                     showErrorOnMainThread(e.getMessage());
                 }
             });
