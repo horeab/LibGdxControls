@@ -76,6 +76,7 @@ public class InAppPurchaseManager {
         buyButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                buyButton.setDisabled(true);
                 buyItem();
             }
         });

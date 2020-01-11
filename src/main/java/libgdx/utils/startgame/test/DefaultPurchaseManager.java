@@ -26,6 +26,7 @@ public class DefaultPurchaseManager implements PurchaseManager {
     public void install(PurchaseObserver observer, PurchaseManagerConfig config, boolean autoFetchInformation) {
         myPurchaseObserver = observer;
         installed = true;
+        observer.handleInstall();
     }
 
     @Override

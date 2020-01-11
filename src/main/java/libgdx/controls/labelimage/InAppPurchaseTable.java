@@ -12,8 +12,18 @@ import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
 import libgdx.resources.MainResource;
 import libgdx.resources.dimen.MainDimen;
+import libgdx.utils.Utils;
 
 public class InAppPurchaseTable {
+
+
+    public Table initExtraContentTable() {
+        Table extraContentTable = null;
+        if (!Utils.isValidExtraContent()) {
+            extraContentTable = new Table();
+        }
+        return extraContentTable;
+    }
 
     public Table create(Table extraContentTable) {
         Table lockBackgrTable = new Table();

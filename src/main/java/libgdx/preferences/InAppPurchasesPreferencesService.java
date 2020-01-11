@@ -6,7 +6,7 @@ public class InAppPurchasesPreferencesService {
     private PreferencesService preferencesService = new PreferencesService("InAppPurchasesService");
 
     public InAppPurchasesPreferencesService() {
-        this.preferencesService.clear();
+//        this.preferencesService.clear();
     }
 
     public boolean isPurchased(String purchaseId) {
