@@ -36,9 +36,8 @@ public class InAppPurchaseManager {
 
     public InAppPurchaseManager() {
         this.inAppPurchasesService = new InAppPurchasesPreferencesService();
-        skuInfo = Game.getInstance().purchaseManager.getInformation(EXTRA_CONTENT_PRODUCT_ID);
-        initButtons();
         initPurchaseManager();
+        initButtons();
     }
 
     public void displayInAppPurchasesPopup() {
@@ -126,6 +125,7 @@ public class InAppPurchaseManager {
             Gdx.app.postRunnable(new Runnable() {
                 @Override
                 public void run() {
+                    skuInfo = Game.getInstance().purchaseManager.getInformation(EXTRA_CONTENT_PRODUCT_ID);
                 }
             });
         }
