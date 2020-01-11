@@ -16,6 +16,8 @@ public interface AppInfoService {
 
     void showPopupAd(Runnable afterClose);
 
+    void removeAds();
+
     void showRewardedVideoAd();
 
     String getMainResourcesFolder();
