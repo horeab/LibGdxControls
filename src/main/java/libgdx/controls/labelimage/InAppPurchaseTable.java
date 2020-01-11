@@ -22,20 +22,20 @@ public class InAppPurchaseTable {
         Image image = GraphicUtils.getImage(MainResource.unlock);
         image.setWidth(imgDimen);
         image.setHeight(imgDimen);
-        image.setTouchable(Touchable.enabled);
-        image.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Game.getInstance().getInAppPurchaseManager().displayInAppPurchasesPopup();
-            }
-        });
-        new ActorAnimation(image, Game.getInstance().getAbstractScreen()).animateFastFadeInFadeOut();
+        new ActorAnimation(image, Game.getInstance().getAbstractScreen()).animateFadeInFadeOut();
         lockBackgrTable.add(image).width(imgDimen).height(imgDimen);
         Table table = new Table();
         Stack stack = new Stack();
         stack.add(extraContentTable);
         stack.add(lockBackgrTable);
         table.add(stack);
+        table.setTouchable(Touchable.enabled);
+        table.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Game.getInstance().getInAppPurchaseManager().displayInAppPurchasesPopup();
+            }
+        });
         return table;
     }
 }
