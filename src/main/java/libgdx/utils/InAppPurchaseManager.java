@@ -43,7 +43,7 @@ public class InAppPurchaseManager {
         if (buyButton == null || restoreButton == null) {
             initButtons();
         }
-        String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : skuInfo.getLocalName();
+        String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : MainGameLabel.l_extracontent.getText();
         inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
         inAppPurchasesPopup.addToPopupManager();
     }

@@ -229,6 +229,11 @@ public class Utils {
             }
 
             @Override
+            public void removeAds() {
+                currentAppInfoService.removeAds();
+            }
+
+            @Override
             public String getStoreAppId() {
                 return currentAppInfoService.getStoreAppId();
             }

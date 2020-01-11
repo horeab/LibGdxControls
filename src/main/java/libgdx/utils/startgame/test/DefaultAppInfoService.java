@@ -30,6 +30,11 @@ public class DefaultAppInfoService implements AppInfoService {
     }
 
     @Override
+    public void removeAds() {
+
+    }
+
+    @Override
     public boolean isProVersion() {
         return false;
     }
