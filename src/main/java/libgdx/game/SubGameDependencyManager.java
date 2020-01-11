@@ -36,7 +36,7 @@ public abstract class SubGameDependencyManager {
             resultSet.add(var.toLowerCase());
             resultSet.add(var.toUpperCase());
         }
-        return StringUtils.join(resultSet,"" );
+        return StringUtils.join(resultSet, "");
     }
 
     private String collectAllLabelChars() {
@@ -61,6 +61,10 @@ public abstract class SubGameDependencyManager {
     }
 
     protected abstract String allQuestionText();
+
+    public String getExtraContentProductId() {
+        return "";
+    }
 
     public RGBColor getScreenBackgroundColor() {
         return getScreenContrast() == Contrast.LIGHT ? RGBColor.LIGHT_BLUE : RGBColor.DARK_BLUE;

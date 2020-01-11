@@ -25,16 +25,16 @@ import libgdx.utils.model.FontConfig;
 
 public class InAppPurchaseManager {
 
-    public static final String EXTRA_CONTENT_PRODUCT_ID = "extraContent";
-
     private boolean restorePressed;
     private MyButton buyButton;
     private MyButton restoreButton;
     private InAppPurchasesPreferencesService inAppPurchasesService;
     private Information skuInfo;
     private InAppPurchasesPopup inAppPurchasesPopup;
+    private String productId;
 
-    public InAppPurchaseManager() {
+    public InAppPurchaseManager(String productId) {
+        this.productId = productId;
         this.inAppPurchasesService = new InAppPurchasesPreferencesService();
         initPurchaseManager();
     }
@@ -95,17 +95,17 @@ public class InAppPurchaseManager {
         // the purchase manager config here in the core project works if your SKUs are the same in every
         // payment system. If this is not the case, inject them like the PurchaseManager is injected
         PurchaseManagerConfig pmc = new PurchaseManagerConfig();
-        pmc.addOffer(new Offer().setType(OfferType.ENTITLEMENT).setIdentifier(EXTRA_CONTENT_PRODUCT_ID));
+        pmc.addOffer(new Offer().setType(OfferType.ENTITLEMENT).setIdentifier(productId));
 
         Game.getInstance().purchaseManager.install(new MyPurchaseObserver(), pmc, true);
     }
 
     private void buyItem() {
-        Game.getInstance().purchaseManager.purchase(EXTRA_CONTENT_PRODUCT_ID);
+        Game.getInstance().purchaseManager.purchase(productId);
     }
 
     private void setBought() {
-        inAppPurchasesService.savePurchase(EXTRA_CONTENT_PRODUCT_ID);
+        inAppPurchasesService.savePurchase(productId);
         buyButton.setDisabled(true);
         hideInAppPurchasesPopup(Utils.createRunnableAction(new Runnable() {
             @Override
@@ -127,7 +127,7 @@ public class InAppPurchaseManager {
             Gdx.app.postRunnable(new Runnable() {
                 @Override
                 public void run() {
-                    skuInfo = Game.getInstance().purchaseManager.getInformation(EXTRA_CONTENT_PRODUCT_ID);
+                    skuInfo = Game.getInstance().purchaseManager.getInformation(productId);
                     initButtons();
                 }
             });
@@ -172,7 +172,7 @@ public class InAppPurchaseManager {
                 @Override
                 public void run() {
                     if (transaction.isPurchased()) {
-                        if (transaction.getIdentifier().equals(EXTRA_CONTENT_PRODUCT_ID)) {
+                        if (transaction.getIdentifier().equals(productId)) {
                             setBought();
                         }
                     }

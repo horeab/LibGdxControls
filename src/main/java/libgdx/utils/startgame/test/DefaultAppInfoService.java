@@ -11,11 +11,6 @@ public class DefaultAppInfoService implements AppInfoService {
     }
 
     @Override
-    public boolean googleFacebookLoginEnabled() {
-        return false;
-    }
-
-    @Override
     public void showPopupAd(Runnable afterClose) {
         afterClose.run();
     }

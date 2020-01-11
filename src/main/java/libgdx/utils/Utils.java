@@ -52,7 +52,7 @@ public class Utils {
     }
 
     public static boolean isValidExtraContent() {
-        return Game.getInstance().getAppInfoService().isProVersion() || new InAppPurchasesPreferencesService().isPurchased(InAppPurchaseManager.EXTRA_CONTENT_PRODUCT_ID);
+        return Game.getInstance().getAppInfoService().isProVersion() || new InAppPurchasesPreferencesService().isPurchased(Game.getInstance().getSubGameDependencyManager().getExtraContentProductId());
     }
 
     public static RunnableAction createRunnableAction(Runnable runnable) {
@@ -286,11 +286,6 @@ public class Utils {
             @Override
             public boolean isProVersion() {
                 return currentAppInfoService.isProVersion();
-            }
-
-            @Override
-            public boolean googleFacebookLoginEnabled() {
-                return currentAppInfoService.googleFacebookLoginEnabled();
             }
 
             @Override

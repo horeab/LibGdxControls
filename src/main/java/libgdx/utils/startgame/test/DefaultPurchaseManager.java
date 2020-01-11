@@ -42,7 +42,7 @@ public class DefaultPurchaseManager implements PurchaseManager {
     @Override
     public void purchase(String identifier) {
         Transaction transaction = new Transaction();
-        transaction.setIdentifier(InAppPurchaseManager.EXTRA_CONTENT_PRODUCT_ID);
+        transaction.setIdentifier(Game.getInstance().getSubGameDependencyManager().getExtraContentProductId());
         myPurchaseObserver.handlePurchase(transaction);
     }
 
@@ -50,7 +50,7 @@ public class DefaultPurchaseManager implements PurchaseManager {
     public void purchaseRestore() {
         Transaction[] transactions = new Transaction[1];
         transactions[0] = new Transaction();
-        transactions[0].setIdentifier(InAppPurchaseManager.EXTRA_CONTENT_PRODUCT_ID);
+        transactions[0].setIdentifier(Game.getInstance().getSubGameDependencyManager().getExtraContentProductId());
         myPurchaseObserver.handleRestore(transactions);
     }
 

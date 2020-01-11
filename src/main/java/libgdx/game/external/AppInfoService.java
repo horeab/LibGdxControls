@@ -12,8 +12,6 @@ public interface AppInfoService {
 
     String getLanguage();
 
-    boolean googleFacebookLoginEnabled();
-
     void showPopupAd(Runnable afterClose);
 
     void removeAds();

@@ -96,11 +96,11 @@ public abstract class Game<
         if (Gdx.app.getType() == Application.ApplicationType.Desktop) {
             this.purchaseManager = new DefaultPurchaseManager();
         }
-        this.inAppPurchaseManager = new InAppPurchaseManager();
+        this.inAppPurchaseManager = new InAppPurchaseManager(getSubGameDependencyManager().getExtraContentProductId());
     }
 
     private void initLogin() {
-        if (!getLoginService().isUserLoggedIn() && !getAppInfoService().googleFacebookLoginEnabled()) {
+        if (!getLoginService().isUserLoggedIn()) {
             getLoginService().loginClick(AccountCreationSource.INTERNAL, new Runnable() {
                 @Override
                 public void run() {
