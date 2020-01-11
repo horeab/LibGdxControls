@@ -110,6 +110,7 @@ public class InAppPurchaseManager {
         hideInAppPurchasesPopup(Utils.createRunnableAction(new Runnable() {
             @Override
             public void run() {
+                Game.getInstance().getAppInfoService().removeAds();
                 MyNotificationPopupConfigBuilder myNotificationPopupConfigBuilder = new MyNotificationPopupConfigBuilder()
                         .setText(MainGameLabel.l_purchased.getText())
                         .setTransferBetweenScreens(true);
