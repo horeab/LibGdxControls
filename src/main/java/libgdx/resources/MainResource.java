@@ -20,6 +20,8 @@ public enum MainResource implements Res {
 
     inappurchase_background("backgrounds/inappurchase_background.png", Texture.class),
     popup_background("backgrounds/popup_background.png", Texture.class),
+    red_background("backgrounds/red_background.png", Texture.class),
+    green_background("backgrounds/green_background.png", Texture.class),
     transparent_background("backgrounds/transparent_background.png", Texture.class),
 
     background_texture("general/background_texture.png", Texture.class),

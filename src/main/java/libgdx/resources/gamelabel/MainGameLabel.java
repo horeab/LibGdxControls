@@ -16,6 +16,10 @@ public enum MainGameLabel implements GameLabel {
     pro_version_info,
     pro_version_info_unlock,
     pro_version_download,
+    l_showanswers,
+    l_correct_answer,
+    l_your_answer,
+    l_your_answer_is_correct,
     l_level,
     l_level_record,
     l_score,
@@ -46,8 +50,7 @@ public enum MainGameLabel implements GameLabel {
     l_draw,
     l_continue,
     l_multiplayer,
-    l_extracontent,
-    ;
+    l_extracontent,;
 
     @Override
     public String getText(Object... params) {

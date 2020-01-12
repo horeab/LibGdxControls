@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 import libgdx.controls.button.ButtonBuilder;
-import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.popup.InAppPurchasesPopup;
 import libgdx.controls.popup.notificationpopup.MyNotificationPopupConfigBuilder;
@@ -39,9 +38,9 @@ public class InAppPurchaseManager {
         initPurchaseManager();
     }
 
-    public void displayInAppPurchasesPopup() {
+    public void displayInAppPurchasesPopup(String text) {
         initButtons();
-        String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : MainGameLabel.l_extracontent.getText();
+        String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : text;
         inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
         inAppPurchasesPopup.addToPopupManager();
     }

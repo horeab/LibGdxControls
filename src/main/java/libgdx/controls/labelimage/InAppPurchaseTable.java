@@ -12,6 +12,7 @@ import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
 import libgdx.resources.MainResource;
 import libgdx.resources.dimen.MainDimen;
+import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.Utils;
 
 public class InAppPurchaseTable {
@@ -43,7 +44,7 @@ public class InAppPurchaseTable {
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                Game.getInstance().getInAppPurchaseManager().displayInAppPurchasesPopup();
+                Game.getInstance().getInAppPurchaseManager().displayInAppPurchasesPopup(MainGameLabel.l_extracontent.getText());
             }
         });
         return table;
