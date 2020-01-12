@@ -32,6 +32,7 @@ public class InAppPurchaseManager {
     private Information skuInfo;
     private InAppPurchasesPopup inAppPurchasesPopup;
     private String productId;
+    private Runnable executeAfterBought;
 
     public InAppPurchaseManager(String productId) {
         this.productId = productId;
@@ -39,7 +40,29 @@ public class InAppPurchaseManager {
         initPurchaseManager();
     }
 
+    public void displayInAppPurchasesPopup() {
+        displayInAppPurchasesPopup(MainGameLabel.l_extracontent.getText());
+    }
+
+    public void displayInAppPurchasesPopup(Runnable executeAfterBought) {
+        displayInAppPurchasesPopup(MainGameLabel.l_extracontent.getText(), executeAfterBought);
+    }
+
     public void displayInAppPurchasesPopup(String text) {
+        displayInAppPurchasesPopup(text, new Runnable() {
+            @Override
+            public void run() {
+                executeDefaultRedirectScreen();
+            }
+        });
+    }
+
+    private void executeDefaultRedirectScreen() {
+        Game.getInstance().getScreenManager().showMainScreen();
+    }
+
+    public void displayInAppPurchasesPopup(String text, Runnable executeAfterBought) {
+        this.executeAfterBought = executeAfterBought;
         initButtons();
         String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : text;
         inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
@@ -120,7 +143,11 @@ public class InAppPurchaseManager {
                         .setTransferBetweenScreens(true);
                 myNotificationPopupConfigBuilder.setFontConfig(new FontConfig(FontColor.BLACK.getColor(), FontConfig.FONT_SIZE));
                 new MyNotificationPopupCreator(myNotificationPopupConfigBuilder.build()).shortNotificationPopup().addToPopupManager();
-                Game.getInstance().getScreenManager().showMainScreen();
+                if (executeAfterBought != null) {
+                    executeAfterBought.run();
+                } else {
+                    executeDefaultRedirectScreen();
+                }
             }
         }));
     }
