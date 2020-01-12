@@ -16,6 +16,7 @@ import libgdx.controls.button.MyButton;
 import libgdx.controls.popup.InAppPurchasesPopup;
 import libgdx.controls.popup.notificationpopup.MyNotificationPopupConfigBuilder;
 import libgdx.controls.popup.notificationpopup.MyNotificationPopupCreator;
+import libgdx.dbapi.GameStatsDbApiService;
 import libgdx.game.Game;
 import libgdx.preferences.InAppPurchasesPreferencesService;
 import libgdx.resources.gamelabel.MainGameLabel;
@@ -75,6 +76,10 @@ public class InAppPurchaseManager {
             public void changed(ChangeEvent event, Actor actor) {
                 buyButton.setDisabled(true);
                 restoreButton.setDisabled(true);
+                if (Game.getInstance().getCurrentUser() != null) {
+                    //record how many times the buy button has been pressed
+                    new GameStatsDbApiService().incrementGameStatsTournamentsWon(Game.getInstance().getCurrentUser().getId(), Long.valueOf(DateUtils.getNowMillis()).toString());
+                }
                 buyItem();
             }
         });
