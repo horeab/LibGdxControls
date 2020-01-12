@@ -2,6 +2,7 @@ package libgdx.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ public class PreferencesUtils {
 
     public static Map<Integer, Integer> loadMap(String mapName, PreferencesService preferencesService) {
         int size = preferencesService.getPreferences().getInteger(mapName + "_size", 0);
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new LinkedHashMap<>();
         for (int i = 0; i < size; i++) {
             map.put(preferencesService.getPreferences().getInteger(mapName + "_key_" + i, 0),
                     preferencesService.getPreferences().getInteger(mapName + "_value_" + i, 0));
