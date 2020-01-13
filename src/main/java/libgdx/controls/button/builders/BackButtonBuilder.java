@@ -31,13 +31,17 @@ public class BackButtonBuilder {
         return button;
     }
 
-    public MyButton addHoverBackButton(AbstractScreen screen) {
+    public MyButton addHoverBackButton(AbstractScreen screen, float x) {
         MyButton screenBackButton = new BackButtonBuilder().createScreenBackButton(screen);
-        screenBackButton.setPosition(MainDimen.horizontal_general_margin.getDimen() * 2,
+        screenBackButton.setPosition(x,
                 ScreenDimensionsManager.getScreenHeight() - MainButtonSize.BACK_BUTTON.getHeight());
         if (Gdx.app.getType() == Application.ApplicationType.iOS) {
             screen.addActor(screenBackButton);
         }
         return screenBackButton;
+    }
+
+    public MyButton addHoverBackButton(AbstractScreen screen) {
+        return addHoverBackButton(screen, MainDimen.horizontal_general_margin.getDimen() * 2);
     }
 }
