@@ -18,6 +18,7 @@ import libgdx.controls.label.MyWrappedLabel;
 import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
+import libgdx.resources.FontManager;
 import libgdx.resources.MainResource;
 import libgdx.resources.ResourcesManager;
 import libgdx.resources.dimen.MainDimen;
@@ -95,7 +96,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     }
 
     protected MyWrappedLabelConfigBuilder getInfoLabelConfigBuilder() {
-        return new MyWrappedLabelConfigBuilder().setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10);
+        return new MyWrappedLabelConfigBuilder().setFontScale(Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalBigFontDim() : FontManager.getBigFontDim()).setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10);
     }
 
     protected static void addEmptyRowWithMargin(Table table) {
@@ -151,7 +152,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
 
     @Override
     public float getPrefWidth() {
-        return ScreenDimensionsManager.getScreenWidthValue(90);
+        return ScreenDimensionsManager.getScreenWidthValue(Game.getInstance().getAppInfoService().isPortraitMode() ? 90 : 50);
     }
 
     @Override
