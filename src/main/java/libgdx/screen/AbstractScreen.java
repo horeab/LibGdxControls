@@ -39,7 +39,7 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
 
     public AbstractScreen() {
         contentStage = new Stage(new ExtendViewport(ScreenDimensionsManager.getScreenWidth(), ScreenDimensionsManager.getScreenHeight()));
-        backgroundStage = new Stage(new ExtendViewport(ScreenDimensionsManager.getScreenWidth(), ScreenDimensionsManager.getScreenHeight()));
+        backgroundStage = new Stage(new ExtendViewport(ScreenDimensionsManager.getExternalDeviceWidth(), ScreenDimensionsManager.getExternalDeviceHeight()));
         backgroundColor = Game.getInstance().getSubGameDependencyManager().getScreenBackgroundColor();
         myPopupManager = new MyPopupManager(this);
         myNotificationPopupManager = new MyNotificationPopupManager(this);
