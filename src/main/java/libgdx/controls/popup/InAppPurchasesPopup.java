@@ -3,11 +3,13 @@ package libgdx.controls.popup;
 import libgdx.controls.button.MyButton;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
+import libgdx.resources.FontManager;
 import libgdx.resources.MainResource;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
+import libgdx.utils.ScreenDimensionsManager;
 
 public class InAppPurchasesPopup extends MyPopup<AbstractScreen, AbstractScreenManager> {
 
@@ -28,7 +30,7 @@ public class InAppPurchasesPopup extends MyPopup<AbstractScreen, AbstractScreenM
     @Override
     public void addButtons() {
         addButton(buyButton);
-        float imgDimen = MainDimen.horizontal_general_margin.getDimen() * 13;
+        float imgDimen = ScreenDimensionsManager.getScreenOrientationVal(MainDimen.horizontal_general_margin.getDimen() * 13, MainDimen.horizontal_general_margin.getDimen() * 7);
         getContentTable().add(GraphicUtils.getImage(MainResource.mug)).height(imgDimen).width(imgDimen);
         addButton(restoreButton);
     }

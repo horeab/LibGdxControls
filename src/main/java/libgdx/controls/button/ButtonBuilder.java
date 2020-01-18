@@ -43,6 +43,7 @@ public class ButtonBuilder {
     private String buttonName;
     private boolean disabled;
     private Contrast contrast = Contrast.LIGHT;
+    private Float fontScale;
 
     public ButtonBuilder() {
     }
@@ -86,7 +87,16 @@ public class ButtonBuilder {
     }
 
     public ButtonBuilder setText(String text) {
-        centerTextImageColumnLabelImage = createTextTable(text, FontManager.getNormalFontDim());
+        float fontDim = FontManager.getNormalFontDim();
+        if (fontScale != null) {
+            fontDim = fontScale;
+        }
+        centerTextImageColumnLabelImage = createTextTable(text, fontDim);
+        return this;
+    }
+
+    public ButtonBuilder setFontScale(Float fontScale) {
+        this.fontScale = fontScale;
         return this;
     }
 

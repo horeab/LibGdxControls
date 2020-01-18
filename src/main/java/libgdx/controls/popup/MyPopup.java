@@ -96,7 +96,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     }
 
     protected MyWrappedLabelConfigBuilder getInfoLabelConfigBuilder() {
-        return new MyWrappedLabelConfigBuilder().setFontScale(Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalBigFontDim() : FontManager.getBigFontDim()).setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10);
+        return new MyWrappedLabelConfigBuilder().setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10);
     }
 
     protected static void addEmptyRowWithMargin(Table table) {

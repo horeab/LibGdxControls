@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-
 import libgdx.game.Game;
 
 
@@ -100,6 +99,10 @@ public class ScreenDimensionsManager {
     private static int getResizeMarginHeight(int height) {
         int topMarginPercent = Math.round(Game.getInstance().getAppInfoService().gameScreenTopMargin() / ScreenDimensionsManager.getScreenHeight() * 100);
         return height - Math.round(topMarginPercent / 100f * height);
+    }
+
+    public static float getScreenOrientationVal(float isPortraitValue, float isLandscapeValue) {
+        return isPortrait ? isPortraitValue : isLandscapeValue;
     }
 
 }

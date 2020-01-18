@@ -51,7 +51,7 @@ public class FontManager {
     }
 
     public static float getNormalFontDim() {
-        return calculateFontSize(NORMAL_FONT);
+        return ScreenDimensionsManager.getScreenOrientationVal(calculateFontSize(NORMAL_FONT), FontManager.calculateMultiplierStandardFontSize(1.8f));
     }
 
     private static float calculateFontSize(float fontSize) {

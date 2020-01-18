@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 import libgdx.controls.button.ButtonBuilder;
+import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.popup.InAppPurchasesPopup;
 import libgdx.controls.popup.notificationpopup.MyNotificationPopupConfigBuilder;
@@ -77,11 +78,14 @@ public class InAppPurchaseManager {
 
     private void initButtons() {
         ButtonBuilder buyButtonBuilder = new ButtonBuilder()
-//                .setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE)
                 .setDefaultButton();
-
         ButtonBuilder restoreButtonBuilder = new ButtonBuilder()
                 .setDefaultButton();
+        if (!Game.getInstance().getAppInfoService().isPortraitMode()) {
+            buyButtonBuilder.setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE);
+            restoreButtonBuilder.setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE);
+        }
+
 
         if (skuInfo == null || skuInfo.equals(Information.UNAVAILABLE)) {
             restoreButtonBuilder.setDisabled(true);

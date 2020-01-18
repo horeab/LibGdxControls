@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import libgdx.controls.button.ButtonBuilder;
+import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.button.builders.ButtonWithIconBuilder;
 import libgdx.game.Game;
@@ -22,9 +23,13 @@ public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManag
 
     @Override
     public void addButtons() {
-        MyButton button = new ButtonWithIconBuilder(MainGameLabel.pro_version_download.getText(), MainResource.crown).setSingleLineLabel()
-                .setDefaultButton()
-                .build();
+        ButtonBuilder buttonBuilder = new ButtonWithIconBuilder(MainGameLabel.pro_version_download.getText(), MainResource.crown)
+                .setSingleLineLabel()
+                .setDefaultButton();
+        if (!Game.getInstance().getAppInfoService().isPortraitMode()) {
+            buttonBuilder.setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE);
+        }
+        MyButton button = buttonBuilder.build();
         button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
