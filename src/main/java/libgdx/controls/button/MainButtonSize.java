@@ -7,6 +7,7 @@ public enum MainButtonSize implements ButtonSize {
 
     STANDARD_IMAGE(MainDimen.side_btn_image.getDimen(), MainDimen.side_btn_image.getDimen()),
     BACK_BUTTON(MainDimen.side_btn_back.getDimen(), MainDimen.side_btn_back.getDimen()),
+    UNLOCK_CONTENT_BUTTON(MainDimen.side_btn_unlock_content.getDimen(), MainDimen.side_btn_unlock_content.getDimen()),
 
     ONE_ROW_BUTTON_SIZE(MainDimen.width_default_btn.getDimen(), MainDimen.height_default_btn.getDimen()),
     TWO_ROW_BUTTON_SIZE(MainDimen.width_default_btn.getDimen(), MainDimen.height_default_btn.getDimen() * 1.5f),

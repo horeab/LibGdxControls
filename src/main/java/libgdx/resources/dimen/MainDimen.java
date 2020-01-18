@@ -9,6 +9,7 @@ public enum MainDimen implements Dimen {
     width_default_btn(62),
     side_btn_image(8),
     side_btn_back(8),
+    side_btn_unlock_content(7),
     //////////////////////////
     side_notification_popup_icon(8),;
 
