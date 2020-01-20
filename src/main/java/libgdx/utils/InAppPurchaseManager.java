@@ -50,16 +50,16 @@ public class InAppPurchaseManager {
     }
 
     public void displayInAppPurchasesPopup(String text) {
-        displayInAppPurchasesPopup(text, new Runnable() {
-            @Override
-            public void run() {
-                executeDefaultRedirectScreen();
-            }
-        });
+        displayInAppPurchasesPopup(text, defaultRedirectScreenRunnable());
     }
 
-    private void executeDefaultRedirectScreen() {
-        Game.getInstance().getScreenManager().showMainScreen();
+    public static Runnable defaultRedirectScreenRunnable() {
+        return new Runnable() {
+            @Override
+            public void run() {
+                Game.getInstance().getScreenManager().showMainScreen();
+            }
+        };
     }
 
     public void displayInAppPurchasesPopup(String text, Runnable executeAfterBought) {
@@ -150,7 +150,7 @@ public class InAppPurchaseManager {
                 if (executeAfterBought != null) {
                     executeAfterBought.run();
                 } else {
-                    executeDefaultRedirectScreen();
+                    defaultRedirectScreenRunnable().run();
                 }
             }
         }));
