@@ -132,7 +132,8 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
 
         Container<Group> backgroundContainer = createFullScreenContainer();
         setBackgroundContainer(backgroundContainer);
-        backgroundStage.addActor(backgroundContainer);
+        backgroundContainer.setFillParent(true);
+        contentStage.addActor(backgroundContainer);
     }
 
     protected void setBackgroundContainer(Container<Group> backgroundContainer) {
@@ -140,7 +141,7 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         if (!String.format("%.2f", backgr.getHeight() / backgr.getWidth()).equals(String.format("%.2f", ScreenDimensionsManager.STANDARD_SCREEN_RATIO))) {
             backgr = GraphicUtils.addTiledImage(MainResource.background_texture, 0, Texture.TextureWrap.Repeat, ScreenDimensionsManager.getExternalDeviceHeightValue(60));
         }
-        backgroundContainer.setBackground(backgr.getDrawable());
+        backgroundContainer.setBackground( backgr.getDrawable());
     }
 
     private Container<Group> createFullScreenContainer() {
