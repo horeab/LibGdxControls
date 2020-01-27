@@ -15,6 +15,10 @@ public class FontConfig {
     private int fontSize;
     private float borderWidth;
 
+    public FontConfig(Color color, Color borderColor, float fontSize, float borderWidth) {
+        this(color, borderColor, Math.round(fontSize), borderWidth);
+    }
+
     public FontConfig(Color color, Color borderColor, int fontSize, float borderWidth) {
         this.color = color;
         this.borderColor = borderColor;

@@ -74,12 +74,10 @@ public class MyButton extends TextButton {
         for (MyLabel label : labels) {
             Label.LabelStyle labelStyle = new Label.LabelStyle();
             FontColor buttonDisabledFontColor = buttonSkin.getButtonDisabledFontColor();
-            FontColor fontColor =
-                    isDisabled() ?
-                            buttonDisabledFontColor != null ? buttonDisabledFontColor : FontColor.BLACK
-                            : contrast == Contrast.LIGHT ? FontColor.BLACK : FontColor.WHITE;
-            labelStyle.font = Game.getInstance().getFontManager().getFont(fontColor);
-            labelStyle.fontColor = fontColor.getColor();
+            labelStyle.font = label.getStyle().font;
+            labelStyle.fontColor = isDisabled() ?
+                    (buttonDisabledFontColor != null ? buttonDisabledFontColor.getColor() : FontColor.GRAY.getColor())
+                    : label.getStyle().fontColor;
             label.setStyle(labelStyle);
         }
     }

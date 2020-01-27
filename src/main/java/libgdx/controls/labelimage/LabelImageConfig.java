@@ -3,6 +3,7 @@ package libgdx.controls.labelimage;
 
 import libgdx.resources.Res;
 import libgdx.utils.model.FontColor;
+import libgdx.utils.model.FontConfig;
 
 public class LabelImageConfig {
 
@@ -15,6 +16,7 @@ public class LabelImageConfig {
     private float marginBetweenLabelImage;
     private boolean alignTextRight;
     private boolean singleLineLabel;
+    private FontConfig fontConfig;
 
     public boolean isSingleLineLabel() {
         return singleLineLabel;
@@ -30,6 +32,14 @@ public class LabelImageConfig {
 
     void setText(String text) {
         this.text = text;
+    }
+
+    public FontConfig getFontConfig() {
+        return fontConfig;
+    }
+
+    public void setFontConfig(FontConfig fontConfig) {
+        this.fontConfig = fontConfig;
     }
 
     public Res getImage() {

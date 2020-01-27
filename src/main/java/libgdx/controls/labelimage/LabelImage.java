@@ -3,6 +3,7 @@ package libgdx.controls.labelimage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
+import libgdx.game.Game;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -15,12 +16,20 @@ import libgdx.graphics.GraphicUtils;
 
 public class LabelImage extends TextTable {
 
-    private Table labelTable= new Table();
+    private Table labelTable = new Table();
     private MyWrappedLabel label;
     private Image image;
 
     public LabelImage(LabelImageConfig labelImageConfig) {
-        label = new MyWrappedLabel(new MyWrappedLabelConfigBuilder().setText(labelImageConfig.getText()).setSingleLineLabel(labelImageConfig.isSingleLineLabel()).setWidth(labelImageConfig.getLabelWidth()).setFontScale(labelImageConfig.getFontScale()).setTextColor(labelImageConfig.getTextColor()).build());
+        MyWrappedLabelConfigBuilder myWrappedLabelConfigBuilder = new MyWrappedLabelConfigBuilder()
+                .setText(labelImageConfig.getText())
+                .setSingleLineLabel(labelImageConfig.isSingleLineLabel())
+                .setWidth(labelImageConfig.getLabelWidth())
+                .setFontScale(labelImageConfig.getFontScale())
+                .setFontConfig(labelImageConfig.getFontConfig())
+                .setTextColor(labelImageConfig.getTextColor());
+
+        label = new MyWrappedLabel(myWrappedLabelConfigBuilder.build());
         labelTable.add(label);
         if (labelImageConfig.getImage() != null) {
             image = GraphicUtils.getImage(labelImageConfig.getImage());
@@ -37,10 +46,8 @@ public class LabelImage extends TextTable {
                 add(image).width(imageSideDimension).height(imageSideDimension);
             }
         }
-        if (getLabels().size() > 1) {
-            for (MyLabel label : getLabels()) {
-                label.setFontScale(labelImageConfig.getFontScale() * 0.9f);
-            }
+        if (labelImageConfig.getFontConfig() != null) {
+            label.setFontConfig(labelImageConfig.getFontConfig());
         }
         setWidth(label.getWidth() + imageSideDimension);
         setHeight(imageSideDimension);

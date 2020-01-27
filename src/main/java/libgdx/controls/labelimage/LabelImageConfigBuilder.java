@@ -1,11 +1,10 @@
 package libgdx.controls.labelimage;
 
-import com.badlogic.gdx.graphics.Color;
-
-import libgdx.resources.Res;
 import libgdx.resources.FontManager;
+import libgdx.resources.Res;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
+import libgdx.utils.model.FontConfig;
 
 public class LabelImageConfigBuilder {
 
@@ -19,6 +18,7 @@ public class LabelImageConfigBuilder {
     private float fontScale = FontManager.getNormalFontDim();
     private FontColor textColor = FontColor.BLACK;
     private boolean singleLineLabel = true;
+    private FontConfig fontConfig;
     private float labelWidth = ScreenDimensionsManager.getScreenWidthValue(50);
 
     public LabelImageConfigBuilder setSingleLineLabel() {
@@ -32,6 +32,10 @@ public class LabelImageConfigBuilder {
         return this;
     }
 
+    public LabelImageConfigBuilder setFontConfig(FontConfig fontConfig) {
+        this.fontConfig = fontConfig;
+        return this;
+    }
 
     public LabelImageConfigBuilder setText(String text) {
         this.text = text;
@@ -76,6 +80,7 @@ public class LabelImageConfigBuilder {
         labelImageConfig.setImage(image);
         labelImageConfig.setLabelWidth(labelWidth);
         labelImageConfig.setSingleLineLabel(singleLineLabel);
+        labelImageConfig.setFontConfig(fontConfig);
         labelImageConfig.setImageSideDimension(imageSideDimension);
         labelImageConfig.setTextColor(textColor);
         labelImageConfig.setMarginBetweenLabelImage(marginBetweenLabelImage);
