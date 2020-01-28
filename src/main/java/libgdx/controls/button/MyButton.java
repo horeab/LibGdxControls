@@ -62,7 +62,6 @@ public class MyButton extends TextButton {
         buttonStyle.disabled = buttonSkin.getImgDisabled();
         if (buttonSkin.getButtonDisabledFontColor() != null) {
             buttonStyle.font = Game.getInstance().getFontManager().getFont(buttonSkin.getButtonDisabledFontColor());
-//            buttonStyle.disabledFontColor = buttonSkin.getButtonDisabledFontColor().getColor().toColor();
         }
         setStyle(buttonStyle);
     }
@@ -73,11 +72,7 @@ public class MyButton extends TextButton {
         List<MyLabel> labels = getCenterRowLabels();
         for (MyLabel label : labels) {
             Label.LabelStyle labelStyle = new Label.LabelStyle();
-            FontColor buttonDisabledFontColor = buttonSkin.getButtonDisabledFontColor();
             labelStyle.font = label.getStyle().font;
-            labelStyle.fontColor = isDisabled() ?
-                    (buttonDisabledFontColor != null ? buttonDisabledFontColor.getColor() : FontColor.GRAY.getColor())
-                    : label.getStyle().fontColor;
             label.setStyle(labelStyle);
         }
     }
