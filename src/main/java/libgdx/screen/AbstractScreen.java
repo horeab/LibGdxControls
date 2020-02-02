@@ -152,6 +152,10 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         return container;
     }
 
+    public TScreenManager getScreenManager() {
+        return screenManager;
+    }
+
     @Override
     public void render(float delta) {
         Gdx.gl20.glClearColor(backgroundColor.r / 255f, backgroundColor.g / 255f, backgroundColor.b / 255f, backgroundColor.a);

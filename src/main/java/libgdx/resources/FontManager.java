@@ -39,7 +39,7 @@ public class FontManager {
     }
 
     public static float getNormalBigFontDim() {
-        return calculateFontSize(NORMAL_BIG_FONT);
+        return ScreenDimensionsManager.getScreenOrientationVal(calculateFontSize(NORMAL_BIG_FONT), FontManager.calculateMultiplierStandardFontSize(2f));
     }
 
     public static float getBigFontDim() {
