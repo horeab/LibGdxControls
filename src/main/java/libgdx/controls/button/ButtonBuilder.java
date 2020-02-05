@@ -80,7 +80,7 @@ public class ButtonBuilder {
     }
 
     public ButtonBuilder setWrappedText(String text, float width) {
-        return setWrappedText(text, width, Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalBigFontDim() : FontManager.getBigFontDim());
+        return setWrappedText(text, width, Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalFontDim() : FontManager.getBigFontDim());
     }
 
     public ButtonBuilder setContrast(Contrast contrast) {
