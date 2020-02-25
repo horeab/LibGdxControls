@@ -46,6 +46,9 @@ public class MyButton extends TextButton {
             setTouchable(Touchable.disabled);
         }
         TextButtonStyle buttonStyle = new TextButtonStyle(getStyle());
+        if (isDisabled && buttonSkin.getButtonDisabledFontColor() != null) {
+            buttonStyle.font = Game.getInstance().getFontManager().getFont(buttonSkin.getButtonDisabledFontColor());
+        }
         setStyle(buttonStyle);
     }
 

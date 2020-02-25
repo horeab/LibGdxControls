@@ -11,7 +11,7 @@ public class MyWrappedLabelConfigBuilder {
 
     private float width = ScreenDimensionsManager.getScreenWidthValue(80);
     private float fontScale = FontManager.getNormalFontDim();
-    private FontColor textColor = FontColor.BLACK;
+    private FontColor textColor = FontManager.getScreenContrastStyle();
     private FontConfig fontConfig;
     private String text;
     private boolean singleLineLabel = false;
@@ -41,7 +41,7 @@ public class MyWrappedLabelConfigBuilder {
     }
 
     public MyWrappedLabelConfigBuilder setStyleDependingOnContrast() {
-        this.textColor = getScreenContrastStyle();
+        this.textColor = FontManager.getScreenContrastStyle();
         return this;
     }
 
@@ -74,13 +74,5 @@ public class MyWrappedLabelConfigBuilder {
         myWrappedLabelConfig.setFontConfig(fontConfig);
         myWrappedLabelConfig.setTextColor(textColor);
         return myWrappedLabelConfig;
-    }
-
-    public static FontColor getScreenContrastStyle() {
-        return getScreenContrastStyle(FontColor.WHITE, FontColor.BLACK);
-    }
-
-    public static FontColor getScreenContrastStyle(FontColor darkContrastStyle, FontColor lightContrastStyle) {
-        return Game.getInstance().getSubGameDependencyManager().getScreenContrast() == Contrast.LIGHT ? lightContrastStyle : darkContrastStyle;
     }
 }

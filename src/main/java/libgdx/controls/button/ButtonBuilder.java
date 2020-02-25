@@ -16,6 +16,7 @@ import libgdx.resources.FontManager;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.transactions.TransactionAmount;
+import libgdx.utils.model.FontColor;
 import libgdx.utils.model.FontConfig;
 import org.apache.commons.lang3.StringUtils;
 
@@ -40,7 +41,7 @@ public class ButtonBuilder {
     private String buttonName;
     private boolean disabled;
     private Contrast contrast = Contrast.LIGHT;
-    private Float fontScale;
+    protected Float fontScale;
     private FontConfig fontConfig;
 
     public ButtonBuilder() {
@@ -70,17 +71,17 @@ public class ButtonBuilder {
 
 
     public ButtonBuilder setWrappedText(LabelImageConfigBuilder labelImageConfigBuilder) {
+        if (contrast == Contrast.DARK) {
+            labelImageConfigBuilder.setTextColor(FontColor.WHITE);
+        }
         LabelImage labelImage = new LabelImage(labelImageConfigBuilder.build());
         addCenterTextImageColumn(labelImage);
         return this;
     }
 
-    public ButtonBuilder setWrappedText(String text, float width, float fontScale) {
-        return setWrappedText(new LabelImageConfigBuilder().setText(text).setFontScale(fontScale).setWrappedLineLabel(width));
-    }
-
     public ButtonBuilder setWrappedText(String text, float width) {
-        return setWrappedText(text, width, Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalFontDim() : FontManager.getBigFontDim());
+        float fontScale = this.fontScale != null ? this.fontScale : Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalFontDim() : FontManager.getBigFontDim();
+        return setWrappedText(new LabelImageConfigBuilder().setText(text).setFontScale(fontScale).setWrappedLineLabel(width));
     }
 
     public ButtonBuilder setContrast(Contrast contrast) {

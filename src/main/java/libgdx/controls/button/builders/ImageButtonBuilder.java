@@ -25,6 +25,7 @@ public class ImageButtonBuilder extends ButtonBuilder {
 
     private boolean animateFadeInFadeOut;
     private boolean animateZoomInZoomOut;
+    private float animateZoomInZoomOutAmount = 0.2f;
     private AbstractScreen screen;
 
     public ImageButtonBuilder(ButtonSkin buttonSkin, AbstractScreen screen) {
@@ -43,9 +44,15 @@ public class ImageButtonBuilder extends ButtonBuilder {
         return this;
     }
 
+    public ImageButtonBuilder setAnimateZoomInZoomOutAmount(float animateZoomInZoomOutAmount) {
+        this.animateZoomInZoomOutAmount = animateZoomInZoomOutAmount;
+        return this;
+    }
+
     public ImageButtonBuilder setText(String text) {
         if (StringUtils.isNotBlank(text)) {
-            LabelImage textTable = createTextTable(text, MainDimen.horizontal_general_margin.getDimen() * 15, FontManager.calculateMultiplierStandardFontSize(0.7f));
+            float fontScale = this.fontScale != null ? this.fontScale : FontManager.calculateMultiplierStandardFontSize(0.7f);
+            LabelImage textTable = createTextTable(text, MainDimen.horizontal_general_margin.getDimen() * 15, fontScale);
             textTable.setBackground(GraphicUtils.getNinePatch(MainResource.popup_background));
             addCenterTextImageColumn(textTable);
         }
@@ -71,7 +78,7 @@ public class ImageButtonBuilder extends ButtonBuilder {
         }
         if (animateZoomInZoomOut) {
             button.setTransform(true);
-            new ActorAnimation(button, screen).animateZoomInZoomOut();
+            new ActorAnimation(button, screen).animateZoomInZoomOut(animateZoomInZoomOutAmount);
         }
         Table centerRow = button.getCenterRow();
         if (centerRow != null) {

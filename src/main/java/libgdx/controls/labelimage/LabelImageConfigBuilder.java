@@ -1,5 +1,6 @@
 package libgdx.controls.labelimage;
 
+import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.resources.FontManager;
 import libgdx.resources.Res;
 import libgdx.utils.ScreenDimensionsManager;
@@ -16,7 +17,7 @@ public class LabelImageConfigBuilder {
     private float marginBetweenLabelImage;
     private float imageSideDimension = DEFAULT_IMAGE_SIDE_DIMENSION;
     private float fontScale = FontManager.getNormalFontDim();
-    private FontColor textColor = FontColor.BLACK;
+    private FontColor textColor = FontManager.getScreenContrastStyle();
     private boolean singleLineLabel = true;
     private FontConfig fontConfig;
     private float labelWidth = ScreenDimensionsManager.getScreenWidthValue(50);

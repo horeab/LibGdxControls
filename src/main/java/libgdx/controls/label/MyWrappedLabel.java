@@ -163,11 +163,11 @@ public class MyWrappedLabel extends TextTable {
     }
 
     public void setStyleDependingOnContrast() {
-        setTextColor(MyWrappedLabelConfigBuilder.getScreenContrastStyle());
+        setTextColor(FontManager.getScreenContrastStyle());
     }
 
     public void setStyleDependingOnContrast(FontColor darkContrastStyle, FontColor lightContrastStyle) {
-        setTextColor(MyWrappedLabelConfigBuilder.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
+        setTextColor(FontManager.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
     }
 
     public MyWrappedLabel fitToContainer() {
