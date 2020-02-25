@@ -1,7 +1,5 @@
 package libgdx.controls.label;
 
-import libgdx.constants.Contrast;
-import libgdx.game.Game;
 import libgdx.resources.FontManager;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
@@ -11,7 +9,7 @@ public class MyWrappedLabelConfigBuilder {
 
     private float width = ScreenDimensionsManager.getScreenWidthValue(80);
     private float fontScale = FontManager.getNormalFontDim();
-    private FontColor textColor = FontManager.getScreenContrastStyle();
+    private FontColor textColor = FontManager.getBaseColorForContrast();
     private FontConfig fontConfig;
     private String text;
     private boolean singleLineLabel = false;
@@ -41,7 +39,7 @@ public class MyWrappedLabelConfigBuilder {
     }
 
     public MyWrappedLabelConfigBuilder setStyleDependingOnContrast() {
-        this.textColor = FontManager.getScreenContrastStyle();
+        this.textColor = FontManager.getBaseColorForContrast();
         return this;
     }
 

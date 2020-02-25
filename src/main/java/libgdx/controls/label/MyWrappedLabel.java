@@ -8,8 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -163,11 +161,11 @@ public class MyWrappedLabel extends TextTable {
     }
 
     public void setStyleDependingOnContrast() {
-        setTextColor(FontManager.getScreenContrastStyle());
+        setTextColor(FontManager.getBaseColorForContrast());
     }
 
     public void setStyleDependingOnContrast(FontColor darkContrastStyle, FontColor lightContrastStyle) {
-        setTextColor(FontManager.getScreenContrastStyle(darkContrastStyle, lightContrastStyle));
+        setTextColor(FontManager.getBaseColorForContrast(darkContrastStyle, lightContrastStyle));
     }
 
     public MyWrappedLabel fitToContainer() {

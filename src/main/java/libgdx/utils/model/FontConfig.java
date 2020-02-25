@@ -2,7 +2,6 @@ package libgdx.utils.model;
 
 
 import com.badlogic.gdx.graphics.Color;
-import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.resources.FontManager;
 
 import java.util.Objects;
@@ -45,16 +44,16 @@ public class FontConfig {
     }
 
     public FontConfig(int fontSize) {
-        this(FontManager.getScreenContrastStyle().getColor(), fontSize);
+        this(FontManager.getBaseColorForContrast().getColor(), fontSize);
     }
 
     public FontConfig(int fontSize, float borderWidth) {
-        this(FontManager.getScreenContrastStyle().getColor(), FontManager.getScreenContrastStyle().getColor(), fontSize, borderWidth);
+        this(FontManager.getBaseColorForContrast().getColor(), FontManager.getBaseColorForContrast().getColor(), fontSize, borderWidth);
     }
 
 
     public FontConfig() {
-        this(FontManager.getScreenContrastStyle().getColor());
+        this(FontManager.getBaseColorForContrast().getColor());
     }
 
     public Color getColor() {

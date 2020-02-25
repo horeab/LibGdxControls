@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 import libgdx.constants.Contrast;
-import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.game.Game;
 import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.ScreenDimensionsManager;
@@ -65,7 +64,7 @@ public class FontManager {
     }
 
     public BitmapFont getFont() {
-        return getFont(getScreenContrastStyle());
+        return getFont(getBaseColorForContrast());
     }
 
     public BitmapFont getFont(FontColor fontColor) {
@@ -101,11 +100,11 @@ public class FontManager {
         usedFonts.put(fontConfig, font);
     }
 
-    public static FontColor getScreenContrastStyle() {
-        return getScreenContrastStyle(FontColor.WHITE, FontColor.BLACK);
+    public static FontColor getBaseColorForContrast() {
+        return getBaseColorForContrast(FontColor.WHITE, FontColor.BLACK);
     }
 
-    public static FontColor getScreenContrastStyle(FontColor darkContrastStyle, FontColor lightContrastStyle) {
+    public static FontColor getBaseColorForContrast(FontColor darkContrastStyle, FontColor lightContrastStyle) {
         return Game.getInstance().getSubGameDependencyManager().getScreenContrast() == Contrast.LIGHT ? lightContrastStyle : darkContrastStyle;
     }
 }
