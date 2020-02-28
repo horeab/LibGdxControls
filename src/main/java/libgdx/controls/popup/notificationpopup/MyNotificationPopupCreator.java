@@ -43,7 +43,7 @@ public class MyNotificationPopupCreator {
             if (StringUtils.isNotBlank(config.getText())) {
                 MyWrappedLabelConfigBuilder myWrappedLabelConfigBuilder = new MyWrappedLabelConfigBuilder().setText(config.getText()).setWidth(config.getResource() != null ? popupWidth - config.getImageDimen() : popupWidth);
                 if (config.getTextColor() != null) {
-                    myWrappedLabelConfigBuilder.setTextColor(config.getTextColor());
+                    myWrappedLabelConfigBuilder.setFontColor(config.getTextColor());
                 }
                 if (config.getFontScale() != null) {
                     myWrappedLabelConfigBuilder.setFontScale(config.getFontScale());

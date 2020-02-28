@@ -42,6 +42,7 @@ public class ButtonBuilder {
     private boolean disabled;
     private Contrast contrast = Contrast.LIGHT;
     protected Float fontScale;
+    protected FontColor fontColor;
     private FontConfig fontConfig;
 
     public ButtonBuilder() {
@@ -60,7 +61,11 @@ public class ButtonBuilder {
     }
 
     protected LabelImage createTextTable(String text, float tableWidth, float fontScale) {
-        return new LabelImage(new LabelImageConfigBuilder().setFontConfig(fontConfig).setWrappedLineLabel(tableWidth).setFontScale(fontScale).setText(text).build());
+        LabelImageConfigBuilder labelImageConfigBuilder = new LabelImageConfigBuilder().setFontConfig(fontConfig).setWrappedLineLabel(tableWidth).setFontScale(fontScale).setText(text);
+        if (fontColor != null) {
+            labelImageConfigBuilder.setTextColor(fontColor);
+        }
+        return new LabelImage(labelImageConfigBuilder.build());
     }
 
     public ButtonBuilder setSingleLineText(String text, float fontScale) {
@@ -71,8 +76,8 @@ public class ButtonBuilder {
 
 
     public ButtonBuilder setWrappedText(LabelImageConfigBuilder labelImageConfigBuilder) {
-        if (contrast == Contrast.DARK) {
-            labelImageConfigBuilder.setTextColor(FontColor.WHITE);
+        if (fontColor != null) {
+            labelImageConfigBuilder.setTextColor(fontColor);
         }
         LabelImage labelImage = new LabelImage(labelImageConfigBuilder.build());
         addCenterTextImageColumn(labelImage);
@@ -100,6 +105,11 @@ public class ButtonBuilder {
 
     public ButtonBuilder setFontScale(Float fontScale) {
         this.fontScale = fontScale;
+        return this;
+    }
+
+    public ButtonBuilder setFontColor(FontColor fontColor) {
+        this.fontColor = fontColor;
         return this;
     }
 

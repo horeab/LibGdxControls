@@ -40,7 +40,11 @@ public class ImageButtonBuilder extends ButtonBuilder {
     }
 
     public ImageButtonBuilder animateZoomInZoomOut() {
-        this.animateZoomInZoomOut = true;
+        animateZoomInZoomOut(true);
+        return this;
+    }
+    public ImageButtonBuilder animateZoomInZoomOut(boolean animateZoomInZoomOut) {
+        this.animateZoomInZoomOut = animateZoomInZoomOut;
         return this;
     }
 

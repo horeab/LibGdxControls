@@ -26,7 +26,7 @@ public class WordAnimation {
     }
 
     public MyWrappedLabel createLabelToAnimate(String text, FontColor fontColor) {
-        MyWrappedLabel infoLabel = new MyWrappedLabel(new MyWrappedLabelConfigBuilder().setFontScale(FontManager.getBigFontDim()).setText(text).setTextColor(fontColor).build());
+        MyWrappedLabel infoLabel = new MyWrappedLabel(new MyWrappedLabelConfigBuilder().setFontScale(FontManager.getBigFontDim()).setText(text).setFontColor(fontColor).build());
         addWordInfoAnimation(infoLabel);
         infoLabel.setX(ScreenDimensionsManager.getScreenWidthValue(50));
         infoLabel.setY(ScreenDimensionsManager.getScreenHeightValue(60));

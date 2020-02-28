@@ -28,7 +28,7 @@ public class MyWrappedLabelConfigBuilder {
         return fontScale;
     }
 
-    public MyWrappedLabelConfigBuilder setTextColor(FontColor color) {
+    public MyWrappedLabelConfigBuilder setFontColor(FontColor color) {
         this.textColor = color;
         return this;
     }

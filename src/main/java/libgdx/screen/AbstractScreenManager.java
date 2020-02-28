@@ -6,7 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 
-import libgdx.constants.Contrast;
 import libgdx.controls.label.MyWrappedLabel;
 import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.game.Game;
@@ -15,7 +14,6 @@ import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.ActorPositionManager;
 import libgdx.utils.model.FontColor;
 import libgdx.utils.model.FontConfig;
-import libgdx.utils.model.RGBColor;
 
 public abstract class AbstractScreenManager {
 
@@ -92,7 +90,7 @@ public abstract class AbstractScreenManager {
 
     public static MyWrappedLabel addLoadingLabel(AbstractScreen newScreen) {
         MyWrappedLabel loadingLabel = new MyWrappedLabel(
-                new MyWrappedLabelConfigBuilder().setTextColor(FontColor.WHITE).setSingleLineLabel().setText(MainGameLabel.loading.getText()).build());
+                new MyWrappedLabelConfigBuilder().setFontColor(FontColor.WHITE).setSingleLineLabel().setText(MainGameLabel.loading.getText()).build());
         loadingLabel.setFontConfig(new FontConfig(FontConfig.FONT_SIZE));
         loadingLabel.setName(LOADING_LABEL_NAME);
         loadingLabel.setFontScale(Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalBigFontDim() : FontManager.getBigFontDim());

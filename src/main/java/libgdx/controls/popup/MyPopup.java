@@ -18,7 +18,6 @@ import libgdx.controls.label.MyWrappedLabel;
 import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
-import libgdx.resources.FontManager;
 import libgdx.resources.MainResource;
 import libgdx.resources.ResourcesManager;
 import libgdx.resources.dimen.MainDimen;
@@ -27,6 +26,7 @@ import libgdx.screen.AbstractScreenManager;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.Utils;
 
+import libgdx.utils.model.FontColor;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -96,7 +96,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     }
 
     protected MyWrappedLabelConfigBuilder getInfoLabelConfigBuilder() {
-        return new MyWrappedLabelConfigBuilder().setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10);
+        return new MyWrappedLabelConfigBuilder().setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10).setFontColor(FontColor.BLACK);
     }
 
     protected static void addEmptyRowWithMargin(Table table) {

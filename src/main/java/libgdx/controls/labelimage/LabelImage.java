@@ -3,7 +3,6 @@ package libgdx.controls.labelimage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-import libgdx.game.Game;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public class LabelImage extends TextTable {
                 .setWidth(labelImageConfig.getLabelWidth())
                 .setFontScale(labelImageConfig.getFontScale())
                 .setFontConfig(labelImageConfig.getFontConfig())
-                .setTextColor(labelImageConfig.getTextColor());
+                .setFontColor(labelImageConfig.getTextColor());
 
         label = new MyWrappedLabel(myWrappedLabelConfigBuilder.build());
         labelTable.add(label);
