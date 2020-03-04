@@ -50,6 +50,7 @@ public enum MainGameLabel implements GameLabel {
     l_draw,
     l_continue,
     l_multiplayer,
+    l_item_discovered,
     l_extracontent,;
 
     @Override
