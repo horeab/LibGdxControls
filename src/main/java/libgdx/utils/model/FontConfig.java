@@ -47,6 +47,10 @@ public class FontConfig {
         this(FontManager.getBaseColorForContrast().getColor(), fontSize);
     }
 
+    public FontConfig(float fontSize) {
+        this(FontManager.getBaseColorForContrast().getColor(), Math.round(fontSize));
+    }
+
     public FontConfig(int fontSize, float borderWidth) {
         this(FontManager.getBaseColorForContrast().getColor(), FontManager.getBaseColorForContrast().getColor(), fontSize, borderWidth);
     }
