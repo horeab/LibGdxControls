@@ -7,6 +7,7 @@ public enum FontColor {
 
     WHITE(Color.WHITE),
     GREEN(Color.FOREST),
+    ORANGE(Color.ORANGE),
     LIGHT_GREEN(Color.GREEN),
     OLIVE(Color.OLIVE),
     BLACK(Color.BLACK),

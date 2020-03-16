@@ -31,6 +31,10 @@ public class FontConfig {
         this(color, color, fontSize, STANDARD_BORDER_WIDTH);
     }
 
+    public FontConfig(Color color, float fontSize) {
+        this(color, color, fontSize, STANDARD_BORDER_WIDTH);
+    }
+
     public FontConfig(Color color, Color borderColor, float borderWidth) {
         this(color, borderColor, FONT_SIZE, borderWidth);
     }
