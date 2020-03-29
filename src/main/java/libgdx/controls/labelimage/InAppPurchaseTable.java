@@ -28,7 +28,17 @@ public class InAppPurchaseTable {
 
 
     public Table create(Table extraContentTable) {
-        return create(extraContentTable, InAppPurchaseManager.defaultRedirectScreenRunnable(), MainDimen.horizontal_general_margin.getDimen() * 15);
+        return create(extraContentTable, new Runnable() {
+            @Override
+            public void run() {
+                InAppPurchaseManager.defaultRedirectScreenRunnable();
+            }
+        });
+    }
+
+
+    public Table create(Table extraContentTable, final Runnable executeAfterBought) {
+        return create(extraContentTable, executeAfterBought, MainDimen.horizontal_general_margin.getDimen() * 15);
     }
 
     public Table create(Table extraContentTable, final Runnable executeAfterBought, float imgDimen) {
