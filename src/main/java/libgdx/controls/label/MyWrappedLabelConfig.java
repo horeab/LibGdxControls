@@ -1,5 +1,6 @@
 package libgdx.controls.label;
 
+import libgdx.constants.Contrast;
 import libgdx.utils.model.FontColor;
 import libgdx.utils.model.FontConfig;
 
@@ -10,6 +11,7 @@ public class MyWrappedLabelConfig {
     private FontColor textColor;
     private FontConfig fontConfig;
     private String text;
+    private Contrast contrast;
     private boolean singleLineLabel;
 
     MyWrappedLabelConfig() {
@@ -53,6 +55,14 @@ public class MyWrappedLabelConfig {
 
     public void setFontConfig(FontConfig fontConfig) {
         this.fontConfig = fontConfig;
+    }
+
+    public Contrast getContrast() {
+        return contrast;
+    }
+
+    public void setContrast(Contrast contrast) {
+        this.contrast = contrast;
     }
 
     public boolean isSingleLineLabel() {

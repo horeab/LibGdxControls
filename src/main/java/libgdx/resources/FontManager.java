@@ -67,6 +67,10 @@ public class FontManager {
         return getFont(getBaseColorForContrast());
     }
 
+    public BitmapFont getFont(Contrast contrast) {
+        return getFont(getBaseColorForContrast(contrast));
+    }
+
     public BitmapFont getFont(FontColor fontColor) {
         return getFont(new FontConfig(fontColor.getColor(), FontConfig.FONT_SIZE));
     }
@@ -101,10 +105,14 @@ public class FontManager {
     }
 
     public static FontColor getBaseColorForContrast() {
-        return getBaseColorForContrast(FontColor.WHITE, FontColor.BLACK);
+        return getBaseColorForContrast(Game.getInstance().getSubGameDependencyManager().getScreenContrast());
     }
 
-    public static FontColor getBaseColorForContrast(FontColor darkContrastStyle, FontColor lightContrastStyle) {
-        return Game.getInstance().getSubGameDependencyManager().getScreenContrast() == Contrast.LIGHT ? lightContrastStyle : darkContrastStyle;
+    public static FontColor getBaseColorForContrast(Contrast contrast) {
+        return getBaseColorForContrast(contrast, FontColor.WHITE, FontColor.BLACK);
+    }
+
+    public static FontColor getBaseColorForContrast(Contrast contrast, FontColor darkContrastStyle, FontColor lightContrastStyle) {
+        return contrast == Contrast.LIGHT ? lightContrastStyle : darkContrastStyle;
     }
 }

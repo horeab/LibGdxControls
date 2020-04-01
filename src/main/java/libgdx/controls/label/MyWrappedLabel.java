@@ -11,6 +11,7 @@ import com.badlogic.gdx.utils.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import libgdx.constants.Contrast;
 import libgdx.controls.TextTable;
 import libgdx.game.Game;
 import libgdx.resources.FontManager;
@@ -161,11 +162,15 @@ public class MyWrappedLabel extends TextTable {
     }
 
     public void setStyleDependingOnContrast() {
-        setTextColor(FontManager.getBaseColorForContrast());
+        Contrast contrast = myWrappedLabelConfig.getContrast() != null ? myWrappedLabelConfig.getContrast()
+                : Game.getInstance().getSubGameDependencyManager().getScreenContrast();
+        setTextColor(FontManager.getBaseColorForContrast(contrast));
     }
 
     public void setStyleDependingOnContrast(FontColor darkContrastStyle, FontColor lightContrastStyle) {
-        setTextColor(FontManager.getBaseColorForContrast(darkContrastStyle, lightContrastStyle));
+        setTextColor(FontManager.getBaseColorForContrast(
+                Game.getInstance().getSubGameDependencyManager().getScreenContrast(),
+                darkContrastStyle, lightContrastStyle));
     }
 
     public MyWrappedLabel fitToContainer() {
