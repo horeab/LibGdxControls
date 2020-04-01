@@ -22,9 +22,9 @@ public class RateAppButtonBuilder extends ButtonBuilder {
     }
 
     public RateAppButtonBuilder rateNowButton() {
+        setFontColor(FontColor.BLACK);
         setWrappedText(MainGameLabel.rate_rate_now.getText(), BTN_WIDTH);
         setDefaultButton();
-        setFontColor(FontColor.BLACK);
         setContrast(Contrast.LIGHT);
         addClickListener(new ClickListener() {
             @Override
@@ -38,10 +38,9 @@ public class RateAppButtonBuilder extends ButtonBuilder {
     }
 
     public RateAppButtonBuilder rateLaterButton() {
+        setFontColor(FontColor.BLACK);
         setWrappedText(MainGameLabel.rate_rate_later.getText(), BTN_WIDTH);
         setLowColorPopupButton();
-        setFontColor(FontColor.BLACK);
-        setContrast(Contrast.LIGHT);
         return this;
     }
 

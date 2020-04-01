@@ -87,7 +87,11 @@ public class ButtonBuilder {
 
     public ButtonBuilder setWrappedText(String text, float width) {
         float fontScale = this.fontScale != null ? this.fontScale : Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalFontDim() : FontManager.getBigFontDim();
-        return setWrappedText(new LabelImageConfigBuilder().setText(text).setFontScale(fontScale).setWrappedLineLabel(width));
+        LabelImageConfigBuilder labelImageConfigBuilder = new LabelImageConfigBuilder().setText(text).setFontScale(fontScale).setWrappedLineLabel(width);
+        if (fontColor != null) {
+            labelImageConfigBuilder.setTextColor(fontColor);
+        }
+        return setWrappedText(labelImageConfigBuilder);
     }
 
     public ButtonBuilder setContrast(Contrast contrast) {
