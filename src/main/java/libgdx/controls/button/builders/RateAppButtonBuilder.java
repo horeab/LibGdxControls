@@ -9,6 +9,7 @@ import libgdx.game.Game;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
+import libgdx.utils.model.FontColor;
 
 public class RateAppButtonBuilder extends ButtonBuilder {
 
@@ -22,6 +23,7 @@ public class RateAppButtonBuilder extends ButtonBuilder {
     public RateAppButtonBuilder rateNowButton() {
         setWrappedText(MainGameLabel.rate_rate_now.getText(), BTN_WIDTH);
         setDefaultButton();
+        setFontColor(FontColor.BLACK);
         addClickListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -36,6 +38,7 @@ public class RateAppButtonBuilder extends ButtonBuilder {
     public RateAppButtonBuilder rateLaterButton() {
         setWrappedText(MainGameLabel.rate_rate_later.getText(), BTN_WIDTH);
         setLowColorPopupButton();
+        setFontColor(FontColor.BLACK);
         return this;
     }
 
