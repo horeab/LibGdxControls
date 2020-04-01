@@ -3,6 +3,7 @@ package libgdx.controls.button.builders;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
+import libgdx.constants.Contrast;
 import libgdx.controls.button.ButtonBuilder;
 import libgdx.controls.popup.RatingService;
 import libgdx.game.Game;
@@ -24,6 +25,7 @@ public class RateAppButtonBuilder extends ButtonBuilder {
         setWrappedText(MainGameLabel.rate_rate_now.getText(), BTN_WIDTH);
         setDefaultButton();
         setFontColor(FontColor.BLACK);
+        setContrast(Contrast.LIGHT);
         addClickListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -39,6 +41,7 @@ public class RateAppButtonBuilder extends ButtonBuilder {
         setWrappedText(MainGameLabel.rate_rate_later.getText(), BTN_WIDTH);
         setLowColorPopupButton();
         setFontColor(FontColor.BLACK);
+        setContrast(Contrast.LIGHT);
         return this;
     }
 

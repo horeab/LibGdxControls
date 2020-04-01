@@ -54,7 +54,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     @Override
     public MyPopup addToPopupManager() {
         if (Gdx.app.getType() == Application.ApplicationType.iOS) {
-            MyButton backBtn = new BackButtonBuilder().createScreenBackButton(MainButtonSkin.BACK, new ChangeListener() {
+            MyButton backBtn = new BackButtonBuilder().createScreenBackButton(MainButtonSkin.BACK_LIGHT_CONTRAST, new ChangeListener() {
                 @Override
                 public void changed(ChangeEvent event, Actor actor) {
                     hide();
