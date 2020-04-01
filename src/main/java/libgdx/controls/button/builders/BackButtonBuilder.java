@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
+import libgdx.controls.button.ButtonSkin;
 import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MainButtonSkin;
 import libgdx.controls.button.MyButton;
@@ -23,12 +24,16 @@ public class BackButtonBuilder {
         }, screen);
     }
 
-    public MyButton createScreenBackButton(ChangeListener changeListener, final AbstractScreen screen) {
-        MyButton button = new ImageButtonBuilder(MainButtonSkin.BACK, screen)
+    public MyButton createScreenBackButton(ButtonSkin buttonSkin, ChangeListener changeListener, final AbstractScreen screen) {
+        MyButton button = new ImageButtonBuilder(buttonSkin, screen)
                 .setFixedButtonSize(MainButtonSize.BACK_BUTTON)
                 .build();
         button.addListener(changeListener);
         return button;
+    }
+
+    public MyButton createScreenBackButton(ChangeListener changeListener, final AbstractScreen screen) {
+        return createScreenBackButton(MainButtonSkin.BACK, changeListener, screen);
     }
 
     public MyButton addHoverBackButton(AbstractScreen screen, float x) {
