@@ -11,7 +11,7 @@ import libgdx.utils.InternetUtils;
 public abstract class RatingService<TScreen extends AbstractScreen> {
 
     //TODO ---VALUE CHANGED--- should be 2
-    private final static int LAUNCHES_UNTIL_PROMPT = 1;
+    private final static int LAUNCHES_UNTIL_PROMPT = 2;
 
     private TScreen abstractScreen;
     private PreferencesService preferencesService = new PreferencesService("apprater");
@@ -28,7 +28,7 @@ public abstract class RatingService<TScreen extends AbstractScreen> {
         Preferences preferences = preferencesService.getPreferences();
         if (alreadyRated()) {
             //TODO ---VALUE CHANGED--- should be return
-//            return;
+            return;
         }
 
         // Increment launch counter
