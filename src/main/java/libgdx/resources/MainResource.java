@@ -42,6 +42,8 @@ public enum MainResource implements Res {
     btn_back_down("buttons/btn_back_down.png", Texture.class),
     btn_back_up_white("buttons/btn_back_up_white.png", Texture.class),
     btn_back_down_white("buttons/btn_back_down_white.png", Texture.class),
+    refresh_down("buttons/refresh_down.png", Texture.class),
+    refresh_up("buttons/refresh_up.png", Texture.class),
 
     sound_off("general/sound_off.png", Texture.class),
     crown("general/crown.png", Texture.class),
