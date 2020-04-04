@@ -44,9 +44,9 @@ public class ScreenDimensionsManager {
             int width = getExternalDeviceWidth();
             //if FALSE, width is larger, so width must be adjusted
             if (!isGdxGraphicsRatioGreaterThanStandard()) {
-//                width = isPortrait ?
-//                        Math.round(getExternalDeviceHeight() / STANDARD_SCREEN_RATIO) :
-//                        Math.round(getExternalDeviceHeight() * STANDARD_SCREEN_RATIO);
+                width = isPortrait ?
+                        Math.round(getExternalDeviceHeight() / STANDARD_SCREEN_RATIO) :
+                        Math.round(getExternalDeviceHeight() * STANDARD_SCREEN_RATIO);
             }
             screenWidth = width;
         }
@@ -58,9 +58,9 @@ public class ScreenDimensionsManager {
             int height = getExternalDeviceHeight();
             //if TRUE, width is smaller, so height must be adjusted
             if (isGdxGraphicsRatioGreaterThanStandard()) {
-//                height = isPortrait ?
-//                        Math.round(getExternalDeviceWidth() * STANDARD_SCREEN_RATIO) :
-//                        Math.round(getExternalDeviceWidth() / STANDARD_SCREEN_RATIO);
+                height = isPortrait ?
+                        Math.round(getExternalDeviceWidth() * STANDARD_SCREEN_RATIO) :
+                        Math.round(getExternalDeviceWidth() / STANDARD_SCREEN_RATIO);
             }
             screenHeight = height;
         }
