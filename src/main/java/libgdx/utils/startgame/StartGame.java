@@ -21,11 +21,14 @@ public class StartGame {
 
     public static void main(Game game, String[] args) {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-        //landscape
-//        Pair<Integer, Integer> V = s;
+
+        //!!!!LANDSCAPE
+        Pair<Integer, Integer> V = s;
 //        Pair<Integer, Integer> V = z;
-        //portrait
-        Pair<Integer, Integer> V = t;
+
+        //!!!!PORTRAIT
+//        Pair<Integer, Integer> V = t;
+
         cfg.height = V.getLeft();
         cfg.width = V.getRight();
         new LwjglApplication(game, cfg);

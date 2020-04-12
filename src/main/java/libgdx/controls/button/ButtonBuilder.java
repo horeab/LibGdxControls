@@ -87,7 +87,14 @@ public class ButtonBuilder {
 
     public ButtonBuilder setWrappedText(String text, float width) {
         float fontScale = this.fontScale != null ? this.fontScale : Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalFontDim() : FontManager.getBigFontDim();
-        LabelImageConfigBuilder labelImageConfigBuilder = new LabelImageConfigBuilder().setText(text).setFontScale(fontScale).setWrappedLineLabel(width);
+        LabelImageConfigBuilder labelImageConfigBuilder = new LabelImageConfigBuilder()
+                .setText(text)
+                .setWrappedLineLabel(width);
+        if (fontConfig == null) {
+            labelImageConfigBuilder.setFontScale(fontScale);
+        } else {
+            labelImageConfigBuilder.setFontConfig(fontConfig);
+        }
         if (fontColor != null) {
             labelImageConfigBuilder.setTextColor(fontColor);
         }
@@ -203,6 +210,10 @@ public class ButtonBuilder {
         return this;
     }
 
+    public ButtonBuilder clearChangeListeners() {
+        changeListeners.clear();
+        return this;
+    }
     public ButtonBuilder addAction(Action action) {
         actions.add(action);
         return this;
