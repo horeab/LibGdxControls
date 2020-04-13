@@ -21,7 +21,7 @@ import libgdx.controls.labelimage.LabelImage;
 import libgdx.resources.FontManager;
 import libgdx.graphics.GraphicUtils;
 
-public class ImageButtonBuilder extends ButtonBuilder {
+public class    ImageButtonBuilder extends ButtonBuilder {
 
     private boolean animateFadeInFadeOut;
     private boolean animateZoomInZoomOut;

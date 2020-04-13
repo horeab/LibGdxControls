@@ -21,8 +21,7 @@ public class StartGame {
 
     public static void main(Game game, String[] args) {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-
-        //!!!!LANDSCAPE
+        //landscape
         Pair<Integer, Integer> V = s;
 //        Pair<Integer, Integer> V = z;
 
