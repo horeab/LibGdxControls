@@ -16,18 +16,17 @@ public class StartGame {
     private static final Pair<Integer, Integer> t = new ImmutablePair<>(853, 480);
     private static final Pair<Integer, Integer> s = new ImmutablePair<>(480, 853);
     private static final Pair<Integer, Integer> a = new ImmutablePair<>(853, 1480);
+    private static final Pair<Integer, Integer> d = new ImmutablePair<>(2125, 3436);
     private static final Pair<Integer, Integer> x = new ImmutablePair<>(700, 300);
     private static final Pair<Integer, Integer> z = new ImmutablePair<>(1500, 1500);
 
     public static void main(Game game, String[] args) {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         //landscape
-        Pair<Integer, Integer> V = s;
+//        Pair<Integer, Integer> V = s;
 //        Pair<Integer, Integer> V = z;
-
-        //!!!!PORTRAIT
-//        Pair<Integer, Integer> V = t;
-
+        //portrait
+        Pair<Integer, Integer> V = t;
         cfg.height = V.getLeft();
         cfg.width = V.getRight();
         new LwjglApplication(game, cfg);

@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-
 import libgdx.game.Game;
 import libgdx.resources.Res;
 import libgdx.utils.ScreenDimensionsManager;
@@ -17,10 +16,18 @@ import libgdx.utils.ScreenDimensionsManager;
 public class GraphicUtils {
 
     public static Image getImage(Res resource) {
+        return getImage(getTexture(resource));
+    }
+
+    public static Image getImage(Texture texture) {
+        return new Image(new TextureRegionDrawable(new TextureRegion(texture)));
+    }
+
+    public static Texture getTexture(Res resource) {
         Res resToProcess = Game.getInstance().getMainDependencyManager().createResourceService().getOverridableRes(resource);
         Texture texture = getAssetManager(resToProcess).get(resToProcess.getPath(), Texture.class);
         texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        return new Image(new TextureRegionDrawable(new TextureRegion(texture)));
+        return texture;
     }
 
     private static AssetManager getAssetManager(Res resource) {
@@ -44,7 +51,8 @@ public class GraphicUtils {
     }
 
     public static NinePatchDrawable getNinePatch(Res resource) {
-        final Texture t = getAssetManager(resource).get(resource.getPath(), Texture.class);
+        Res resToProcess = Game.getInstance().getMainDependencyManager().createResourceService().getOverridableRes(resource);
+        final Texture t = getAssetManager(resToProcess).get(resToProcess.getPath(), Texture.class);
         return new NinePatchDrawable(new NinePatch(new TextureRegion(t, 1, 1, t.getWidth() - 2, t.getHeight() - 2), 10, 10, 10, 10));
     }
 
