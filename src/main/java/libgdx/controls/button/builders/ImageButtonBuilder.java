@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
+import libgdx.resources.Res;
 import org.apache.commons.lang3.StringUtils;
 
 import libgdx.controls.animations.ActorAnimation;
@@ -21,11 +22,13 @@ import libgdx.controls.labelimage.LabelImage;
 import libgdx.resources.FontManager;
 import libgdx.graphics.GraphicUtils;
 
-public class    ImageButtonBuilder extends ButtonBuilder {
+public class ImageButtonBuilder extends ButtonBuilder {
 
     private boolean animateFadeInFadeOut;
     private boolean animateZoomInZoomOut;
     private float animateZoomInZoomOutAmount = 0.2f;
+    private float padBetweenImageAndText = 1.6f;
+    private Res textBackground = MainResource.popup_background;
     private AbstractScreen screen;
 
     public ImageButtonBuilder(ButtonSkin buttonSkin, AbstractScreen screen) {
@@ -43,8 +46,14 @@ public class    ImageButtonBuilder extends ButtonBuilder {
         animateZoomInZoomOut(true);
         return this;
     }
+
     public ImageButtonBuilder animateZoomInZoomOut(boolean animateZoomInZoomOut) {
         this.animateZoomInZoomOut = animateZoomInZoomOut;
+        return this;
+    }
+
+    public ImageButtonBuilder padBetweenImageAndText(float padBetweenImageAndText) {
+        this.padBetweenImageAndText = padBetweenImageAndText;
         return this;
     }
 
@@ -53,11 +62,18 @@ public class    ImageButtonBuilder extends ButtonBuilder {
         return this;
     }
 
+    public ImageButtonBuilder textBackground(Res textBackground) {
+        this.textBackground = textBackground;
+        return this;
+    }
+
     public ImageButtonBuilder setText(String text) {
         if (StringUtils.isNotBlank(text)) {
             float fontScale = this.fontScale != null ? this.fontScale : FontManager.calculateMultiplierStandardFontSize(0.7f);
             LabelImage textTable = createTextTable(text, MainDimen.horizontal_general_margin.getDimen() * 15, fontScale);
-            textTable.setBackground(GraphicUtils.getNinePatch(MainResource.popup_background));
+            if (textBackground != null) {
+                textTable.setBackground(GraphicUtils.getNinePatch(textBackground));
+            }
             addCenterTextImageColumn(textTable);
         }
         return this;
@@ -86,7 +102,7 @@ public class    ImageButtonBuilder extends ButtonBuilder {
         }
         Table centerRow = button.getCenterRow();
         if (centerRow != null) {
-            centerRow.padTop(button.getHeight() * 1.6f);
+            centerRow.padTop(button.getHeight() * padBetweenImageAndText);
         }
         return button;
     }
