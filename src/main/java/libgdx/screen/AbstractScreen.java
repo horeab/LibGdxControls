@@ -17,12 +17,15 @@ import libgdx.controls.popup.notificationpopup.MyNotificationPopupManager;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
 import libgdx.resources.MainResource;
+import libgdx.resources.Res;
 import libgdx.utils.ActorPositionManager;
 import libgdx.utils.DateUtils;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.RGBColor;
 
 public abstract class AbstractScreen<TScreenManager extends AbstractScreenManager> implements com.badlogic.gdx.Screen {
+
+    public static final String BACKGROUND_CONTAINER_NAME = "backgroundContainer";
 
     protected TScreenManager screenManager = (TScreenManager) Game.getInstance().getScreenManager();
 
@@ -105,6 +108,10 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         this.backgroundColor = backgroundColor;
     }
 
+    public RGBColor getBackgroundColor() {
+        return backgroundColor;
+    }
+
     public MyNotificationPopupManager getMyNotificationPopupManager() {
         return myNotificationPopupManager;
     }
@@ -131,17 +138,26 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         contentStage.addActor(contentContainer);
 
         Container<Group> backgroundContainer = createFullScreenContainer();
+        backgroundContainer.setName(BACKGROUND_CONTAINER_NAME);
         setBackgroundContainer(backgroundContainer);
         backgroundContainer.setFillParent(true);
         backgroundStage.addActor(backgroundContainer);
     }
 
+    public Stage getBackgroundStage() {
+        return backgroundStage;
+    }
+
     protected void setBackgroundContainer(Container<Group> backgroundContainer) {
-        Image backgr = GraphicUtils.getImage(MainResource.background_texture);
+        Image backgr = GraphicUtils.getImage(getBackgroundTexture());
         if (!String.format("%.2f", backgr.getHeight() / backgr.getWidth()).equals(String.format("%.2f", ScreenDimensionsManager.STANDARD_SCREEN_RATIO))) {
-            backgr = GraphicUtils.addTiledImage(MainResource.background_texture, 0, Texture.TextureWrap.Repeat, ScreenDimensionsManager.getExternalDeviceHeightValue(60));
+            backgr = GraphicUtils.addTiledImage(getBackgroundTexture(), 0, Texture.TextureWrap.Repeat, ScreenDimensionsManager.getExternalDeviceHeightValue(60));
         }
-        backgroundContainer.setBackground( backgr.getDrawable());
+        backgroundContainer.setBackground(backgr.getDrawable());
+    }
+
+    protected Res getBackgroundTexture() {
+        return MainResource.background_texture;
     }
 
     private Container<Group> createFullScreenContainer() {

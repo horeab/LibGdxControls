@@ -189,6 +189,14 @@ public class Utils {
     }
 
     public static void createChangeLangPopup() {
+        createChangeLangPopup(new Runnable() {
+            @Override
+            public void run() {
+            }
+        });
+    }
+
+    public static void createChangeLangPopup(Runnable runAfterChange) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ALT_LEFT)) {
             MyPopup popup = new MyPopup(Game.getInstance().getAbstractScreen()) {
                 @Override
@@ -202,6 +210,7 @@ public class Utils {
                         @Override
                         public void clicked(InputEvent event, float x, float y) {
                             Game.getInstance().setNewContext(cloneAppInfoService(Game.getInstance().getAppInfoService(), myTextField.getTextField().getText()));
+                            runAfterChange.run();
                         }
                     });
                     addButton(changeLangBtn);

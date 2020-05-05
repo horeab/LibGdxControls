@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 
 import libgdx.controls.ScreenRunnable;
@@ -18,6 +19,8 @@ import libgdx.utils.ActorPositionManager;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.Utils;
 
+import javax.annotation.Resource;
+
 public class ActorAnimation {
 
     private Actor actor;
@@ -27,6 +30,10 @@ public class ActorAnimation {
         this.actor = actor;
         this.screen = screen;
         actor.setOrigin(Align.center);
+    }
+
+    public ActorAnimation(AbstractScreen screen) {
+        this.screen = screen;
     }
 
     public void animateFadeInFadeOut() {
@@ -116,4 +123,20 @@ public class ActorAnimation {
         float duration = 0.8f;
         actor.addAction(Actions.sequence(Actions.scaleBy(zoomAmount, zoomAmount, duration), Actions.scaleBy(-zoomAmount, -zoomAmount, duration), run));
     }
+
+    public void animatePulse() {
+        float duration = 0.2f;
+        final Table table = new Table();
+        table.setFillParent(true);
+        table.setBackground(GraphicUtils.getNinePatch(MainResource.popup_background));
+        RunnableAction runnableAction = new RunnableAction() {
+            @Override
+            public void run() {
+                table.remove();
+            }
+        };
+        table.addAction(Actions.sequence(Actions.alpha(0), Actions.fadeIn(duration), Actions.fadeOut(duration), runnableAction));
+        screen.addActor(table);
+    }
+
 }

@@ -53,7 +53,12 @@ public enum MainGameLabel implements GameLabel {
     l_continue,
     l_multiplayer,
     l_item_discovered,
-    l_extracontent,;
+    l_extracontent,
+
+    l_easy,
+    l_normal,
+    l_difficult,
+    ;
 
     @Override
     public String getText(Object... params) {
