@@ -1,0 +1,12 @@
+{
+	"com.badlogic.gdx.graphics.Color": {
+		"white": {"r": 1, "g": 1, "b": 1, "a": 1},
+		"black": {"r": 0, "g": 0, "b": 0, "a": 1},
+		"grey": {"r": 0, "g": 0, "b": 0, "a": 0.4},
+		"red":   {"r": 255, "g": 0, "b": 0, "a": 1},
+		"green": {"hex": "00b300"},
+		"dark_green": {"hex": "007D00"},
+		"more_dark_green": {"hex": "197319"},
+		"blue":  {"r": 0, "g": 0, "b": 1, "a": 1}
+	}
+}
