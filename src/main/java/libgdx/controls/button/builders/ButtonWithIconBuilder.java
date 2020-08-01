@@ -1,14 +1,14 @@
 package libgdx.controls.button.builders;
 
 import libgdx.controls.button.ButtonBuilder;
-import libgdx.controls.button.MainButtonSkin;
 import libgdx.controls.button.MyButton;
+import libgdx.controls.labelimage.LabelImage;
 import libgdx.controls.labelimage.LabelImageConfigBuilder;
 import libgdx.game.Game;
 import libgdx.resources.FontManager;
 import libgdx.resources.Res;
-import libgdx.controls.labelimage.LabelImage;
 import libgdx.resources.dimen.MainDimen;
+import libgdx.utils.model.FontConfig;
 
 public class ButtonWithIconBuilder extends ButtonBuilder {
 
@@ -45,6 +45,9 @@ public class ButtonWithIconBuilder extends ButtonBuilder {
                 .setFontScale(Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalBigFontDim() : FontManager.getBigFontDim());
         if (fontScale != null) {
             labelImageConfigBuilder.setFontScale(fontScale);
+        }
+        if (fontColor != null) {
+            labelImageConfigBuilder.setFontConfig(new FontConfig(fontColor.getColor()));
         }
         return new LabelImage(labelImageConfigBuilder.build());
     }

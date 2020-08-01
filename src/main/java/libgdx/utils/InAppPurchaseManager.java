@@ -95,7 +95,9 @@ public class InAppPurchaseManager {
         } else {
 //            buyButtonBuilder.setText(skuInfo.getLocalName() + "\n" + skuInfo.getLocalPricing() + " " + skuInfo.getPriceCurrencyCode());
             restoreButtonBuilder.setText(MainGameLabel.l_restore_purchase.getText());
+            restoreButtonBuilder.setFontColor(FontColor.BLACK);
             buyButtonBuilder.setText(MainGameLabel.l_buy.getText());
+            buyButtonBuilder.setFontColor(FontColor.BLACK);
         }
         buyButton = buyButtonBuilder.build();
         buyButton.addListener(new ChangeListener() {

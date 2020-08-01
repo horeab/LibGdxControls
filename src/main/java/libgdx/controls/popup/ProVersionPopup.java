@@ -14,6 +14,7 @@ import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
 import libgdx.utils.InternetUtils;
+import libgdx.utils.model.FontColor;
 
 public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManager> {
 
@@ -29,6 +30,7 @@ public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManag
         if (!Game.getInstance().getAppInfoService().isPortraitMode()) {
             buttonBuilder.setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE);
         }
+        buttonBuilder.setFontColor(FontColor.BLACK);
         MyButton button = buttonBuilder.build();
         button.addListener(new ClickListener() {
             @Override
