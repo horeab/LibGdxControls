@@ -174,8 +174,12 @@ public class MyWrappedLabel extends TextTable {
     }
 
     public MyWrappedLabel fitToContainer() {
+        return fitToContainer(1);
+    }
+
+    public MyWrappedLabel fitToContainer(int maxRows) {
         MyWrappedLabel label = this;
-        while (label.getLabels().size() > 1) {
+        while (label.getLabels().size() > maxRows) {
             myWrappedLabelConfig.setFontScale(myWrappedLabelConfig.getFontScale() / 1.01f);
             label = new MyWrappedLabel(myWrappedLabelConfig);
         }

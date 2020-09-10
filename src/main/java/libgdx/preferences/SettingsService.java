@@ -3,7 +3,7 @@ package libgdx.preferences;
 
 public class SettingsService {
 
-    private PreferencesService preferencesService = new PreferencesService("SettingsService");
+    protected PreferencesService preferencesService = new PreferencesService("SettingsService");
 
     public boolean isSoundOn() {
         return preferencesService.getPreferences().getBoolean(getToggleSoundKey(), true);

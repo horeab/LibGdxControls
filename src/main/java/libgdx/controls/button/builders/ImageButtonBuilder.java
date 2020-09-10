@@ -6,21 +6,20 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
-import libgdx.resources.Res;
 import org.apache.commons.lang3.StringUtils;
 
 import libgdx.controls.animations.ActorAnimation;
 import libgdx.controls.button.ButtonBuilder;
 import libgdx.controls.button.ButtonSkin;
 import libgdx.controls.button.MainButtonSize;
-import libgdx.controls.button.MainButtonSkin;
 import libgdx.controls.button.MyButton;
+import libgdx.controls.labelimage.LabelImage;
+import libgdx.graphics.GraphicUtils;
+import libgdx.resources.FontManager;
 import libgdx.resources.MainResource;
+import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.screen.AbstractScreen;
-import libgdx.controls.labelimage.LabelImage;
-import libgdx.resources.FontManager;
-import libgdx.graphics.GraphicUtils;
 
 public class ImageButtonBuilder extends ButtonBuilder {
 
@@ -30,6 +29,7 @@ public class ImageButtonBuilder extends ButtonBuilder {
     private float padBetweenImageAndText = 1.6f;
     private Res textBackground = MainResource.popup_background;
     private AbstractScreen screen;
+    private Float textButtonWidth;
 
     public ImageButtonBuilder(ButtonSkin buttonSkin, AbstractScreen screen) {
         setButtonSkin(buttonSkin);
@@ -67,10 +67,15 @@ public class ImageButtonBuilder extends ButtonBuilder {
         return this;
     }
 
+    public ImageButtonBuilder textButtonWidth(float textButtonWidth) {
+        this.textButtonWidth = textButtonWidth;
+        return this;
+    }
+
     public ImageButtonBuilder setText(String text) {
         if (StringUtils.isNotBlank(text)) {
             float fontScale = this.fontScale != null ? this.fontScale : FontManager.calculateMultiplierStandardFontSize(0.7f);
-            LabelImage textTable = createTextTable(text, MainDimen.horizontal_general_margin.getDimen() * 15, fontScale);
+            LabelImage textTable = createTextTable(text, textButtonWidth == null ? MainDimen.horizontal_general_margin.getDimen() * 15 : textButtonWidth, fontScale);
             if (textBackground != null) {
                 textTable.setBackground(GraphicUtils.getNinePatch(textBackground));
             }

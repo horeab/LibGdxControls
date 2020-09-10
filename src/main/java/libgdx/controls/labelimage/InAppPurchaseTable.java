@@ -11,7 +11,6 @@ import libgdx.controls.animations.ActorAnimation;
 import libgdx.controls.popup.ProVersionPopup;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
-import libgdx.implementations.skelgame.QuizProVersionPopup;
 import libgdx.resources.MainResource;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.utils.InAppPurchaseManager;
@@ -34,8 +33,8 @@ public class InAppPurchaseTable {
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                ProVersionPopup proVersionPopup = new QuizProVersionPopup(Game.getInstance().getAbstractScreen());
-                proVersionPopup.addToPopupManager();
+//                ProVersionPopup proVersionPopup = new QuizProVersionPopup(Game.getInstance().getAbstractScreen());
+//                proVersionPopup.addToPopupManager();
             }
         });
         return table;
