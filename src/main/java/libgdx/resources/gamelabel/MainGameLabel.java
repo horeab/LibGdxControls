@@ -54,6 +54,7 @@ public enum MainGameLabel implements GameLabel {
     l_multiplayer,
     l_item_discovered,
     l_extracontent,
+    l_bc_year,
 
     l_easy,
     l_normal,

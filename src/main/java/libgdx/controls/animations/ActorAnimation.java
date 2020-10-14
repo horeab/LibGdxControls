@@ -47,8 +47,12 @@ public class ActorAnimation {
     }
 
     public void animateFastFadeIn() {
-        float duration = 0.2f;
-        AlphaAction fadeOut = Actions.fadeOut(duration);
+        animateFadeIn(0.2f);
+    }
+
+
+    public void animateFadeIn(float duration) {
+        AlphaAction fadeOut = Actions.fadeOut(0);
         fadeOut.setAlpha(0f);
         actor.addAction(Actions.sequence(fadeOut, Utils.createRunnableAction(new ScreenRunnable(screen) {
             @Override
@@ -135,36 +139,6 @@ public class ActorAnimation {
         };
         table.addAction(Actions.sequence(Actions.alpha(0), Actions.fadeIn(duration), Actions.fadeOut(duration), runnableAction));
         screen.addActor(table);
-    }
-
-    public void createScrollingBackground(Res backgr) {
-        int scrollSpeed = 5;
-        Image image1 = GraphicUtils.getImage(backgr);
-        image1.setY(0);
-        image1.setFillParent(true);
-        Image image2 = GraphicUtils.getImage(backgr);
-        image2.setY(-ScreenDimensionsManager.getScreenHeight());
-        image2.setFillParent(true);
-        screen.addActor(image1);
-        screen.addActor(image2);
-        animateMoveUp(scrollSpeed, image1);
-        animateMoveUp(scrollSpeed, image2);
-    }
-
-    private void animateMoveUp(final float amount, final Actor actor) {
-        RunnableAction run = new RunnableAction();
-        run.setRunnable(new ScreenRunnable(screen) {
-            @Override
-            public void executeOperations() {
-                animateMoveUp(amount, actor);
-                int screenHeight = ScreenDimensionsManager.getScreenHeight();
-                if (actor.getY() > screenHeight) {
-                    actor.setY(-screenHeight);
-                }
-            }
-        });
-        float duration = 0.5f;
-        actor.addAction(Actions.sequence(Actions.moveBy(0, amount, duration), run));
     }
 
 }
