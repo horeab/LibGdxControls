@@ -23,4 +23,9 @@ public class GameLabelUtils {
         return PropertiesUtils.getPropertyValue(key, language, filePath, SpecificPropertiesUtils.getLabelFilePath(), params);
     }
 
+    public static String getRawText(String key, Object... params) {
+        String labelFilePath = SpecificPropertiesUtils.getLabelFilePath();
+        return PropertiesUtils.getPropertyValue(key, "", labelFilePath, labelFilePath, params);
+    }
+
 }

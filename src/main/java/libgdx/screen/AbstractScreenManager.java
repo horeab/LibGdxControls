@@ -51,7 +51,7 @@ public abstract class AbstractScreenManager {
         SequenceAction actionToExecute = Actions.action(SequenceAction.class);
         if (game.getScreen() == null || !newScreen.getClass().equals(game.getScreen().getClass())) {
             newScreen.getRoot().getColor().a = 0;
-            actionToExecute.addAction(Actions.fadeIn(0.5f));
+            actionToExecute.addAction(Actions.fadeIn(0.0f));
         }
         actionToExecute.addAction(executeScreenBuildStageAsync(newScreen));
         actionToExecute.addAction(removeLoadingLabelAction(newScreen, loadingLabel));
