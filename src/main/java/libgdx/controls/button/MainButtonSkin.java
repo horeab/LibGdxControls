@@ -17,7 +17,9 @@ public enum MainButtonSkin implements ButtonSkin {
     REFRESH(MainResource.refresh_up, MainResource.refresh_down, MainResource.refresh_up, MainResource.refresh_up, null),
     UNLOCK_EXTRA_CONTENT(MainResource.unlock, MainResource.unlock, MainResource.unlock, MainResource.unlock, null),
     SOUND_ON(MainResource.sound_on, MainResource.sound_on, MainResource.sound_on, MainResource.sound_on, null),
+    MUSIC_ON(MainResource.sound_on, MainResource.sound_on, MainResource.sound_on, MainResource.sound_on, null),
     SOUND_OFF(MainResource.sound_off, MainResource.sound_off, MainResource.sound_off, MainResource.sound_off, null),
+    MUSIC_OFF(MainResource.sound_off, MainResource.sound_off, MainResource.sound_off, MainResource.sound_off, null),
     TRANSPARENT(MainResource.transparent_background, MainResource.transparent_background, MainResource.transparent_background, MainResource.transparent_background, null),
     LOW_COLOR(MainResource.btn_lowcolor_up, MainResource.btn_lowcolor_down, MainResource.btn_lowcolor_up, MainResource.btn_lowcolor_up, null),
     ;
