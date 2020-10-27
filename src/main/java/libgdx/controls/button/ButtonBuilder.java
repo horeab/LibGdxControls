@@ -6,25 +6,25 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import libgdx.constants.Contrast;
 import libgdx.controls.label.MyLabel;
 import libgdx.controls.labelimage.InventoryTableBuilder;
 import libgdx.controls.labelimage.LabelImage;
 import libgdx.controls.labelimage.LabelImageConfigBuilder;
 import libgdx.game.Game;
-import libgdx.graphics.GraphicUtils;
 import libgdx.resources.FontManager;
-import libgdx.resources.MainResource;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.transactions.TransactionAmount;
 import libgdx.utils.model.FontColor;
 import libgdx.utils.model.FontConfig;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class ButtonBuilder {
 
@@ -45,7 +45,7 @@ public class ButtonBuilder {
     private Contrast contrast = Contrast.LIGHT;
     protected Float fontScale;
     protected FontColor fontColor;
-    private FontConfig fontConfig;
+    protected FontConfig fontConfig;
 
     public ButtonBuilder() {
     }

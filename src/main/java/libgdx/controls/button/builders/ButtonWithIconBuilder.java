@@ -16,6 +16,7 @@ public class ButtonWithIconBuilder extends ButtonBuilder {
     private String text;
     private Res icon;
     private Float fontScale;
+    private Float imageSideDimen;
 
     public ButtonWithIconBuilder(String text, Res icon) {
         this.text = text;
@@ -39,15 +40,27 @@ public class ButtonWithIconBuilder extends ButtonBuilder {
         return this;
     }
 
+    public ButtonWithIconBuilder setImageSideDimen(float imageSideDimen) {
+        this.imageSideDimen = imageSideDimen;
+        return this;
+    }
+
     @Override
     protected LabelImage createTableLabelImage(String text, Res icon) {
         LabelImageConfigBuilder labelImageConfigBuilder = getLabelImageConfigBuilder(text, icon)
                 .setFontScale(Game.getInstance().getAppInfoService().isPortraitMode() ? FontManager.getNormalBigFontDim() : FontManager.getBigFontDim());
-        if (fontScale != null) {
-            labelImageConfigBuilder.setFontScale(fontScale);
+        if (fontConfig != null) {
+            labelImageConfigBuilder.setFontConfig(fontConfig);
+        } else {
+            if (fontScale != null) {
+                labelImageConfigBuilder.setFontScale(fontScale);
+            }
+            if (fontColor != null) {
+                labelImageConfigBuilder.setFontConfig(new FontConfig(fontColor.getColor()));
+            }
         }
-        if (fontColor != null) {
-            labelImageConfigBuilder.setFontConfig(new FontConfig(fontColor.getColor()));
+        if (imageSideDimen != null) {
+            labelImageConfigBuilder.setImageSideDimension(imageSideDimen);
         }
         return new LabelImage(labelImageConfigBuilder.build());
     }
