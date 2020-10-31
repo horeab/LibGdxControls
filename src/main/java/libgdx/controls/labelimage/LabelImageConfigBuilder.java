@@ -81,7 +81,9 @@ public class LabelImageConfigBuilder {
         labelImageConfig.setLabelWidth(labelWidth);
         labelImageConfig.setSingleLineLabel(singleLineLabel);
         labelImageConfig.setFontConfig(fontConfig);
-        labelImageConfig.setImageSideDimension(imageSideDimension);
+        if (image != null) {
+            labelImageConfig.setImageSideDimension(imageSideDimension);
+        }
         labelImageConfig.setTextColor(textColor);
         labelImageConfig.setMarginBetweenLabelImage(marginBetweenLabelImage);
         return labelImageConfig;
