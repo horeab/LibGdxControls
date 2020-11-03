@@ -1,7 +1,6 @@
 package libgdx.resources;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
@@ -23,6 +22,7 @@ public enum MainResource implements Res {
     red_background("backgrounds/red_background.png", Texture.class),
     green_background("backgrounds/green_background.png", Texture.class),
     transparent_background("backgrounds/transparent_background.png", Texture.class),
+    white_full_background("backgrounds/white_full_background.png", Texture.class),
 
     background_texture("general/background_texture.png", Texture.class),
     splashtitle("general/splashtitle.png", Texture.class),

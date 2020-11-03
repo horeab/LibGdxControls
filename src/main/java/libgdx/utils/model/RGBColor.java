@@ -45,8 +45,12 @@ public class RGBColor {
         this.b = color.b;
     }
 
-    public Color toColor() {
+    public Color toColor255() {
         return new Color(r, g, b, a);
+    }
+
+    public Color toColor() {
+        return new Color(r / 255f, g / 255f, b / 255f, a);
     }
 
     public String toHexadecimal() {
