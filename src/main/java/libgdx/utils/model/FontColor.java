@@ -15,8 +15,9 @@ public enum FontColor {
     LIGHT_BLUE(Color.ROYAL),
     YELLOW(Color.YELLOW),
     GRAY(Color.GRAY),
+    DARK_GRAY(Color.DARK_GRAY),
     DARK_RED(Color.FIREBRICK),
-    RED(Color.RED);
+    RED(Color.RED),;
 
     private Color color;
 

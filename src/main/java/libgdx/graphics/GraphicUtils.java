@@ -42,6 +42,10 @@ public class GraphicUtils {
         return texture;
     }
 
+    public static NinePatchDrawable getNinePatchIdentical(Res resource) {
+        return new NinePatchDrawable(new NinePatch(getTexture(resource)));
+    }
+
     private static AssetManager getAssetManager(Res resource) {
         AssetManager assetManager = Game.getInstance().getAssetManager();
         if (!assetManager.isLoaded(resource.getPath())) {
