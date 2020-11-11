@@ -10,7 +10,8 @@ public enum MainButtonSize implements ButtonSize {
             (Game.getInstance().getAppInfoService().isPortraitMode() ? 1 : 1.5f),
             MainDimen.side_btn_back.getDimen() *
                     (Game.getInstance().getAppInfoService().isPortraitMode() ? 1 : 1.5f)),
-    SOUND_BUTTON(MainDimen.side_btn_image.getDimen() * 1.6f, MainDimen.side_btn_image.getDimen() *  1.6f),
+    SOUND_BUTTON(MainDimen.side_btn_image.getDimen() * (Game.getInstance().getAppInfoService().isPortraitMode() ? 1 : 1.5f),
+            MainDimen.side_btn_image.getDimen() * (Game.getInstance().getAppInfoService().isPortraitMode() ? 1 : 1.5f)),
     UNLOCK_CONTENT_BUTTON(MainDimen.side_btn_unlock_content.getDimen(), MainDimen.side_btn_unlock_content.getDimen()),
 
     ONE_ROW_BUTTON_SIZE(MainDimen.width_default_btn.getDimen(), MainDimen.height_default_btn.getDimen()),

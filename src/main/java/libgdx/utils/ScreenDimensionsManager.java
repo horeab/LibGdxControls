@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import libgdx.game.Game;
 
 
@@ -29,6 +31,19 @@ public class ScreenDimensionsManager {
 
     public static float getNewHeightForNewWidth(float newWidth, Image image) {
         return getNewHeightForNewWidth(newWidth, image.getWidth(), image.getHeight());
+    }
+
+    public static Pair<Float, Float> resize(float toMinMaxWidth, float toMinMaxHeight, Image image) {
+        float newWidth;
+        float newHeight;
+        if (image.getHeight() > image.getWidth()) {
+            newHeight = toMinMaxHeight;
+            newWidth = getNewWidthForNewHeight(newHeight, image);
+        } else {
+            newWidth = toMinMaxWidth;
+            newHeight = getNewHeightForNewWidth(newWidth, image);
+        }
+        return Pair.of(newWidth, newHeight);
     }
 
     public static float getNewWidthForNewHeight(float newHeight, float originalWidth, float originalHeight) {
