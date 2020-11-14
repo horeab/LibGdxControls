@@ -10,8 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
+import libgdx.controls.animations.ActorAnimation;
 import libgdx.controls.popup.MyPopupManager;
 import libgdx.controls.popup.notificationpopup.MyNotificationPopupManager;
 import libgdx.game.Game;
@@ -39,6 +41,7 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
     private Group contentGroup;
     private Stage backgroundStage;
     private Stage contentStage;
+    private Table allTable;
 
     public AbstractScreen() {
         contentStage = new Stage(new ExtendViewport(ScreenDimensionsManager.getScreenWidth(), ScreenDimensionsManager.getScreenHeight()));
@@ -247,5 +250,16 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
     @Override
     public void show() {
         Gdx.input.setInputProcessor(contentStage);
+    }
+
+    protected Table getAllTable() {
+        return allTable;
+    }
+
+    protected void setUpAllTable() {
+        allTable = new Table();
+        allTable.setFillParent(true);
+        addActor(allTable);
+        new ActorAnimation(allTable, getAbstractScreen()).animateFastFadeIn();
     }
 }
