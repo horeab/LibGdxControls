@@ -39,9 +39,9 @@ public class BackButtonBuilder {
     public MyButton addHoverBackButton(AbstractScreen screen, float x, float y) {
         MyButton screenBackButton = new BackButtonBuilder().createScreenBackButton(screen);
         screenBackButton.setPosition(x, y);
-//        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
-        screen.addActor(screenBackButton);
-//        }
+        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
+            screen.addActor(screenBackButton);
+        }
         return screenBackButton;
     }
 
