@@ -46,6 +46,14 @@ public class BackButtonBuilder {
     }
 
     public MyButton addHoverBackButton(AbstractScreen screen) {
-        return addHoverBackButton(screen, MainDimen.horizontal_general_margin.getDimen() * 2, ScreenDimensionsManager.getScreenHeight() - MainButtonSize.BACK_BUTTON.getHeight());
+        return addHoverBackButton(screen, getX(), getY());
+    }
+
+    public static float getX() {
+        return MainDimen.horizontal_general_margin.getDimen() * 2;
+    }
+
+    public static float getY() {
+        return ScreenDimensionsManager.getScreenHeight() - MainButtonSize.BACK_BUTTON.getHeight();
     }
 }

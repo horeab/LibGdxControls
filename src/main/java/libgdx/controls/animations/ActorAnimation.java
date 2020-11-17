@@ -142,7 +142,7 @@ public class ActorAnimation {
     }
 
     public void createScrollingBackground(Res backgr) {
-        int scrollSpeed = 5;
+        int scrollSpeed = 7;
         Image image1 = GraphicUtils.getImage(backgr);
         image1.setY(0);
         image1.setFillParent(true);

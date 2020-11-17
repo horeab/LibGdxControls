@@ -47,12 +47,12 @@ public class SoundUtils {
             MyButton musicButton = new MusicIconButtonBuilder().createMusicButton(music);
             table.add(musicButton).height(musicButton.getHeight()).width(musicButton.getWidth());
             SoundUtils.playMusic(music);
-            margin = MainDimen.horizontal_general_margin.getDimen();
+            margin = MainDimen.horizontal_general_margin.getDimen() * 1.3f;
         }
         MyButton soundButton = new SoundIconButtonBuilder().createSoundButton();
         table.add(soundButton).width(soundButton.getWidth()).height(soundButton.getHeight()).padLeft(margin);
         float x = ScreenDimensionsManager.getScreenWidth() - margin * 3 - soundButton.getWidth() / 1.5f;
-        float y = ScreenDimensionsManager.getScreenHeight() - soundButton.getHeight() / 1.5f;
+        float y = ScreenDimensionsManager.getScreenHeight() - soundButton.getHeight();
         table.setPosition(x, y);
         screen.addActor(table);
     }

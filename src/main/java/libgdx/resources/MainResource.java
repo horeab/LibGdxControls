@@ -45,7 +45,6 @@ public enum MainResource implements Res {
     refresh_down("buttons/refresh_down.png", Texture.class),
     refresh_up("buttons/refresh_up.png", Texture.class),
 
-    sound_off("general/sound_off.png", Texture.class),
     crown("general/crown.png", Texture.class),
     mug("general/mug.png", Texture.class),
     mug_color("general/mug_color.png", Texture.class),
@@ -55,6 +54,9 @@ public enum MainResource implements Res {
     question("general/question.png", Texture.class),
     unlock("general/unlock.png", Texture.class),
     sound_on("general/sound_on.png", Texture.class),
+    sound_off("general/sound_off.png", Texture.class),
+    music_on("general/music_on.png", Texture.class),
+    music_off("general/music_off.png", Texture.class),
 
     main_labels_cs("labels/main_labels_cs", I18NBundle.class),
     main_labels_da("labels/main_labels_da", I18NBundle.class),
