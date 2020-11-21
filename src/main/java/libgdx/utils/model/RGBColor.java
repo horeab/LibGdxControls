@@ -18,7 +18,7 @@ public class RGBColor {
     public static final RGBColor DARK_GREEN = new RGBColor(1, 20, 140, 20);
     public static final RGBColor GREEN = new RGBColor(1, 0, 153, 0);
     public static final RGBColor WHITE = new RGBColor(1, 255, 255, 255);
-    public static final RGBColor LIGHT_GREEN = new RGBColor(1, 0, 1, 0);
+    public static final RGBColor LIGHT_GREEN = new RGBColor(1, 102, 255, 102);
     public static final RGBColor YELLOW = new RGBColor(1, 1, 1, 0);
 
 
@@ -51,6 +51,10 @@ public class RGBColor {
 
     public Color toColor() {
         return new Color(r / 255f, g / 255f, b / 255f, a);
+    }
+
+    public Color toColor(float alpha) {
+        return new Color(r / 255f, g / 255f, b / 255f, alpha);
     }
 
     public String toHexadecimal() {
