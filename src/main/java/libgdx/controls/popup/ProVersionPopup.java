@@ -1,5 +1,6 @@
 package libgdx.controls.popup;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -7,6 +8,7 @@ import libgdx.controls.button.ButtonBuilder;
 import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.button.builders.ButtonWithIconBuilder;
+import libgdx.controls.label.MyWrappedLabel;
 import libgdx.game.Game;
 import libgdx.resources.FontManager;
 import libgdx.resources.MainResource;
@@ -14,6 +16,7 @@ import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
 import libgdx.utils.InternetUtils;
+import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
 
 public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManager> {
@@ -42,7 +45,17 @@ public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManag
     }
 
     @Override
+    protected MyWrappedLabel getLabel() {
+        MyWrappedLabel label = super.getLabel();
+        if (label.getLabels().size() >= 3) {
+            label.getLabels().get(1).setFontScale(FontManager.calculateMultiplierStandardFontSize(2.1f));
+        }
+        return label;
+    }
+
+
+    @Override
     protected String getLabelText() {
-        return MainGameLabel.pro_version_info.getText(Game.getInstance().getAppInfoService().getAppName());
+        return MainGameLabel.pro_version_download_info.getText(Game.getInstance().getAppInfoService().getAppName());
     }
 }

@@ -15,6 +15,7 @@ import libgdx.resources.MainResource;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.utils.InAppPurchaseManager;
+import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.Utils;
 
 public class InAppPurchaseTable {
@@ -34,7 +35,9 @@ public class InAppPurchaseTable {
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                ProVersionPopup proVersionPopup = new ProVersionPopup(Game.getInstance().getAbstractScreen());
+                ProVersionPopup proVersionPopup = new ProVersionPopup(Game.getInstance().getAbstractScreen()){
+
+                };
                 proVersionPopup.addToPopupManager();
             }
         });
