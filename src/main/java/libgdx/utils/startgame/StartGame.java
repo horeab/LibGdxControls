@@ -23,7 +23,7 @@ public class StartGame {
     public static void main(Game game, String[] args) {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         //landscape
-        Pair<Integer, Integer> V = d;
+        Pair<Integer, Integer> V = s;
 //        Pair<Integer, Integer> V = z;
         //portrait
 //        Pair<Integer, Integer> V = t;

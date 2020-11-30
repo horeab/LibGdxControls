@@ -12,6 +12,7 @@ import libgdx.controls.popup.ProVersionPopup;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
 import libgdx.resources.MainResource;
+import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
 import libgdx.utils.InAppPurchaseManager;
 import libgdx.utils.Utils;
@@ -33,8 +34,8 @@ public class InAppPurchaseTable {
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-//                ProVersionPopup proVersionPopup = new QuizProVersionPopup(Game.getInstance().getAbstractScreen());
-//                proVersionPopup.addToPopupManager();
+                ProVersionPopup proVersionPopup = new ProVersionPopup(Game.getInstance().getAbstractScreen());
+                proVersionPopup.addToPopupManager();
             }
         });
         return table;
@@ -67,11 +68,10 @@ public class InAppPurchaseTable {
 
     private Table createUnlockTable(Table extraContentTable, float imgDimen) {
         Table lockBackgrTable = new Table();
-        lockBackgrTable.setBackground(GraphicUtils.getNinePatch(MainResource.inappurchase_background));
-        Image image = GraphicUtils.getImage(MainResource.unlock);
+        Image image = GraphicUtils.getImage(getUnlockRes());
+        setLockedTableBackground(lockBackgrTable, image);
         image.setWidth(imgDimen);
         image.setHeight(imgDimen);
-        new ActorAnimation(image, Game.getInstance().getAbstractScreen()).animateFadeInFadeOut();
         lockBackgrTable.add(image).width(imgDimen).height(imgDimen);
         Table table = new Table();
         Stack stack = new Stack();
@@ -82,7 +82,16 @@ public class InAppPurchaseTable {
         return table;
     }
 
-    private float getUnlockImageSideDimen() {
+    protected Res getUnlockRes() {
+        return MainResource.unlock;
+    }
+
+    protected void setLockedTableBackground(Table lockBackgrTable, Image image) {
+        new ActorAnimation(image, Game.getInstance().getAbstractScreen()).animateFadeInFadeOut();
+        lockBackgrTable.setBackground(GraphicUtils.getNinePatch(MainResource.inappurchase_background));
+    }
+
+    protected float getUnlockImageSideDimen() {
         return MainDimen.horizontal_general_margin.getDimen() * 15;
     }
 }
