@@ -13,6 +13,7 @@ import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
 import libgdx.utils.model.FontConfig;
+import libgdx.utils.model.RGBColor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -86,18 +87,21 @@ public class FontManager {
 
     }
 
-    private FreeTypeFontGenerator.FreeTypeFontParameter createFreeTypeFontParameter(Color color, Color borderColor, int fontSize, float borderWidth) {
+    private FreeTypeFontGenerator.FreeTypeFontParameter createFreeTypeFontParameter(Color color, Color borderColor, int fontSize, float borderWidth, int shadowOffsetX, int shadowOffsetY, Color shadowColor) {
         FreeTypeFontGenerator.FreeTypeFontParameter fontCreationParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontCreationParameter.borderWidth = borderWidth;
         fontCreationParameter.characters = allChars;
         fontCreationParameter.borderColor = borderColor;
         fontCreationParameter.color = color;
         fontCreationParameter.size = fontSize;
+        fontCreationParameter.shadowOffsetX = shadowOffsetX;
+        fontCreationParameter.shadowOffsetY = shadowOffsetY;
+        fontCreationParameter.shadowColor = shadowColor;
         return fontCreationParameter;
     }
 
     private void createBitmapFont(FontConfig fontConfig) {
-        BitmapFont font = generator.generateFont(createFreeTypeFontParameter(fontConfig.getColor(), fontConfig.getBorderColor(), fontConfig.getFontSize(), fontConfig.getBorderWidth()));
+        BitmapFont font = generator.generateFont(createFreeTypeFontParameter(fontConfig.getColor(), fontConfig.getBorderColor(), fontConfig.getFontSize(), fontConfig.getBorderWidth(), fontConfig.getShadowOffsetX(), fontConfig.getShadowOffsetY(), fontConfig.getShadowColor()));
         FreeTypeFontGenerator.setMaxTextureSize(2048);
         font.getData().setScale(fontConfig.getFontSize());
         font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);

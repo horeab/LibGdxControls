@@ -2,9 +2,10 @@ package libgdx.utils.model;
 
 
 import com.badlogic.gdx.graphics.Color;
-import libgdx.resources.FontManager;
 
 import java.util.Objects;
+
+import libgdx.resources.FontManager;
 
 public class FontConfig {
 
@@ -15,16 +16,26 @@ public class FontConfig {
     private Color borderColor;
     private int fontSize;
     private float borderWidth;
+    private int shadowOffsetX;
+    private int shadowOffsetY;
+    private Color shadowColor;
 
     public FontConfig(Color color, Color borderColor, float fontSize, float borderWidth) {
         this(color, borderColor, Math.round(fontSize), borderWidth);
     }
 
-    public FontConfig(Color color, Color borderColor, int fontSize, float borderWidth) {
+    public FontConfig(Color color, Color borderColor, int fontSize, float borderWidth, int shadowOffsetX, int shadowOffsetY, Color shadowColor) {
         this.color = color;
         this.borderColor = borderColor;
         this.fontSize = fontSize;
         this.borderWidth = borderWidth;
+        this.shadowOffsetX = shadowOffsetX;
+        this.shadowOffsetY = shadowOffsetY;
+        this.shadowColor = shadowColor;
+    }
+
+    public FontConfig(Color color, Color borderColor, int fontSize, float borderWidth) {
+        this(color, borderColor, fontSize, borderWidth, 0, 0, Color.BLACK);
     }
 
     public FontConfig(Color color, int fontSize) {
@@ -78,6 +89,18 @@ public class FontConfig {
 
     public float getBorderWidth() {
         return borderWidth;
+    }
+
+    public int getShadowOffsetX() {
+        return shadowOffsetX;
+    }
+
+    public int getShadowOffsetY() {
+        return shadowOffsetY;
+    }
+
+    public Color getShadowColor() {
+        return shadowColor;
     }
 
     @Override
