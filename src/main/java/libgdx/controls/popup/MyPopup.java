@@ -40,6 +40,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     private List<Actor> actorsToFront = new ArrayList<>();
     private TScreen screen;
     protected TScreenManager screenManager = (TScreenManager) Game.getInstance().getScreenManager();
+    protected MyWrappedLabel mainLabel;
 
     public MyPopup(TScreen screen) {
         super("", ResourcesManager.getSkin(), ResourcesManager.getPopupBackground());
@@ -85,10 +86,10 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
     }
 
     protected void addText() {
-        MyWrappedLabel wrappedText = getLabel();
+        mainLabel = getLabel();
         addEmptyRowWithMargin(getContentTable());
         if (StringUtils.isNotBlank(getLabelText())) {
-            getContentTable().add(wrappedText).width(wrappedText.getPrefWidth()).row();
+            getContentTable().add(mainLabel).width(mainLabel.getPrefWidth()).row();
             addEmptyRowWithMargin(getContentTable());
         }
     }

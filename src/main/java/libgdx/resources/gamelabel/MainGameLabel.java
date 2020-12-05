@@ -60,6 +60,15 @@ public enum MainGameLabel implements GameLabel {
     l_easy,
     l_normal,
     l_difficult,
+
+    l_parental_gate_0_1,
+    l_parental_gate_0_2,
+    l_parental_gate_1_0,
+    l_parental_gate_1_2,
+    l_parental_gate_2_0,
+    l_parental_gate_2_1,
+    l_ask_parents,
+    l_verification_failed,
     ;
 
     @Override

@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.I18NBundle;
 
 import libgdx.game.Game;
+import sun.net.www.content.image.png;
 
 public enum MainResource implements Res {
 
@@ -57,6 +58,9 @@ public enum MainResource implements Res {
     sound_off("general/sound_off.png", Texture.class),
     music_on("general/music_on.png", Texture.class),
     music_off("general/music_off.png", Texture.class),
+    circle_red("general/circle_red.png", Texture.class),
+    square_red("general/square_red.png", Texture.class),
+    triangle_red("general/triangle_red.png", Texture.class),
 
     main_labels_cs("labels/main_labels_cs", I18NBundle.class),
     main_labels_da("labels/main_labels_da", I18NBundle.class),

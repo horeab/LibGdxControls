@@ -30,12 +30,12 @@ public class InAppPurchaseTable {
     }
 
 
-    public Table createForProVersion(Table extraContentTable) {
+    public Table createForProVersion(Table extraContentTable, boolean withParentalGate) {
         Table table = createUnlockTable(extraContentTable, getUnlockImageSideDimen());
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                ProVersionPopup proVersionPopup = new ProVersionPopup(Game.getInstance().getAbstractScreen()){
+                ProVersionPopup proVersionPopup = new ProVersionPopup(Game.getInstance().getAbstractScreen(), withParentalGate) {
 
                 };
                 proVersionPopup.addToPopupManager();

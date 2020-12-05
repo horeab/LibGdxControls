@@ -1,6 +1,5 @@
 package libgdx.controls.popup;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -16,13 +15,19 @@ import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
 import libgdx.utils.InternetUtils;
-import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
 
 public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManager> {
 
+    private boolean withParentalGate;
+
     public ProVersionPopup(AbstractScreen abstractScreen) {
+        this(abstractScreen, false);
+    }
+
+    public ProVersionPopup(AbstractScreen abstractScreen, boolean withParentalGate) {
         super(abstractScreen);
+        this.withParentalGate = withParentalGate;
     }
 
     @Override
@@ -38,7 +43,18 @@ public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManag
         button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                InternetUtils.openAppUrl(Game.getInstance().getAppInfoService().getProVersionStoreAppId(), false);
+                Runnable toRun = new Runnable() {
+                    @Override
+                    public void run() {
+                        InternetUtils.openAppUrl(Game.getInstance().getAppInfoService().getProVersionStoreAppId(), false);
+                    }
+                };
+                if (withParentalGate) {
+                    hide();
+                    new ParentalGatePopup(getScreen(), toRun).addToPopupManager();
+                } else {
+                    toRun.run();
+                }
             }
         });
         addButton(button);
