@@ -23,6 +23,7 @@ import libgdx.game.external.AppInfoService;
 import libgdx.preferences.InAppPurchasesPreferencesService;
 import libgdx.resources.dimen.MainDimen;
 
+import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -209,8 +210,10 @@ public class Utils {
                     changeLangBtn.addListener(new ClickListener() {
                         @Override
                         public void clicked(InputEvent event, float x, float y) {
-                            Game.getInstance().setNewContext(cloneAppInfoService(Game.getInstance().getAppInfoService(), myTextField.getTextField().getText()));
-                            runAfterChange.run();
+                            if (EnumUtils.isValidEnum(Language.class, myTextField.getTextField().getText())) {
+                                Game.getInstance().setNewContext(cloneAppInfoService(Game.getInstance().getAppInfoService(), myTextField.getTextField().getText()));
+                                runAfterChange.run();
+                            }
                         }
                     });
                     addButton(changeLangBtn);
