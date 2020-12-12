@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
+import libgdx.constants.Language;
 import libgdx.controls.animations.ActorAnimation;
 import libgdx.controls.popup.ProVersionPopup;
 import libgdx.game.Game;
@@ -14,6 +15,7 @@ import libgdx.graphics.GraphicUtils;
 import libgdx.resources.MainResource;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
+import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.InAppPurchaseManager;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.Utils;
@@ -44,8 +46,9 @@ public class InAppPurchaseTable {
         return table;
     }
 
-    public Table create(Table extraContentTable) {
-        return create(extraContentTable, new Runnable() {
+
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText) {
+        return create(extraContentTable, defaultLanguage, defaultText, new Runnable() {
             @Override
             public void run() {
                 InAppPurchaseManager.defaultRedirectScreenRunnable();
@@ -54,16 +57,16 @@ public class InAppPurchaseTable {
     }
 
 
-    public Table create(Table extraContentTable, final Runnable executeAfterBought) {
-        return create(extraContentTable, executeAfterBought, getUnlockImageSideDimen());
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, final Runnable executeAfterBought) {
+        return create(extraContentTable, defaultLanguage, defaultText, executeAfterBought, getUnlockImageSideDimen());
     }
 
-    public Table create(Table extraContentTable, final Runnable executeAfterBought, float imgDimen) {
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, final Runnable executeAfterBought, float imgDimen) {
         Table table = createUnlockTable(extraContentTable, imgDimen);
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                Game.getInstance().getInAppPurchaseManager().displayInAppPurchasesPopup(executeAfterBought);
+                Game.getInstance().getInAppPurchaseManager().displayInAppPurchasesPopup(defaultLanguage, defaultText, executeAfterBought);
             }
         });
         return table;

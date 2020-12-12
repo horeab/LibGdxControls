@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
+import libgdx.constants.Language;
 import libgdx.controls.button.ButtonBuilder;
 import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MyButton;
@@ -26,6 +27,7 @@ import libgdx.utils.model.FontConfig;
 
 public class InAppPurchaseManager {
 
+    public static final MainGameLabel TRASNLATE_EXTRA_CONTENT_LABEL = MainGameLabel.l_extracontent;
     private boolean restorePressed;
     private MyButton buyButton;
     private MyButton restoreButton;
@@ -41,16 +43,12 @@ public class InAppPurchaseManager {
         initPurchaseManager();
     }
 
-    public void displayInAppPurchasesPopup() {
-        displayInAppPurchasesPopup(MainGameLabel.l_extracontent.getText());
+    public void displayInAppPurchasesPopup(String defaultLanguage, String defaultText) {
+        displayInAppPurchasesPopup(defaultLanguage, defaultText, TRASNLATE_EXTRA_CONTENT_LABEL, defaultRedirectScreenRunnable());
     }
 
-    public void displayInAppPurchasesPopup(Runnable executeAfterBought) {
-        displayInAppPurchasesPopup(MainGameLabel.l_extracontent.getText(), executeAfterBought);
-    }
-
-    public void displayInAppPurchasesPopup(String text) {
-        displayInAppPurchasesPopup(text, defaultRedirectScreenRunnable());
+    public void displayInAppPurchasesPopup(String defaultLanguage, String defaultText, Runnable executeAfterBought) {
+        displayInAppPurchasesPopup(defaultLanguage, defaultText, TRASNLATE_EXTRA_CONTENT_LABEL, executeAfterBought);
     }
 
     public static Runnable defaultRedirectScreenRunnable() {
@@ -62,10 +60,14 @@ public class InAppPurchaseManager {
         };
     }
 
-    public void displayInAppPurchasesPopup(String text, Runnable executeAfterBought) {
+    public void displayInAppPurchasesPopup(String defaultLanguage, String defaultText, MainGameLabel text, Runnable executeAfterBought) {
+        String textToDisplay = text.getText();
+        if (Game.getInstance().getAppInfoService().getLanguage().equals(defaultLanguage)) {
+            textToDisplay = defaultText;
+        }
         this.executeAfterBought = executeAfterBought;
         initButtons();
-        String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : text;
+        String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : textToDisplay;
         inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
         inAppPurchasesPopup.addToPopupManager();
     }
