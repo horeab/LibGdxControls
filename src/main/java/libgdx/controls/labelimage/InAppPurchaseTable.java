@@ -51,7 +51,7 @@ public class InAppPurchaseTable {
         return create(extraContentTable, defaultLanguage, defaultText, new Runnable() {
             @Override
             public void run() {
-                InAppPurchaseManager.defaultRedirectScreenRunnable();
+                InAppPurchaseManager.defaultRedirectScreenRunnable().run();
             }
         });
     }

@@ -107,10 +107,6 @@ public class InAppPurchaseManager {
             public void changed(ChangeEvent event, Actor actor) {
                 buyButton.setDisabled(true);
                 restoreButton.setDisabled(true);
-                if (Game.getInstance().getCurrentUser() != null) {
-                    //record how many times the buy button has been pressed
-                    new GameStatsDbApiService().incrementGameStatsTournamentsWon(Game.getInstance().getCurrentUser().getId(), Long.valueOf(DateUtils.getNowMillis()).toString());
-                }
                 buyItem();
             }
         });
