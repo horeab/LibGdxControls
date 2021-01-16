@@ -19,7 +19,7 @@ public class RGBColor {
     public static final RGBColor GREEN = new RGBColor(1, 0, 153, 0);
     public static final RGBColor WHITE = new RGBColor(1, 255, 255, 255);
     public static final RGBColor LIGHT_GREEN = new RGBColor(1, 102, 255, 102);
-    public static final RGBColor YELLOW = new RGBColor(1, 1, 1, 0);
+    public static final RGBColor YELLOW = new RGBColor(1, 255, 255, 0);
 
 
     public float a;
