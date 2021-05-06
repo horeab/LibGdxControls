@@ -4,6 +4,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
+import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MyButton;
 import libgdx.controls.button.builders.MusicIconButtonBuilder;
 import libgdx.controls.button.builders.SoundIconButtonBuilder;
@@ -40,7 +41,7 @@ public class SoundUtils {
         }
     }
 
-    public static void addSoundTable(AbstractScreen screen, Res music) {
+    public static void addSoundTable(AbstractScreen screen, Res music, float y) {
         Table table = new Table();
         float margin = 0;
         if (music != null) {
@@ -52,8 +53,11 @@ public class SoundUtils {
         MyButton soundButton = new SoundIconButtonBuilder().createSoundButton();
         table.add(soundButton).width(soundButton.getWidth()).height(soundButton.getHeight()).padLeft(margin);
         float x = ScreenDimensionsManager.getScreenWidth() - margin * 3 - soundButton.getWidth() / 1.5f;
-        float y = ScreenDimensionsManager.getScreenHeight() - soundButton.getHeight();
         table.setPosition(x, y);
         screen.addActor(table);
+    }
+
+    public static void addSoundTable(AbstractScreen screen, Res music) {
+        addSoundTable(screen, music, ScreenDimensionsManager.getScreenHeight() - MainButtonSize.SOUND_BUTTON.getHeight());
     }
 }
