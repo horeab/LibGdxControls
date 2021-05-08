@@ -42,19 +42,26 @@ public class SoundUtils {
     }
 
     public static void addSoundTable(AbstractScreen screen, Res music, float y) {
+        Table table = createSoundMusicButtonsTable(music);
+        float x = ScreenDimensionsManager.getScreenWidth() - getMarginBetweenMusicAndSoundButtons(music) * 3 - MainButtonSize.SOUND_BUTTON.getWidth() / 1.5f;
+        table.setPosition(x, y);
+        screen.addActor(table);
+    }
+
+    public static Table createSoundMusicButtonsTable(Res music) {
         Table table = new Table();
-        float margin = 0;
         if (music != null) {
             MyButton musicButton = new MusicIconButtonBuilder().createMusicButton(music);
             table.add(musicButton).height(musicButton.getHeight()).width(musicButton.getWidth());
             SoundUtils.playMusic(music);
-            margin = MainDimen.horizontal_general_margin.getDimen() * 1.3f;
         }
         MyButton soundButton = new SoundIconButtonBuilder().createSoundButton();
-        table.add(soundButton).width(soundButton.getWidth()).height(soundButton.getHeight()).padLeft(margin);
-        float x = ScreenDimensionsManager.getScreenWidth() - margin * 3 - soundButton.getWidth() / 1.5f;
-        table.setPosition(x, y);
-        screen.addActor(table);
+        table.add(soundButton).width(soundButton.getWidth()).height(soundButton.getHeight()).padLeft(getMarginBetweenMusicAndSoundButtons(music));
+        return table;
+    }
+
+    private static float getMarginBetweenMusicAndSoundButtons(Res music) {
+        return music == null ? 0 : MainDimen.horizontal_general_margin.getDimen() * 5f;
     }
 
     public static void addSoundTable(AbstractScreen screen, Res music) {

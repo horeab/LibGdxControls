@@ -54,7 +54,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
 
     @Override
     public MyPopup addToPopupManager() {
-        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
+//        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
             MyButton backBtn = new BackButtonBuilder().createScreenBackButton(MainButtonSkin.BACK_LIGHT_CONTRAST, new ChangeListener() {
                 @Override
                 public void changed(ChangeEvent event, Actor actor) {
@@ -62,7 +62,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
                 }
             }, screen);
             getContentTable().add(backBtn).height(backBtn.getHeight()).width(backBtn.getWidth());
-        }
+//        }
         addText();
         addButtons();
         padBottom(MainDimen.vertical_general_margin.getDimen());
@@ -102,7 +102,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
         return new MyWrappedLabelConfigBuilder().setText(getLabelText()).setWidth(getPrefWidth() - getPrefWidth() / 10).setFontColor(FontColor.BLACK);
     }
 
-    protected static void addEmptyRowWithMargin(Table table) {
+    public void addEmptyRowWithMargin(Table table) {
         table.add(new Actor()).padBottom(MainDimen.vertical_general_margin.getDimen()).row();
     }
 
