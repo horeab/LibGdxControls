@@ -80,8 +80,10 @@ public class InAppPurchaseManager {
 
     private void initButtons() {
         ButtonBuilder buyButtonBuilder = new ButtonBuilder()
+                .setFontColor(FontColor.BLACK)
                 .setDefaultButton();
         ButtonBuilder restoreButtonBuilder = new ButtonBuilder()
+                .setFontColor(FontColor.BLACK)
                 .setDefaultButton();
         if (!Game.getInstance().getAppInfoService().isPortraitMode()) {
             buyButtonBuilder.setFixedButtonSize(MainButtonSize.TWO_ROW_BUTTON_SIZE);

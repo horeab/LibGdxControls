@@ -46,6 +46,15 @@ public class InAppPurchaseTable {
         return table;
     }
 
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, float imgDimen) {
+        return create(extraContentTable, defaultLanguage, defaultText, new Runnable() {
+            @Override
+            public void run() {
+                InAppPurchaseManager.defaultRedirectScreenRunnable().run();
+            }
+        }, imgDimen);
+    }
+
 
     public Table create(Table extraContentTable, String defaultLanguage, String defaultText) {
         return create(extraContentTable, defaultLanguage, defaultText, new Runnable() {
@@ -83,7 +92,7 @@ public class InAppPurchaseTable {
         Stack stack = new Stack();
         stack.add(extraContentTable);
         stack.add(lockBackgrTable);
-        table.add(stack);
+        table.add(stack).width(imgDimen).height(imgDimen);
         table.setTouchable(Touchable.enabled);
         return table;
     }

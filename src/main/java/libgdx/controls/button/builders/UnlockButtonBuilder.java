@@ -2,21 +2,21 @@ package libgdx.controls.button.builders;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-
 import libgdx.controls.animations.ActorAnimation;
 import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MainButtonSkin;
 import libgdx.controls.button.MyButton;
 import libgdx.game.Game;
 import libgdx.resources.dimen.MainDimen;
-import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
 import libgdx.utils.ScreenDimensionsManager;
+import libgdx.utils.model.FontColor;
 
 public class UnlockButtonBuilder {
 
     private MyButton createScreenUnlockButton(final AbstractScreen screen, String defaultLanguage, String defaultText, final Runnable afterBuy) {
         MyButton button = new ImageButtonBuilder(MainButtonSkin.UNLOCK_EXTRA_CONTENT, screen)
+                .setFontColor(FontColor.BLACK)
                 .setFixedButtonSize(MainButtonSize.UNLOCK_CONTENT_BUTTON)
                 .build();
         button.setTransform(true);
