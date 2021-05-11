@@ -40,7 +40,7 @@ public class BackButtonBuilder {
         MyButton screenBackButton = new BackButtonBuilder().createScreenBackButton(screen);
         screenBackButton.setPosition(x, y);
 //        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
-            screen.addActor(screenBackButton);
+        screen.addActor(screenBackButton);
 //        }
         return screenBackButton;
     }
@@ -54,6 +54,6 @@ public class BackButtonBuilder {
     }
 
     public static float getY() {
-        return ScreenDimensionsManager.getScreenHeight() - MainButtonSize.BACK_BUTTON.getHeight();
+        return ScreenDimensionsManager.getScreenHeight() - MainButtonSize.BACK_BUTTON.getHeight() * 1.5f;
     }
 }
