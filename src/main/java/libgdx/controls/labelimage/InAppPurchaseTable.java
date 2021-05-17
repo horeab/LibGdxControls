@@ -33,7 +33,8 @@ public class InAppPurchaseTable {
 
 
     public Table createForProVersion(Table extraContentTable, boolean withParentalGate) {
-        Table table = createUnlockTable(extraContentTable, getUnlockImageSideDimen());
+        float sideDimen = getUnlockImageSideDimen();
+        Table table = createUnlockTable(extraContentTable, sideDimen, sideDimen);
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -46,32 +47,37 @@ public class InAppPurchaseTable {
         return table;
     }
 
-    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, float imgDimen) {
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, float width, float height) {
         return create(extraContentTable, defaultLanguage, defaultText, new Runnable() {
             @Override
             public void run() {
                 InAppPurchaseManager.defaultRedirectScreenRunnable().run();
             }
-        }, imgDimen);
+        }, width, height);
+    }
+
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, float imgDimen) {
+        return create(extraContentTable, defaultLanguage, defaultText, imgDimen, imgDimen);
     }
 
 
     public Table create(Table extraContentTable, String defaultLanguage, String defaultText) {
-        return create(extraContentTable, defaultLanguage, defaultText, new Runnable() {
-            @Override
-            public void run() {
-                InAppPurchaseManager.defaultRedirectScreenRunnable().run();
-            }
-        });
+        float sideDimen = getUnlockImageSideDimen();
+        return create(extraContentTable, defaultLanguage, defaultText, sideDimen);
+    }
+
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, final Runnable executeAfterBought, float imgDimen) {
+        return create(extraContentTable, defaultLanguage, defaultText, executeAfterBought, imgDimen, imgDimen);
     }
 
 
     public Table create(Table extraContentTable, String defaultLanguage, String defaultText, final Runnable executeAfterBought) {
-        return create(extraContentTable, defaultLanguage, defaultText, executeAfterBought, getUnlockImageSideDimen());
+        float sideDimen = getUnlockImageSideDimen();
+        return create(extraContentTable, defaultLanguage, defaultText, executeAfterBought, sideDimen, sideDimen);
     }
 
-    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, final Runnable executeAfterBought, float imgDimen) {
-        Table table = createUnlockTable(extraContentTable, imgDimen);
+    public Table create(Table extraContentTable, String defaultLanguage, String defaultText, final Runnable executeAfterBought, float width, float height) {
+        Table table = createUnlockTable(extraContentTable, width, height);
         table.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -81,18 +87,20 @@ public class InAppPurchaseTable {
         return table;
     }
 
-    private Table createUnlockTable(Table extraContentTable, float imgDimen) {
+    private Table createUnlockTable(Table extraContentTable, float width, float height) {
         Table lockBackgrTable = new Table();
         Image image = GraphicUtils.getImage(getUnlockRes());
         setLockedTableBackground(lockBackgrTable, image);
-        image.setWidth(imgDimen);
-        image.setHeight(imgDimen);
-        lockBackgrTable.add(image).width(imgDimen).height(imgDimen);
+        image.setWidth(width);
+        image.setHeight(height);
+        lockBackgrTable.add(image).width(width).height(height);
         Table table = new Table();
         Stack stack = new Stack();
         stack.add(extraContentTable);
         stack.add(lockBackgrTable);
-        table.add(stack).width(imgDimen).height(imgDimen);
+        stack.setWidth(width);
+        stack.setHeight(height);
+        table.add(stack).width(width).height(height);
         table.setTouchable(Touchable.enabled);
         return table;
     }
