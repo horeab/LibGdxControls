@@ -1,17 +1,15 @@
 package libgdx.resources;
 
 import com.badlogic.gdx.Gdx;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 import libgdx.game.Game;
-import libgdx.game.SubGameDependencyManager;
 import libgdx.utils.EnumUtils;
 
+import java.util.*;
 
-public abstract class ResourceService {
+
+public class ResourceService {
+
+    private Map<String, Res> resCache = new HashMap<>();
 
     public Res getByPath(String path) {
         getAllRes();
@@ -24,8 +22,12 @@ public abstract class ResourceService {
     }
 
     public Res getByName(String name) {
+        if (resCache.containsKey(name)) {
+            return resCache.get(name);
+        }
         for (Res resource : getAllRes()) {
             if (resource.name().equals(name)) {
+                resCache.put(name, resource);
                 return resource;
             }
         }

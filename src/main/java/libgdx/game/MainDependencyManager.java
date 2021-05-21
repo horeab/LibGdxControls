@@ -5,11 +5,9 @@ import libgdx.controls.popup.RatingService;
 import libgdx.resources.Res;
 import libgdx.resources.ResourceService;
 import libgdx.resources.gamelabel.GameLabel;
-import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.screen.AbstractScreen;
 import libgdx.screen.AbstractScreenManager;
 import libgdx.transactions.TransactionsService;
-import libgdx.utils.EnumUtils;
 
 public abstract class MainDependencyManager<
         TScreenManager extends AbstractScreenManager,
@@ -18,13 +16,20 @@ public abstract class MainDependencyManager<
         TRes extends Enum & Res,
         TGameId extends Enum & GameId> {
 
+    private ResourceService resourceService;
+
     public abstract Class<TRes> getMainResourcesClass();
 
     public abstract Class<TGameId> getGameIdClass();
 
     public abstract Class<TGameLabel> getGameLabelClass();
 
-    public abstract ResourceService createResourceService();
+    public ResourceService createResourceService() {
+        if (resourceService == null) {
+            this.resourceService = new ResourceService();
+        }
+        return resourceService;
+    }
 
     public abstract RatingService createRatingService(TScreen abstractScreen);
 
