@@ -107,7 +107,7 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         return millisScreenFirstTimeDisplayed;
     }
 
-    protected void setBackgroundColor(RGBColor backgroundColor) {
+    public void setBackgroundColor(RGBColor backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
@@ -260,6 +260,6 @@ public abstract class AbstractScreen<TScreenManager extends AbstractScreenManage
         allTable = new Table();
         allTable.setFillParent(true);
         addActor(allTable);
-        new ActorAnimation(allTable, getAbstractScreen()).animateFastFadeIn();
+        new ActorAnimation(getAbstractScreen()).animateFastFadeIn(allTable);
     }
 }

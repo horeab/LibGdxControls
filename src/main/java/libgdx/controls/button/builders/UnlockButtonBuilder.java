@@ -20,7 +20,7 @@ public class UnlockButtonBuilder {
                 .setFixedButtonSize(MainButtonSize.UNLOCK_CONTENT_BUTTON)
                 .build();
         button.setTransform(true);
-        new ActorAnimation(button, Game.getInstance().getAbstractScreen()).animateZoomInZoomOut();
+        new ActorAnimation(Game.getInstance().getAbstractScreen()).animateZoomInZoomOut(button);
         button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

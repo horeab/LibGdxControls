@@ -6,8 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-
-import libgdx.constants.Language;
 import libgdx.controls.animations.ActorAnimation;
 import libgdx.controls.popup.ProVersionPopup;
 import libgdx.game.Game;
@@ -15,9 +13,7 @@ import libgdx.graphics.GraphicUtils;
 import libgdx.resources.MainResource;
 import libgdx.resources.Res;
 import libgdx.resources.dimen.MainDimen;
-import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.InAppPurchaseManager;
-import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.Utils;
 
 public class InAppPurchaseTable {
@@ -110,7 +106,7 @@ public class InAppPurchaseTable {
     }
 
     protected void setLockedTableBackground(Table lockBackgrTable, Image image) {
-        new ActorAnimation(image, Game.getInstance().getAbstractScreen()).animateFadeInFadeOut();
+        new ActorAnimation(Game.getInstance().getAbstractScreen()).animateFadeInFadeOut(image);
         lockBackgrTable.setBackground(GraphicUtils.getNinePatch(MainResource.inappurchase_background));
     }
 

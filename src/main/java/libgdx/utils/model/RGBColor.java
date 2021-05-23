@@ -23,15 +23,21 @@ public class RGBColor {
 
 
     public float a;
-    public int r;
-    public int g;
-    public int b;
+    public float r;
+    public float g;
+    public float b;
 
-    public RGBColor(int r, int g, int b) {
+    public RGBColor(String htmlColor) {
+        this(java.awt.Color.decode(htmlColor).getRed(),
+                java.awt.Color.decode(htmlColor).getGreen(),
+                java.awt.Color.decode(htmlColor).getBlue());
+    }
+
+    public RGBColor(float r, float g, float b) {
         this(1, r, g, b);
     }
 
-    public RGBColor(float a, int r, int g, int b) {
+    public RGBColor(float a, float r, float g, float b) {
         this.a = a;
         this.r = r;
         this.g = g;

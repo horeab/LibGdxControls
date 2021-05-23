@@ -99,11 +99,11 @@ public class ImageButtonBuilder extends ButtonBuilder {
     public MyButton build() {
         MyButton button = super.build();
         if (animateFadeInFadeOut) {
-            new ActorAnimation(button, screen).animateFadeInFadeOut();
+            new ActorAnimation(screen).animateFadeInFadeOut(button);
         }
         if (animateZoomInZoomOut) {
             button.setTransform(true);
-            new ActorAnimation(button, screen).animateZoomInZoomOut(animateZoomInZoomOutAmount);
+            new ActorAnimation(screen).animateZoomInZoomOut(button, animateZoomInZoomOutAmount);
         }
         Table centerRow = button.getCenterRow();
         if (centerRow != null) {

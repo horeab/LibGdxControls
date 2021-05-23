@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
-
 import libgdx.controls.ScreenRunnable;
 import libgdx.game.Game;
 import libgdx.graphics.GraphicUtils;
@@ -21,37 +20,35 @@ import libgdx.utils.Utils;
 
 public class ActorAnimation {
 
-    private Actor actor;
     private AbstractScreen screen;
-
-    public ActorAnimation(Actor actor, AbstractScreen screen) {
-        this.actor = actor;
-        this.screen = screen;
-        actor.setOrigin(Align.center);
-    }
 
     public ActorAnimation(AbstractScreen screen) {
         this.screen = screen;
     }
 
-    public void animateFadeInFadeOut() {
-        animateFadeInFadeOut(1.5f, 0.3f);
+    public void animateFadeInFadeOut(Actor actor) {
+        animateFadeInFadeOut(actor, 1.5f, 0.3f);
     }
 
-    public void animateFastFadeInFadeOut() {
-        animateFadeInFadeOut(1f, 0.6f);
+    public void animateFastFadeInFadeOut(Actor actor) {
+        animateFadeInFadeOut(actor, 1f, 0.6f);
     }
 
-    public void animateFastFadeInFadeOutWithTotalFadeOut() {
-        animateFadeInFadeOut(1f, 0.1f);
+    public void animateFastFadeInFadeOutWithTotalFadeOut(Actor actor) {
+        animateFadeInFadeOut(actor, 1f, 0.1f);
     }
 
-    public void animateFastFadeIn() {
-        animateFadeIn(0.2f);
+    public void animateFastFadeIn(Actor actor) {
+        animateFadeIn(actor, 0.2f);
+    }
+
+    public void animateFastFadeOut(Actor actor) {
+        animateFadeOut(actor, 0.2f);
     }
 
 
-    public void animateFadeIn(float duration) {
+    public void animateFadeIn(Actor actor, float duration) {
+        actor.setOrigin(Align.center);
         AlphaAction fadeOut = Actions.fadeOut(0);
         fadeOut.setAlpha(0f);
         actor.addAction(Actions.sequence(fadeOut, Utils.createRunnableAction(new ScreenRunnable(screen) {
@@ -62,12 +59,23 @@ public class ActorAnimation {
         }), Actions.fadeIn(duration)));
     }
 
-    public void animateFadeInFadeOut(final float duration, final float alpha) {
+    public void animateFadeOut(Actor actor, float duration) {
+        actor.setOrigin(Align.center);
+        actor.addAction(Actions.sequence(Actions.fadeOut(duration), Utils.createRunnableAction(new ScreenRunnable(screen) {
+            @Override
+            public void executeOperations() {
+                actor.setVisible(false);
+            }
+        })));
+    }
+
+    public void animateFadeInFadeOut(Actor actor, final float duration, final float alpha) {
+        actor.setOrigin(Align.center);
         RunnableAction run = new RunnableAction();
         run.setRunnable(new ScreenRunnable(screen) {
             @Override
             public void executeOperations() {
-                animateFadeInFadeOut(duration, alpha);
+                animateFadeInFadeOut(actor, duration, alpha);
             }
         });
         AlphaAction fadeOut = Actions.fadeOut(duration);
@@ -110,16 +118,17 @@ public class ActorAnimation {
         Game.getInstance().getAbstractScreen().addActor(pressFinger);
     }
 
-    public void animateZoomInZoomOut() {
-        animateZoomInZoomOut(0.2f);
+    public void animateZoomInZoomOut(Actor actor) {
+        animateZoomInZoomOut(actor, 0.2f);
     }
 
-    public void animateZoomInZoomOut(final float zoomAmount) {
+    public void animateZoomInZoomOut(Actor actor, final float zoomAmount) {
+        actor.setOrigin(Align.center);
         RunnableAction run = new RunnableAction();
         run.setRunnable(new ScreenRunnable(screen) {
             @Override
             public void executeOperations() {
-                animateZoomInZoomOut(zoomAmount);
+                animateZoomInZoomOut(actor, zoomAmount);
             }
         });
         float duration = 0.8f;
@@ -156,6 +165,7 @@ public class ActorAnimation {
     }
 
     private void animateMoveUp(final float amount, final Actor actor) {
+        actor.setOrigin(Align.center);
         RunnableAction run = new RunnableAction();
         run.setRunnable(new ScreenRunnable(screen) {
             @Override
