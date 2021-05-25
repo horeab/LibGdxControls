@@ -41,6 +41,9 @@ public class ResourceService {
         return allRes;
     }
 
+    /**
+     * Overridable Resources need to be put in the root resource folder, not in subfolders
+    **/
     public Res getOverridableRes(Res res) {
         Res result = res;
         try {

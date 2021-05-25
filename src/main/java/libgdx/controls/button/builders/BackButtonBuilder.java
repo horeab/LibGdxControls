@@ -1,10 +1,7 @@
 package libgdx.controls.button.builders;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-
 import libgdx.controls.button.ButtonSkin;
 import libgdx.controls.button.MainButtonSize;
 import libgdx.controls.button.MainButtonSkin;
@@ -14,6 +11,13 @@ import libgdx.screen.AbstractScreen;
 import libgdx.utils.ScreenDimensionsManager;
 
 public class BackButtonBuilder {
+
+    private ButtonSkin buttonSkin = MainButtonSkin.BACK;
+
+    public BackButtonBuilder setButtonSkin(ButtonSkin buttonSkin) {
+        this.buttonSkin = buttonSkin;
+        return this;
+    }
 
     public MyButton createScreenBackButton(final AbstractScreen screen) {
         return createScreenBackButton(new ChangeListener() {
@@ -33,11 +37,11 @@ public class BackButtonBuilder {
     }
 
     public MyButton createScreenBackButton(ChangeListener changeListener, final AbstractScreen screen) {
-        return createScreenBackButton(MainButtonSkin.BACK, changeListener, screen);
+        return createScreenBackButton(buttonSkin, changeListener, screen);
     }
 
     public MyButton addHoverBackButton(AbstractScreen screen, float x, float y) {
-        MyButton screenBackButton = new BackButtonBuilder().createScreenBackButton(screen);
+        MyButton screenBackButton = new BackButtonBuilder().setButtonSkin(buttonSkin).createScreenBackButton(screen);
         screenBackButton.setPosition(x, y);
 //        if (Gdx.app.getType() == Application.ApplicationType.iOS) {
         screen.addActor(screenBackButton);
