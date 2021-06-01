@@ -17,6 +17,7 @@ public class ButtonWithIconBuilder extends ButtonBuilder {
     private Res icon;
     private Float fontScale;
     private Float imageSideDimen;
+    private Float labelWidth;
 
     public ButtonWithIconBuilder(String text, Res icon) {
         this.text = text;
@@ -32,6 +33,11 @@ public class ButtonWithIconBuilder extends ButtonBuilder {
 
     public ButtonWithIconBuilder setFontScale(float fontScale) {
         this.fontScale = fontScale;
+        return this;
+    }
+
+    public ButtonWithIconBuilder setLabelWidth(float labelWidth) {
+        this.labelWidth = labelWidth;
         return this;
     }
 
@@ -75,7 +81,7 @@ public class ButtonWithIconBuilder extends ButtonBuilder {
         if (singleLineLabel) {
             builder.setSingleLineLabel();
         } else {
-            builder.setWrappedLineLabel(getButtonSize().getWidth() - LabelImageConfigBuilder.DEFAULT_IMAGE_SIDE_DIMENSION * 2f);
+            builder.setWrappedLineLabel(labelWidth != null ? labelWidth : getButtonSize().getWidth() * 3);
         }
         return builder;
     }

@@ -18,7 +18,7 @@ public class MyNotificationPopupConfigBuilder {
     private Boolean transferBetweenScreens = true;
     private Res resource;
     private Float imageDimen = MainDimen.side_notification_popup_icon.getDimen();
-    private Float popupWidth = ScreenDimensionsManager.getScreenWidthValue(70);
+    private Float popupWidth = ScreenDimensionsManager.getScreenWidth(70);
     private Table contentTable;
 
 

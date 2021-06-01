@@ -13,7 +13,6 @@ import libgdx.resources.gamelabel.MainGameLabel;
 import libgdx.utils.ScreenDimensionsManager;
 import libgdx.utils.model.FontColor;
 import libgdx.utils.model.FontConfig;
-import libgdx.utils.model.RGBColor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +56,7 @@ public class FontManager {
     }
 
     private static float calculateFontSize(float fontSize) {
-        return ScreenDimensionsManager.getScreenHeightValue(fontSize / 100);
+        return ScreenDimensionsManager.getScreenHeight(fontSize / 100);
     }
 
     public static float calculateMultiplierStandardFontSize(float multiplier) {

@@ -8,9 +8,9 @@ public class DimenUtils {
 
     public static float getDimen(Dimen dimen) {
         if (startWithXtoken(dimen)) {
-            return ScreenDimensionsManager.getScreenWidthValue(dimen.getRawDimen());
+            return ScreenDimensionsManager.getScreenWidth(dimen.getRawDimen());
         } else {
-            return ScreenDimensionsManager.getScreenHeightValue(dimen.getRawDimen());
+            return ScreenDimensionsManager.getScreenHeight(dimen.getRawDimen());
         }
     }
 

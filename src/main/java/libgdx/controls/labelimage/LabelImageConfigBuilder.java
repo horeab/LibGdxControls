@@ -8,7 +8,7 @@ import libgdx.utils.model.FontConfig;
 
 public class LabelImageConfigBuilder {
 
-    public static final float DEFAULT_IMAGE_SIDE_DIMENSION = ScreenDimensionsManager.getScreenWidthValue(9);
+    public static final float DEFAULT_IMAGE_SIDE_DIMENSION = ScreenDimensionsManager.getScreenWidth(9);
 
     private String text;
     private Res image;
@@ -19,7 +19,7 @@ public class LabelImageConfigBuilder {
     private FontColor textColor = FontManager.getBaseColorForContrast();
     private boolean singleLineLabel = true;
     private FontConfig fontConfig;
-    private float labelWidth = ScreenDimensionsManager.getScreenWidthValue(50);
+    private float labelWidth = ScreenDimensionsManager.getScreenWidth(50);
 
     public LabelImageConfigBuilder setSingleLineLabel() {
         this.singleLineLabel = true;

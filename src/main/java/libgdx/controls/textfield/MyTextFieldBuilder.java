@@ -2,15 +2,13 @@ package libgdx.controls.textfield;
 
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import libgdx.controls.MyTextField;
-import libgdx.controls.label.MyWrappedLabelConfigBuilder;
 import libgdx.resources.FontManager;
-import libgdx.resources.ResourcesManager;
 import libgdx.utils.ScreenDimensionsManager;
 
 public class MyTextFieldBuilder {
 
-    private float width = ScreenDimensionsManager.getScreenWidthValue(20);
-    private float height = ScreenDimensionsManager.getScreenWidthValue(10);
+    private float width = ScreenDimensionsManager.getScreenWidth(20);
+    private float height = ScreenDimensionsManager.getScreenWidth(10);
     private TextField.TextFieldFilter textFieldFilter;
     private float fontScale = FontManager.getNormalFontDim();
 

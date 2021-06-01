@@ -1,7 +1,5 @@
 package libgdx.controls.popup;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -155,7 +153,7 @@ public abstract class MyPopup<TScreen extends AbstractScreen, TScreenManager ext
 
     @Override
     public float getPrefWidth() {
-        return ScreenDimensionsManager.getScreenWidthValue(Game.getInstance().getAppInfoService().isPortraitMode() ? 90 : 50);
+        return ScreenDimensionsManager.getScreenWidth(Game.getInstance().getAppInfoService().isPortraitMode() ? 90 : 50);
     }
 
     @Override

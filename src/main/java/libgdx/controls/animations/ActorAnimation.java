@@ -43,7 +43,7 @@ public class ActorAnimation {
     }
 
     public void animateFastFadeOut(Actor actor) {
-        animateFadeOut(actor, 0.2f);
+        animateFadeOut(actor, 0.2f, false);
     }
 
 
@@ -59,14 +59,26 @@ public class ActorAnimation {
         }), Actions.fadeIn(duration)));
     }
 
-    public void animateFadeOut(Actor actor, float duration) {
+    public void animateFadeOut(Actor actor, float duration, boolean withRemove) {
+        animateFadeOut(actor, duration, withRemove, new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+    }
+
+    public void animateFadeOut(Actor actor, float duration, boolean withRemove, Runnable afterFadeOut) {
         actor.setOrigin(Align.center);
         actor.addAction(Actions.sequence(Actions.fadeOut(duration), Utils.createRunnableAction(new ScreenRunnable(screen) {
             @Override
             public void executeOperations() {
+                if (withRemove) {
+                    actor.remove();
+                }
                 actor.setVisible(false);
             }
-        })));
+        }), Utils.createRunnableAction(afterFadeOut)));
     }
 
     public void animateFadeInFadeOut(Actor actor, final float duration, final float alpha) {
@@ -85,7 +97,7 @@ public class ActorAnimation {
 
     public static void animateImageCenterScreenFadeOut(Res imgRes, float duration) {
         Image image = GraphicUtils.getImage(imgRes);
-        float imgSideDimen = ScreenDimensionsManager.getScreenWidthValue(50);
+        float imgSideDimen = ScreenDimensionsManager.getScreenWidth(50);
         image.setWidth(imgSideDimen);
         image.setHeight(imgSideDimen);
         Game.getInstance().getAbstractScreen().addActor(image);

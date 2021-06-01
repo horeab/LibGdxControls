@@ -7,7 +7,7 @@ import libgdx.utils.model.FontConfig;
 
 public class MyWrappedLabelConfigBuilder {
 
-    private float width = ScreenDimensionsManager.getScreenWidthValue(80);
+    private float width = ScreenDimensionsManager.getScreenWidth(80);
     private float fontScale = FontManager.getNormalFontDim();
     private FontColor textColor = FontManager.getBaseColorForContrast();
     private FontConfig fontConfig;

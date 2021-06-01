@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 
-import java.util.Date;
 import java.util.Random;
 
 import libgdx.controls.label.MyWrappedLabel;
@@ -45,7 +44,7 @@ public class ParentalGatePopup extends MyPopup<AbstractScreen, AbstractScreenMan
     @Override
     protected void addButtons() {
         float imgDimen = getImgDimen();
-        float margin = ScreenDimensionsManager.getScreenWidthValue(10);
+        float margin = ScreenDimensionsManager.getScreenWidth(10);
         Table imgTable = new Table();
         imgTable.add(createImg(MainResource.square_red, 0)).height(imgDimen).width(imgDimen);
         imgTable.add(createImg(MainResource.circle_red, 1)).padLeft(margin).padRight(margin).height(imgDimen).width(imgDimen);
@@ -74,7 +73,7 @@ public class ParentalGatePopup extends MyPopup<AbstractScreen, AbstractScreenMan
     }
 
     private float getImgDimen() {
-        return ScreenDimensionsManager.getScreenWidthValue(15);
+        return ScreenDimensionsManager.getScreenWidth(15);
     }
 
     private Image createImg(Res res, int index) {
@@ -128,12 +127,12 @@ public class ParentalGatePopup extends MyPopup<AbstractScreen, AbstractScreenMan
 
     @Override
     public float getPrefWidth() {
-        return ScreenDimensionsManager.getScreenWidthValue(90);
+        return ScreenDimensionsManager.getScreenWidth(90);
     }
 
     @Override
     public float getPrefHeight() {
-        return ScreenDimensionsManager.getScreenHeightValue(90);
+        return ScreenDimensionsManager.getScreenHeight(90);
     }
 
     @Override

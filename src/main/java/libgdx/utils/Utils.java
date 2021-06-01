@@ -53,6 +53,7 @@ public class Utils {
     }
 
     public static boolean isValidExtraContent() {
+//        return true;
         return Game.getInstance().getAppInfoService().isProVersion() || new InAppPurchasesPreferencesService().isPurchased(Game.getInstance().getSubGameDependencyManager().getExtraContentProductId());
     }
 

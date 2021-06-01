@@ -17,11 +17,11 @@ public class ScreenDimensionsManager {
     private static Integer screenHeight;
     private static boolean isPortrait = Game.getInstance().getAppInfoService().isPortraitMode();
 
-    public static float getScreenHeightValue(float percent) {
+    public static float getScreenHeight(float percent) {
         return Utils.getValueForPercent(getScreenHeight(), percent);
     }
 
-    public static float getScreenWidthValue(float percent) {
+    public static float getScreenWidth(float percent) {
         return Utils.getValueForPercent(getScreenWidth(), percent);
     }
 

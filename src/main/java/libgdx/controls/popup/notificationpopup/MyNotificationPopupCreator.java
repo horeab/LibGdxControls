@@ -57,6 +57,6 @@ public class MyNotificationPopupCreator {
         popup.setWidth(popupWidth + MainDimen.horizontal_general_margin.getDimen() * 2);
         popup.setHeight(popup.getPrefHeight() + MainDimen.vertical_general_margin.getDimen());
         ActorPositionManager.setActorCenterScreen(popup);
-        popup.setY(ScreenDimensionsManager.getScreenHeightValue(10));
+        popup.setY(ScreenDimensionsManager.getScreenHeight(10));
     }
 }

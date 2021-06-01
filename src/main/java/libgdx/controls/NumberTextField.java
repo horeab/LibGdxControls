@@ -13,9 +13,9 @@ public class NumberTextField extends MyTextField {
     }
 
     public void build() {
-        setWidth(ScreenDimensionsManager.getScreenWidthValue(70));
-        setHeight(ScreenDimensionsManager.getScreenHeightValue(10));
-        textField.setSize(ScreenDimensionsManager.getScreenWidthValue(70), ScreenDimensionsManager.getScreenHeightValue(10));
+        setWidth(ScreenDimensionsManager.getScreenWidth(70));
+        setHeight(ScreenDimensionsManager.getScreenHeight(10));
+        textField.setSize(ScreenDimensionsManager.getScreenWidth(70), ScreenDimensionsManager.getScreenHeight(10));
     }
 
     public TextField getTextField() {
