@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 public class RGBColor {
 
     public static final RGBColor DARK_BLUE = new RGBColor(1, 0, 0, 102);
+    public static final RGBColor BLUE = new RGBColor(1, 44, 157, 237);
     public static final RGBColor LIGHT_BLUE = new RGBColor(1, 179, 236, 255);
     public static final RGBColor LIGHT_MAUVE1 = new RGBColor(1, 191, 207, 240);
     public static final RGBColor LIGHT_MAUVE2 = new RGBColor(1, 219, 190, 234);
@@ -31,6 +32,10 @@ public class RGBColor {
         this(java.awt.Color.decode(htmlColor).getRed(),
                 java.awt.Color.decode(htmlColor).getGreen(),
                 java.awt.Color.decode(htmlColor).getBlue());
+    }
+
+    public RGBColor(Color color) {
+        this(color.a, color.r, color.g, color.b);
     }
 
     public RGBColor(float r, float g, float b) {
