@@ -14,6 +14,7 @@ public class RGBColor {
     public static final RGBColor LIGHT_RED1 = new RGBColor(1, 255, 235, 230);
     public static final RGBColor LIGHT_RED2 = new RGBColor(1, 247, 111, 128);
     public static final RGBColor RED = new RGBColor(1, 255, 0, 0);
+    public static final RGBColor DARK_RED = new RGBColor(1, 150, 0, 0);
     public static final RGBColor BLACK = new RGBColor(1, 0, 0, 0);
     public static final RGBColor GREY = new RGBColor(1, 192, 192, 192);
     public static final RGBColor DARK_GREEN = new RGBColor(1, 20, 140, 20);

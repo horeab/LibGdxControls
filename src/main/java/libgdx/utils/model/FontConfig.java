@@ -14,7 +14,7 @@ public class FontConfig {
 
     private Color color;
     private Color borderColor;
-    private int fontSize;
+    private float fontSize;
     private float borderWidth;
     private int shadowOffsetX;
     private int shadowOffsetY;
@@ -24,7 +24,12 @@ public class FontConfig {
         this(color, borderColor, Math.round(fontSize), borderWidth);
     }
 
-    public FontConfig(Color color, Color borderColor, int fontSize, float borderWidth, int shadowOffsetX, int shadowOffsetY, Color shadowColor) {
+    public FontConfig(Color color, float fontSize, int shadowOffsetX, int shadowOffsetY, Color shadowColor) {
+        this(color, color, fontSize, STANDARD_BORDER_WIDTH, shadowOffsetX, shadowOffsetY, shadowColor);
+    }
+
+    public FontConfig(Color color, Color borderColor, float fontSize, float borderWidth, int shadowOffsetX,
+                      int shadowOffsetY, Color shadowColor) {
         this.color = color;
         this.borderColor = borderColor;
         this.fontSize = fontSize;
@@ -36,10 +41,6 @@ public class FontConfig {
 
     public FontConfig(Color color, Color borderColor, int fontSize, float borderWidth) {
         this(color, borderColor, fontSize, borderWidth, 0, 0, Color.BLACK);
-    }
-
-    public FontConfig(Color color, int fontSize) {
-        this(color, color, fontSize, STANDARD_BORDER_WIDTH);
     }
 
     public FontConfig(Color color, float fontSize) {
@@ -84,7 +85,7 @@ public class FontConfig {
     }
 
     public int getFontSize() {
-        return fontSize;
+        return Math.round(fontSize);
     }
 
     public float getBorderWidth() {
