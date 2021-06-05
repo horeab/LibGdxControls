@@ -58,7 +58,22 @@ public class InAppPurchaseManager {
         };
     }
 
-    public void displayInAppPurchasesPopup(String defaultLanguage, String defaultText, String textToBeShown, Runnable executeAfterBought) {
+    public void displayInAppPurchasesPopup(String defaultLanguage,
+                                           String defaultText,
+                                           String textToBeShown,
+                                           Runnable executeAfterBought) {
+        displayInAppPurchasesPopup(defaultLanguage, defaultText, textToBeShown, executeAfterBought, new Runnable() {
+            @Override
+            public void run() {
+            }
+        });
+    }
+
+    public void displayInAppPurchasesPopup(String defaultLanguage,
+                                           String defaultText,
+                                           String textToBeShown,
+                                           Runnable executeAfterBought,
+                                           Runnable executeAfterBackBtnPressed) {
         String textToDisplay = textToBeShown;
         if (Game.getInstance().getAppInfoService().getLanguage().equals(defaultLanguage)) {
             textToDisplay = defaultText;
@@ -66,7 +81,13 @@ public class InAppPurchaseManager {
         this.executeAfterBought = executeAfterBought;
         initButtons();
         String localName = skuInfo == null || skuInfo.equals(Information.UNAVAILABLE) ? MainGameLabel.l_not_available.getText() : textToDisplay;
-        inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton);
+        inAppPurchasesPopup = new InAppPurchasesPopup(Game.getInstance().getAbstractScreen(), localName, buyButton, restoreButton) {
+            @Override
+            public void hide() {
+                super.hide();
+                executeAfterBackBtnPressed.run();
+            }
+        };
         inAppPurchasesPopup.addToPopupManager();
     }
 

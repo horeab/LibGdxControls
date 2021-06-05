@@ -64,7 +64,7 @@ public class ProVersionPopup extends MyPopup<AbstractScreen, AbstractScreenManag
     protected MyWrappedLabel getLabel() {
         MyWrappedLabel label = super.getLabel();
         if (label.getLabels().size() >= 3) {
-            label.getLabels().get(1).setFontScale(FontManager.calculateMultiplierStandardFontSize(2.1f));
+            label.getLabels().get(1).setFontScale(FontManager.calculateMultiplierStandardFontSize(1.5f));
         }
         return label;
     }
