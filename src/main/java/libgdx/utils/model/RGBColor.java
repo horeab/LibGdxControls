@@ -30,9 +30,7 @@ public class RGBColor {
     public float b;
 
     public RGBColor(String htmlColor) {
-        this(java.awt.Color.decode(htmlColor).getRed(),
-                java.awt.Color.decode(htmlColor).getGreen(),
-                java.awt.Color.decode(htmlColor).getBlue());
+        this((Integer.decode(htmlColor) >> 16) & 0xFF, (Integer.decode(htmlColor) >> 8) & 0xFF, Integer.decode(htmlColor) & 0xFF);
     }
 
     public RGBColor(Color color) {
