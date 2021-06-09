@@ -68,6 +68,6 @@ public class RGBColor {
     }
 
     public String toHexadecimal() {
-        return String.format("#%02x%02x%02x", r, g, b);
+        return String.format("#%02x%02x%02x", (int) r, (int) g, (int) b);
     }
 }
