@@ -1,7 +1,6 @@
 package libgdx.resources.gamelabel;
 
 import libgdx.game.Game;
-import libgdx.resources.properties.PropertiesUtils;
 
 public enum MainGameLabel implements GameLabel {
 
@@ -17,6 +16,8 @@ public enum MainGameLabel implements GameLabel {
     pro_version_info_unlock,
     pro_version_download,
     pro_version_download_info,
+    l_identification_quiz,
+    l_general_knowledge,
     l_show_explanation,
     l_wrong_answer,
     l_showanswers,
