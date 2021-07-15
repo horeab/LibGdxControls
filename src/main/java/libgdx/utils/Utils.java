@@ -28,15 +28,20 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class Utils {
+
+    public static boolean containsWordWithLength(String text, int minWordLength) {
+        String[] words = text.split(" ");
+        for (String w : words) {
+            if (w.length() >= minWordLength) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static <T> List<T> getListFromJsonString(String jsonListString, Class<T> clazz) {
         List<T> lst = new ArrayList<T>();
