@@ -2,8 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49d85e1f-914e-4711-98c9-46f857834382" name="Default" comment="font">
-      <change beforePath="$PROJECT_DIR$/src/main/java/libgdx/graphics/GraphicUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/libgdx/graphics/GraphicUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/libgdx/utils/startgame/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/libgdx/utils/startgame/StartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/ActorAnimation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/ActorAnimation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/ActorAnimation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/ActorAnimation$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/ActorAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/ActorAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/WordAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/animations/WordAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/ButtonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/ButtonBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/MainButtonSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/MainButtonSize.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/MainButtonSkin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/MainButtonSkin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/MyButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/MyButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/BackButtonBuilder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/BackButtonBuilder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/BackButtonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/BackButtonBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/ButtonWithIconBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/ButtonWithIconBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/BuyOfferButtonBuilder$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/BuyOfferButtonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/BuyOfferButtonBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/ImageButtonBuilder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/ImageButtonBuilder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/ImageButtonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/ImageButtonBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/RateAppButtonBuilder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/RateAppButtonBuilder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/RateAppButtonBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/button/builders/RateAppButtonBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/label/MyWrappedLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/label/MyWrappedLabel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/label/MyWrappedLabelConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/label/MyWrappedLabelConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/label/MyWrappedLabelConfigBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/label/MyWrappedLabelConfigBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/InventoryLabelImageBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/InventoryLabelImageBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/LabelImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/LabelImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/LabelImageConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/LabelImageConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/LabelImageConfigBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/labelimage/LabelImageConfigBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/MyPopup$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/MyPopup$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/MyPopup$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/MyPopup$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/MyPopup.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/MyPopup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/ProVersionPopup$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/ProVersionPopup$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/ProVersionPopup.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/ProVersionPopup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupConfigBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupConfigBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/controls/popup/notificationpopup/MyNotificationPopupManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/SubGameDependencyManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/SubGameDependencyManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/external/AppInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/external/AppInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/external/BillingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/game/external/FacebookService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/graphics/GraphicUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/graphics/GraphicUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/preferences/SettingsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/preferences/SettingsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/FontManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/FontManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/MainResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/MainResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/dimen/MainDimen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/dimen/MainDimen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/gamelabel/GameLabelUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/gamelabel/GameLabelUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/gamelabel/MainGameLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/gamelabel/MainGameLabel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/gamelabel/SpecificPropertiesUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/resources/gamelabel/SpecificPropertiesUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/screen/AbstractScreenManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/ScreenDimensionsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/ScreenDimensionsManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/model/FontColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/model/FontColor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/model/FontConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/model/FontConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/startgame/StartGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/startgame/StartGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/startgame/test/DefaultAppInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/startgame/test/DefaultAppInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/startgame/test/DefaultBillingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/libgdx/utils/startgame/test/DefaultFacebookService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/backgrounds/popup_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/backgrounds/popup_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/fonts/font_hi.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/fonts/font_hi.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/fonts/font_th.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/fonts/font_th.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_cs.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_cs.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_da.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_da.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_de.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_de.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_el.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_el.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_es.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_es.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_fi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_fi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_fr.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_fr.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_hi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_hi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_hr.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_hr.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_hu.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_hu.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_id.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_id.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_it.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ko.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ko.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ms.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ms.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_nl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_nl.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_no.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_no.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_pl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_pl.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_pt.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_pt.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ro.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ro.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_sk.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_sk.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_sv.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_sv.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_th.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_th.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_tr.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_tr.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_uk.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_uk.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_vi.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_vi.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_zh.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/main_resources/main/labels/main_labels_zh.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/main_resources/main/backgrounds/popup_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/main_resources/main/backgrounds/popup_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/main_resources/main/fonts/font_hi.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/main_resources/main/fonts/font_hi.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/main_resources/main/fonts/font_th.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/main_resources/main/fonts/font_th.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/main_resources/main/skin/skin.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/main_resources/main/skin/skin.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,12 +153,7 @@
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="25" />
-    <option name="y" value="-25" />
-    <option name="width" value="765" />
-    <option name="height" value="1040" />
-  </component>
+  <component name="ProjectId" id="1mG5VAMZyX6RM5lVlQWz9hit76q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
@@ -194,6 +301,17 @@
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix" />
